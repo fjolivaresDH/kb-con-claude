@@ -17,6 +17,10 @@ la tuya.
 
 Las dos montan la misma estructura sobre la misma carpeta, así que **se pueden usar a la vez**.
 
+**¿En Word?** Las dos guías están para descargar en la [última versión publicada](https://github.com/fjolivaresDH/kb-con-claude/releases/latest).
+Se generan solas a partir de estos mismos archivos cada vez que se publica una versión, así que la web y el Word
+dicen siempre lo mismo.
+
 ## Los prompts, listos para copiar
 
 | Prompt | Cuándo |

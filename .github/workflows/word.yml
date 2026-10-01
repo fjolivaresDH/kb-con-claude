@@ -1,0 +1,46 @@
+name: Guías en Word
+
+# Al publicar una etiqueta vN se generan los dos .docx y se cuelgan como descarga de esa versión.
+# Lanzado a mano, solo los genera para revisarlos (en «Artifacts»), sin publicar nada.
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Versión que llevará el nombre del archivo'
+        required: true
+        default: 'prueba'
+
+permissions:
+  contents: write
+
+jobs:
+  word:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar pandoc
+        run: sudo apt-get update -q && sudo apt-get install -y -q pandoc
+
+      - name: Generar los Word
+        env:
+          VERSION_MANUAL: ${{ inputs.version }}
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then V="$VERSION_MANUAL"; else V="${GITHUB_REF_NAME#v}"; fi
+          python3 .github/scripts/word.py "$V"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: guias-word
+          path: dist/*.docx
+
+      - name: Publicar la versión
+        if: startsWith(github.ref, 'refs/tags/v')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/*.docx \
+            --title "Versión ${GITHUB_REF_NAME#v}" \
+            --notes "Las dos guías en Word, generadas a partir de esta versión del repositorio. Para leerlas en línea: https://fjolivaresdh.github.io/kb-con-claude/"
