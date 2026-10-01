@@ -18,8 +18,9 @@ Note: the acronym "OKF" also refers to other things (for example the Open Knowle
 Foundation). Use only the specification at the link above.
 
 BEFORE YOU CREATE ANYTHING, ASK ME WHAT I AM GOING TO KEEP.
-Show me this list and ask me which ones are my case. I can choose several, none, or add
-others. Wait for my answer and build only what the chosen ones need: the rest can be added
+These are examples that already work, not a closed list: the base is mine and I build it with
+my own topics. Show them to me, ask whether any of them fits me and what other topics I want to
+keep. Wait for my answer and build only what the chosen ones need: the rest can be added
 later with one sentence.
    1. Suppliers and contacts    -> a single directory: company, what it does and who is who.
    2. Contracts and expiry      -> contract register (table + JSON) with dates, notice periods

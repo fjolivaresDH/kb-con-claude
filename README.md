@@ -10,13 +10,13 @@ Sale de una base real, usada a diario durante meses. Lo que se publica aquí es 
 las guías, los prompts y lo que aprendimos rompiéndola. El contenido de esa base no está, y no hace falta para montar
 la tuya.
 
-## Qué puedes llevar en ella
+## Algunos ejemplos de lo que puedes llevar
 
 Proveedores y contactos · contratos y vencimientos · facturas · presupuesto · tickets y gastos · accesos a servicios ·
 dominios, certificados y suscripciones · procedimientos · proyectos y decisiones · inventarios.
 
-**No hace falta elegir antes**: al pegar el prompt inicial, Claude te enseña la lista, te pregunta cuáles son los tuyos
-y monta solo esos. Qué monta cada uno y qué preguntas responde: [`casos-de-uso.md`](casos-de-uso.md).
+**Son ejemplos ya trabajados, no un límite: cada uno construye su base con sus propios temas.** Al pegar el prompt
+inicial, Claude te los ofrece, te pregunta si alguno es tu caso y qué otros temas quieres llevar, y monta solo eso. Qué monta cada uno y qué preguntas responde: [`casos-de-uso.md`](casos-de-uso.md).
 
 ## Por dónde empezar
 

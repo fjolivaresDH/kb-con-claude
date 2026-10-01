@@ -18,8 +18,9 @@ Aviso: las siglas "OKF" designan también otras cosas (por ejemplo la Open Knowl
 Foundation). Usa exclusivamente la especificación del enlace anterior.
 
 ANTES DE CREAR NADA, PREGÚNTAME QUÉ VOY A GUARDAR.
-Enséñame esta lista y pregúntame cuáles son mi caso. Puedo elegir varios, ninguno o añadir
-otros. Espera mi respuesta y monta solo lo que necesite lo elegido: lo demás se podrá añadir
+Son ejemplos que ya funcionan, no una lista cerrada: la base es mía y la construyo con mis
+propios temas. Enséñamelos, pregúntame si alguno es mi caso y qué otros temas quiero llevar.
+Espera mi respuesta y monta solo lo que necesite lo elegido: lo demás se podrá añadir
 más adelante con una frase.
    1. Proveedores y contactos   -> un directorio único: empresa, qué hace y quién es quién.
    2. Contratos y vencimientos  -> registro de contratos (tabla + JSON) con fechas, preavisos

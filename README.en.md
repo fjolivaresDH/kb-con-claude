@@ -10,13 +10,14 @@ It comes from a real base, used every day for months. What is published here is 
 the guides, the prompts and what we learned by breaking it. The content of that base is not here, and you don't need it
 to build yours.
 
-## What you can keep in it
+## Some examples of what you can keep
 
 Suppliers and contacts · contracts and expiry dates · invoices · budget · receipts and expenses · access to services ·
 domains, certificates and subscriptions · procedures · projects and decisions · inventories.
 
-**You don't need to choose in advance**: when you paste the initial prompt, Claude shows you the list, asks which ones
-are yours and builds only those. What each one builds and which questions it answers: [`use-cases.md`](en/use-cases.md).
+**These are examples we have already worked through, not a limit: everyone builds their own base with their own
+topics.** When you paste the initial prompt, Claude offers them, asks whether any of them fits you and what other
+topics you want to keep, and builds only that. What each one builds and which questions it answers: [`use-cases.md`](en/use-cases.md).
 
 ## Where to start
 

@@ -1,8 +1,8 @@
-# Qué puedes llevar en la base
+# Ejemplos de lo que puedes llevar en la base
 
-Diez casos de uso que salen de una base real. **No hace falta elegirlos de antemano**: al pegar el prompt inicial,
-Claude te enseña esta lista, te pregunta cuáles son los tuyos y **monta solo lo que vayas a usar**. Lo demás se
-añade cuando haga falta, con una frase.
+Diez ejemplos que salen de una base real y que ya funcionan. **No son un límite: cada uno construye su base con sus
+propios temas.** Al pegar el prompt inicial, Claude te los ofrece, te pregunta si alguno es tu caso y qué otros temas
+quieres llevar, y **monta solo lo que vayas a usar**. Lo demás se añade cuando haga falta, con una frase.
 
 | Caso | Qué monta | Preguntas que responde |
 |---|---|---|

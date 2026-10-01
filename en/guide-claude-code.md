@@ -130,8 +130,8 @@ It is a single message that creates the whole structure: it is in
 - `[ORGANIZATION]` → the name of your company, team or project.
 - `[AREAS]` → the areas you want, separated by commas. For example: `suppliers, systems, budgets, people`.
 
-The first thing it does is **show you the [list of use cases](use-cases.md) and ask which ones are yours**, and it
-builds only those. And **adapt it freely**: if you are missing a register of meetings or
+The first thing it does is **offer you the [examples already worked through](use-cases.md) and ask which ones fit you and
+what other topics you want to keep**: the base is yours and it builds only what you choose. And **adapt it freely**: if you are missing a register of meetings or
 of incidents, add it. The right structure is the one that reflects your day to day.
 
 ### What it creates

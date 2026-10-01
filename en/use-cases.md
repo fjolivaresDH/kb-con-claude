@@ -1,8 +1,9 @@
-# What you can keep in the base
+# Examples of what you can keep in the base
 
-Ten use cases that come from a real base. **You don't need to choose them in advance**: when you paste the initial prompt,
-Claude shows you this list, asks which ones are yours and **builds only what you are going to use**. The rest can be
-added when you need it, with one sentence.
+Ten examples that come from a real base and already work. **They are not a limit: everyone builds their own base
+with their own topics.** When you paste the initial prompt, Claude offers them, asks whether any of them fits you and
+what other topics you want to keep, and **builds only what you are going to use**. The rest can be added when you
+need it, with one sentence.
 
 | Case | What it builds | Questions it answers |
 |---|---|---|

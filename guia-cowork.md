@@ -118,9 +118,9 @@ carpeta que acabas de crear. La primera vez te pedirá permiso; después la recu
 ## PARTE 2 — El prompt
 
 > ✏️ **Este prompt es un punto de partida, no una receta cerrada.** Lo primero que hace es
-> **enseñarte una lista de casos de uso** —proveedores, contratos, facturas, presupuesto, tickets,
-> accesos, dominios, procedimientos, proyectos e inventarios— y **preguntarte cuáles son los tuyos**:
-> monta solo esos. Aun así, adáptalo con total libertad: cambia las áreas, añade lo que te falte (un registro de clientes, de incidencias, de
+> **ofrecerte diez ejemplos ya trabajados** —proveedores, contratos, facturas, presupuesto, tickets,
+> accesos, dominios, procedimientos, proyectos e inventarios— y **preguntarte cuáles te sirven y qué otros
+> temas quieres llevar**: la base es tuya y monta solo lo que elijas. Aun así, adáptalo con total libertad: cambia las áreas, añade lo que te falte (un registro de clientes, de incidencias, de
 > reuniones…) y reescribe las reglas que no encajen con tu forma de trabajar. La estructura de
 > abajo es la que a nosotros nos funciona; **la buena es la que refleje tu día a día.**
 
@@ -148,8 +148,9 @@ Aviso: las siglas "OKF" designan también otras cosas (por ejemplo la Open Knowl
 Foundation). Usa exclusivamente la especificación del enlace anterior.
 
 ANTES DE CREAR NADA, PREGÚNTAME QUÉ VOY A GUARDAR.
-Enséñame esta lista y pregúntame cuáles son mi caso. Puedo elegir varios, ninguno o añadir
-otros. Espera mi respuesta y monta solo lo que necesite lo elegido: lo demás se podrá añadir
+Son ejemplos que ya funcionan, no una lista cerrada: la base es mía y la construyo con mis
+propios temas. Enséñamelos, pregúntame si alguno es mi caso y qué otros temas quiero llevar.
+Espera mi respuesta y monta solo lo que necesite lo elegido: lo demás se podrá añadir
 más adelante con una frase.
    1. Proveedores y contactos   -> un directorio único: empresa, qué hace y quién es quién.
    2. Contratos y vencimientos  -> registro de contratos (tabla + JSON) con fechas, preavisos

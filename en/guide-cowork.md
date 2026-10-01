@@ -116,9 +116,9 @@ have just created. The first time it will ask for permission; after that it reme
 ## PART 2 — The prompt
 
 > ✏️ **This prompt is a starting point, not a closed recipe.** The first thing it does is
-> **show you a list of use cases** —suppliers, contracts, invoices, budget, receipts, access,
-> domains, procedures, projects and inventories— and **ask you which ones are yours**:
-> it only sets up those. Even so, adapt it freely: change the areas, add whatever you are missing (a register of customers, of incidents, of
+> **offer you ten examples already worked through** —suppliers, contracts, invoices, budget, receipts, access,
+> domains, procedures, projects and inventories— and **ask which ones fit you and what other topics
+> you want to keep**: the base is yours and it sets up only what you choose. Even so, adapt it freely: change the areas, add whatever you are missing (a register of customers, of incidents, of
 > meetings…) and rewrite the rules that do not fit the way you work. The structure below is the
 > one that works for us; **the right one is the one that reflects your day-to-day.**
 
@@ -146,8 +146,9 @@ Note: the acronym "OKF" also refers to other things (for example the Open Knowle
 Foundation). Use only the specification at the link above.
 
 BEFORE CREATING ANYTHING, ASK ME WHAT I AM GOING TO STORE.
-Show me this list and ask me which ones apply to me. I can choose several, none, or add
-others. Wait for my answer and set up only what the chosen ones need: the rest can be added
+These are examples that already work, not a closed list: the base is mine and I build it with
+my own topics. Show them to me, ask whether any of them fits me and what other topics I want to
+keep. Wait for my answer and build only what the chosen ones need: the rest can be added
 later with one sentence.
    1. Suppliers and contacts    -> a single directory: company, what it does and who is who.
    2. Contracts and expiries    -> contract register (table + JSON) with dates, notice periods
