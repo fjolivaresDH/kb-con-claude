@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460">
+  <rect x="0" y="0" width="960" height="460" fill="#ffffff"/>
+  <text x="480" y="28" text-anchor="middle" font-family="Arial" font-size="19" font-weight="bold" fill="#1a2a3a">How knowledge gets in (mostly, by talking)</text>
+  <text x="480" y="50" text-anchor="middle" font-family="Arial" font-size="12" font-style="italic" fill="#8a94a0">Illustrative diagram (not a screenshot)</text>
+
+  <!-- INPUTS -->
+  <text x="150" y="80" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#4a5a6a">WHAT YOU PROVIDE</text>
+
+  <rect x="30" y="92" width="240" height="62" rx="8" fill="#e7f7f1" stroke="#178a6e" stroke-width="2"/>
+  <text x="44" y="114" font-family="Arial" font-size="13" font-weight="bold" fill="#0f5e4b">What you tell it in the chat</text>
+  <text x="44" y="132" font-family="Arial" font-size="11.5" fill="#1a4a3d">“The contact is someone else now”</text>
+  <text x="44" y="147" font-family="Arial" font-size="11.5" fill="#1a4a3d">“That contract is not signed”</text>
+
+  <rect x="30" y="164" width="240" height="52" rx="8" fill="#eef4fb" stroke="#3b7dd8" stroke-width="1.8"/>
+  <text x="44" y="185" font-family="Arial" font-size="13" font-weight="bold" fill="#254a72">An email or some pasted text</text>
+  <text x="44" y="204" font-family="Arial" font-size="11.5" fill="#33475b">A thread, minutes, some notes…</text>
+
+  <rect x="30" y="226" width="240" height="52" rx="8" fill="#eef4fb" stroke="#3b7dd8" stroke-width="1.8"/>
+  <text x="44" y="247" font-family="Arial" font-size="13" font-weight="bold" fill="#254a72">A screenshot</text>
+  <text x="44" y="266" font-family="Arial" font-size="11.5" fill="#33475b">A screen, a dashboard, a figure…</text>
+
+  <rect x="30" y="288" width="240" height="52" rx="8" fill="#fff5e8" stroke="#e08a2b" stroke-width="1.8"/>
+  <text x="44" y="309" font-family="Arial" font-size="13" font-weight="bold" fill="#7a4a10">A document</text>
+  <text x="44" y="328" font-family="Arial" font-size="11.5" fill="#5c3c0e">PDF, Excel… to the chat or the inbox</text>
+
+  <rect x="30" y="350" width="240" height="52" rx="8" fill="#f3eefb" stroke="#7a4bc0" stroke-width="1.8"/>
+  <text x="44" y="371" font-family="Arial" font-size="13" font-weight="bold" fill="#4e2a86">A correction</text>
+  <text x="44" y="390" font-family="Arial" font-size="11.5" fill="#40305a">“No, that changed: it is now this”</text>
+
+  <!-- arrows to centre -->
+  <path d="M 270 123 L 330 220" stroke="#9bb0c4" stroke-width="2"/>
+  <path d="M 270 190 L 330 224" stroke="#9bb0c4" stroke-width="2"/>
+  <path d="M 270 252 L 330 245" stroke="#9bb0c4" stroke-width="2"/>
+  <path d="M 270 314 L 330 266" stroke="#9bb0c4" stroke-width="2"/>
+  <path d="M 270 376 L 330 270" stroke="#9bb0c4" stroke-width="2"/>
+  <polygon points="330,238 346,246 330,254" fill="#9bb0c4"/>
+
+  <!-- CLAUDE -->
+  <rect x="346" y="150" width="250" height="196" rx="10" fill="#fbfcfd" stroke="#4a5a6a" stroke-width="2.5"/>
+  <text x="471" y="176" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#1a2a3a">Claude organizes it</text>
+  <text x="360" y="202" font-family="Arial" font-size="11.5" fill="#33475b">• Decides which document it goes in</text>
+  <text x="360" y="224" font-family="Arial" font-size="11.5" fill="#33475b">• Updates what already existed,</text>
+  <text x="360" y="239" font-family="Arial" font-size="11.5" fill="#33475b">  instead of duplicating it</text>
+  <text x="360" y="261" font-family="Arial" font-size="11.5" fill="#33475b">• Carries it to every place</text>
+  <text x="360" y="276" font-family="Arial" font-size="11.5" fill="#33475b">  it affects</text>
+  <text x="360" y="298" font-family="Arial" font-size="11.5" fill="#8a1a17">• Warns if it contradicts something</text>
+  <text x="360" y="320" font-family="Arial" font-size="11.5" fill="#8a1a17">• Asks if it has doubts</text>
+  <text x="360" y="338" font-family="Arial" font-size="11.5" fill="#8a1a17">  (it does not make things up)</text>
+
+  <path d="M 596 246 L 640 246" stroke="#9bb0c4" stroke-width="2.5"/>
+  <polygon points="640,238 656,246 640,254" fill="#9bb0c4"/>
+
+  <!-- OUTPUT -->
+  <text x="806" y="80" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#4a5a6a">WHAT GETS SAVED</text>
+
+  <rect x="656" y="150" width="274" height="58" rx="8" fill="#eef4fb" stroke="#3b7dd8" stroke-width="1.8"/>
+  <text x="670" y="171" font-family="Arial" font-size="13" font-weight="bold" fill="#254a72">The document for its area</text>
+  <text x="670" y="190" font-family="Arial" font-size="11.5" fill="#33475b">Created or updated, in its folder</text>
+
+  <rect x="656" y="218" width="274" height="58" rx="8" fill="#e7f7f1" stroke="#178a6e" stroke-width="1.8"/>
+  <text x="670" y="239" font-family="Arial" font-size="13" font-weight="bold" fill="#0f5e4b">The register + its JSON</text>
+  <text x="670" y="258" font-family="Arial" font-size="11.5" fill="#1a4a3d">If it is a contract or an invoice</text>
+
+  <rect x="656" y="286" width="274" height="58" rx="8" fill="#f4f7fa" stroke="#9bb0c4" stroke-width="1.8"/>
+  <text x="670" y="307" font-family="Arial" font-size="13" font-weight="bold" fill="#1a2a3a">A line in log.md</text>
+  <text x="670" y="326" font-family="Arial" font-size="11.5" fill="#33475b">To know what changed and when</text>
+
+  <text x="480" y="432" text-anchor="middle" font-family="Arial" font-size="12.5" fill="#33475b">You do not need to decide where each thing goes: that is exactly its job.</text>
+  <text x="480" y="452" text-anchor="middle" font-family="Arial" font-size="11.5" font-style="italic" fill="#8a94a0">Documents are one more input, not the main one.</text>
+</svg>

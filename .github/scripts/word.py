@@ -1,8 +1,8 @@
-"""Genera las dos guías en Word a partir de los Markdown del repositorio.
+"""Genera las guías en Word, en castellano y en inglés, a partir de los Markdown del repositorio.
 
 Uso: python3 .github/scripts/word.py <versión>
-Deja en dist/ Guia-KB-Cowork-v<versión>.docx y Guia-KB-ClaudeCode-v<versión>.docx.
-Necesita pandoc en el PATH.
+Deja en dist/ Guia-KB-Cowork-v<N>.docx y Guia-KB-ClaudeCode-v<N>.docx, y en inglés
+Guide-KB-Cowork-EN-v<N>.docx y Guide-KB-ClaudeCode-EN-v<N>.docx. Necesita pandoc en el PATH.
 """
 import datetime
 import pathlib
@@ -22,27 +22,27 @@ A4 = ('<w:sectPr><w:pgSz w:w="11906" w:h="16838"/>'
       'w:header="709" w:footer="709" w:gutter="0"/></w:sectPr>')
 
 
-def enlaces_a_la_web(md):
+def enlaces_a_la_web(md, prefijo=""):
     """Los enlaces a otros .md del repo no sirven dentro de un Word: apuntan a la web."""
     def cambio(m):
         ruta, ancla = m.group(1), m.group(2) or ""
         ruta = re.sub(r"^(\.\./)+", "", ruta)
-        return f"]({WEB}/{ruta}.html{ancla})"
+        return f"]({WEB}/{prefijo}{ruta}.html{ancla})"
     md = re.sub(r"\]\((?!https?:|#)([^)#]+?)\.md(#[^)]*)?\)", cambio, md)
-    return md.replace("](LICENSE)", f"]({WEB}/LICENSE)")
+    return md.replace("](../LICENSE)", f"]({WEB}/LICENSE)").replace("](LICENSE)", f"]({WEB}/LICENSE)")
 
 
-def con_version(md, version, fecha):
+def con_version(md, version, fecha, etiqueta="Versión"):
     """Línea de versión justo debajo del título."""
     titulo, resto = md.split("\n", 1)
-    return f"{titulo}\n\n*Versión {version} · {fecha}*\n{resto}"
+    return f"{titulo}\n\n*{etiqueta} {version} · {fecha}*\n{resto}"
 
 
-def anexo_prompts(nombres):
-    partes = ["\n\n## Anexo — los prompts\n\n"
-              "Los mismos prompts de la guía, para copiarlos sin salir del documento.\n"]
+def anexo_prompts(nombres, carpeta="prompts", titulo="Anexo — los prompts",
+                  intro="Los mismos prompts de la guía, para copiarlos sin salir del documento."):
+    partes = [f"\n\n## {titulo}\n\n{intro}\n"]
     for n in nombres:
-        texto = (RAIZ / "prompts" / n).read_text(encoding="utf-8")
+        texto = (RAIZ / carpeta / n).read_text(encoding="utf-8")
         texto = re.sub(r"^# ", "### ", texto, count=1)
         partes.append("\n" + texto)
     return "".join(partes)
@@ -96,13 +96,16 @@ def ajustar_tamano(xml, estilo, medios_puntos):
     return xml[:m.start()] + m.group(1) + cuerpo + m.group(3) + xml[m.end():]
 
 
-def generar(fuente, destino, version, fecha, ref, anexo=""):
+def generar(fuente, destino, version, fecha, ref, anexo="", ingles=False):
     md = (RAIZ / fuente).read_text(encoding="utf-8")
-    md = con_version(enlaces_a_la_web(md + anexo), version, fecha)
+    md = enlaces_a_la_web(md + anexo, "en/" if ingles else "")
+    md = con_version(md, version, fecha, "Version" if ingles else "Versión")
     tmp = TMP / fuente
+    tmp.parent.mkdir(parents=True, exist_ok=True)
     tmp.write_text(md, encoding="utf-8")
+    recursos = RAIZ / "en" if ingles else RAIZ
     subprocess.run(["pandoc", str(tmp), "-f", "gfm", "-o", str(DIST / destino),
-                    "--reference-doc", str(ref), "--resource-path", str(RAIZ)], check=True)
+                    "--reference-doc", str(ref), "--resource-path", str(recursos)], check=True)
     pagina_a4(DIST / destino)
     print("OK", DIST / destino)
 
@@ -117,6 +120,13 @@ def main():
     generar("guia-claude-code.md", f"Guia-KB-ClaudeCode-v{version}.docx", version, fecha, ref,
             anexo_prompts(["02-inicial-claude-code.md", "03-crecimiento.md",
                            "04-hooks-claude-code.md", "05-bitacora.md"]))
+    generar("en/guide-cowork.md", f"Guide-KB-Cowork-EN-v{version}.docx", version, fecha, ref,
+            ingles=True)
+    generar("en/guide-claude-code.md", f"Guide-KB-ClaudeCode-EN-v{version}.docx", version, fecha, ref,
+            anexo_prompts(["02-initial-claude-code.md", "03-growth.md", "04-hooks-claude-code.md",
+                           "05-handoff.md"], "en/prompts", "Annex — the prompts",
+                          "The same prompts as in the guide, to copy without leaving the document."),
+            ingles=True)
     shutil.rmtree(TMP)
 
 

@@ -21,6 +21,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Comprobar que el inglés sigue al castellano
+        run: python3 .github/scripts/check_en.py
+
       - name: Instalar pandoc
         run: sudo apt-get update -q && sudo apt-get install -y -q pandoc
 
@@ -43,4 +46,4 @@ jobs:
         run: |
           gh release create "$GITHUB_REF_NAME" dist/*.docx \
             --title "Versión ${GITHUB_REF_NAME#v}" \
-            --notes "Las dos guías en Word, generadas a partir de esta versión del repositorio. Para leerlas en línea: https://fjolivaresdh.github.io/kb-con-claude/"
+            --notes "Las dos guías en Word, en castellano (Guia-*) y en inglés (Guide-*-EN), generadas a partir de esta versión del repositorio. · Both guides in Word, in Spanish (Guia-*) and English (Guide-*-EN). Online: https://fjolivaresdh.github.io/kb-con-claude/ · https://fjolivaresdh.github.io/kb-con-claude/en/"

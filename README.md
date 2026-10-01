@@ -1,5 +1,7 @@
 # Base de conocimiento con Claude
 
+**Español** · [English](README.en.md)
+
 Cómo montar, en una carpeta de archivos de texto, una **base de conocimiento de trabajo** que Claude ordena, cruza y
 mantiene al día: proveedores, contratos, accesos, decisiones, procedimientos y pendientes, cada dato con su fecha y su
 origen.

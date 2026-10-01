@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 480">
+  <rect x="0" y="0" width="920" height="480" fill="#ffffff"/>
+  <text x="460" y="28" text-anchor="middle" font-family="Arial" font-size="19" font-weight="bold" fill="#1a2a3a">What to put in each field of a scheduled task</text>
+  <text x="460" y="50" text-anchor="middle" font-family="Arial" font-size="12" font-style="italic" fill="#8a94a0">Illustrative diagram (not a screenshot)</text>
+
+  <!-- form -->
+  <rect x="30" y="72" width="420" height="378" rx="10" fill="#fbfcfd" stroke="#c3d0dd" stroke-width="1.5"/>
+
+  <text x="48" y="98" font-family="Arial" font-size="13" font-weight="bold" fill="#33475b">Name</text>
+  <rect x="48" y="106" width="384" height="30" rx="5" fill="#ffffff" stroke="#d5dee7"/>
+  <text x="58" y="126" font-family="Courier New" font-size="12" fill="#5a6a7d">expiries-6-months</text>
+
+  <text x="48" y="162" font-family="Arial" font-size="13" font-weight="bold" fill="#33475b">Description</text>
+  <rect x="48" y="170" width="384" height="30" rx="5" fill="#ffffff" stroke="#d5dee7"/>
+  <text x="58" y="190" font-family="Courier New" font-size="12" fill="#5a6a7d">Monthly alert of contracts about to expire</text>
+
+  <text x="48" y="226" font-family="Arial" font-size="13" font-weight="bold" fill="#33475b">The instruction (what it should do)</text>
+  <rect x="48" y="234" width="384" height="86" rx="5" fill="#ffffff" stroke="#d5dee7"/>
+  <text x="58" y="254" font-family="Courier New" font-size="11.5" fill="#5a6a7d">Check _data/contracts.json and tell me what</text>
+  <text x="58" y="272" font-family="Courier New" font-size="11.5" fill="#5a6a7d">expires in the next 6 months, sorted by</text>
+  <text x="58" y="290" font-family="Courier New" font-size="11.5" fill="#5a6a7d">date. Flag any notice periods about to</text>
+  <text x="58" y="308" font-family="Courier New" font-size="11.5" fill="#5a6a7d">run out.</text>
+
+  <rect x="48" y="336" width="230" height="28" rx="5" fill="#eef4fb" stroke="#9bb0c4"/>
+  <text x="60" y="355" font-family="Arial" font-size="12" fill="#254a72">Work in a project ▾</text>
+  <rect x="290" y="336" width="142" height="28" rx="5" fill="#f4f7fa" stroke="#d5dee7"/>
+  <text x="300" y="355" font-family="Arial" font-size="12" fill="#5a6a7d">Model ▾</text>
+
+  <rect x="48" y="374" width="384" height="28" rx="5" fill="#f4f7fa" stroke="#d5dee7"/>
+  <text x="58" y="393" font-family="Courier New" font-size="10.5" fill="#5a6a7d">...\Cowork\MyKnowledge</text>
+  <text x="424" y="393" text-anchor="end" font-family="Arial" font-size="10" fill="#8a94a0">from project</text>
+
+  <text x="48" y="432" font-family="Arial" font-size="13" font-weight="bold" fill="#33475b">Frequency</text>
+  <rect x="130" y="414" width="130" height="28" rx="5" fill="#fff5e8" stroke="#e08a2b" stroke-width="1.5"/>
+  <text x="142" y="433" font-family="Arial" font-size="12" font-weight="bold" fill="#7a4a10">Monthly ▾</text>
+
+  <!-- callouts -->
+  <path d="M 434 121 L 476 121" stroke="#9bb0c4" stroke-width="2"/>
+  <rect x="476" y="98" width="416" height="46" rx="7" fill="#ffffff" stroke="#9bb0c4" stroke-width="1.5"/>
+  <text x="490" y="118" font-family="Arial" font-size="12.5" font-weight="bold" fill="#1a2a3a">Short name, no spaces</text>
+  <text x="490" y="135" font-family="Arial" font-size="12" fill="#33475b">It is the label you will see the task under in the list.</text>
+
+  <path d="M 434 185 L 476 185" stroke="#9bb0c4" stroke-width="2"/>
+  <rect x="476" y="162" width="416" height="46" rx="7" fill="#ffffff" stroke="#9bb0c4" stroke-width="1.5"/>
+  <text x="490" y="182" font-family="Arial" font-size="12.5" font-weight="bold" fill="#1a2a3a">One line explaining what it is for</text>
+  <text x="490" y="199" font-family="Arial" font-size="12" fill="#33475b">For your future self, when you have several tasks.</text>
+
+  <path d="M 434 277 L 476 277" stroke="#178a6e" stroke-width="2"/>
+  <rect x="476" y="240" width="416" height="76" rx="7" fill="#e7f7f1" stroke="#178a6e" stroke-width="1.5"/>
+  <text x="490" y="260" font-family="Arial" font-size="12.5" font-weight="bold" fill="#0f5e4b">This is where the real work goes</text>
+  <text x="490" y="278" font-family="Arial" font-size="12" fill="#1a4a3d">Write it as if you were asking in the chat. Say which</text>
+  <text x="490" y="294" font-family="Arial" font-size="12" fill="#1a4a3d">file to look at and what you expect back. Add “if there</text>
+  <text x="490" y="310" font-family="Arial" font-size="12" fill="#1a4a3d">is nothing, do nothing” to avoid noise.</text>
+
+  <path d="M 434 388 L 476 388" stroke="#3b7dd8" stroke-width="2"/>
+  <rect x="476" y="332" width="416" height="62" rx="7" fill="#eef4fb" stroke="#3b7dd8" stroke-width="1.5"/>
+  <text x="490" y="352" font-family="Arial" font-size="12.5" font-weight="bold" fill="#254a72">Choose your project</text>
+  <text x="490" y="370" font-family="Arial" font-size="12" fill="#33475b">Once selected, the task works on the project’s folder</text>
+  <text x="490" y="386" font-family="Arial" font-size="12" fill="#33475b">and inherits its Instructions. That is what you want.</text>
+
+  <path d="M 264 428 L 476 428" stroke="#e08a2b" stroke-width="2"/>
+  <rect x="476" y="410" width="416" height="46" rx="7" fill="#fff5e8" stroke="#e08a2b" stroke-width="1.5"/>
+  <text x="490" y="430" font-family="Arial" font-size="12.5" font-weight="bold" fill="#7a4a10">Change it: it defaults to “Manual”</text>
+  <text x="490" y="447" font-family="Arial" font-size="12" fill="#5c3c0e">If you leave it on Manual, it never runs on its own.</text>
+</svg>

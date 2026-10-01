@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Knowledge base with Claude</title>
+<meta name="description" content="How to build a working knowledge base that Claude organizes, cross-checks and keeps up to date. Guides and prompts for Cowork and Claude Code.">
+<style>
+:root{--bg:#f7f6f2;--card:#ffffff;--ink:#1f1e1b;--muted:#5f5e5a;--line:#e3e1d9;--accent:#0f6e56;--accent-l:#e1f5ee;--warm:#993c1d;--warm-l:#faece7}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a1a18;--card:#242422;--ink:#f1efe8;--muted:#b4b2a9;--line:#3a3936;--accent:#5dcaa5;--accent-l:#123a30;--warm:#f0997b;--warm-l:#3d2117}}
+:root[data-theme="dark"]{--bg:#1a1a18;--card:#242422;--ink:#f1efe8;--muted:#b4b2a9;--line:#3a3936;--accent:#5dcaa5;--accent-l:#123a30;--warm:#f0997b;--warm-l:#3d2117}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 64px}
+header{padding:56px 0 28px}
+h1{font-size:clamp(2rem,5vw,3.1rem);line-height:1.08;margin:0 0 14px;letter-spacing:-.015em}
+.lead{font-size:1.15rem;color:var(--muted);max-width:62ch;margin:0}
+h2{font-size:1.35rem;margin:44px 0 14px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.card h3{margin:0 0 6px;font-size:1.05rem}
+.card p{margin:0;color:var(--muted)}
+.path{display:block;text-decoration:none;color:inherit;border-top:4px solid var(--accent);transition:border-color .2s}
+.path:hover,.path:focus-visible{border-color:var(--warm);outline:none}
+.path .go{display:inline-block;margin-top:12px;color:var(--accent);font-weight:600}
+.num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--accent-l);color:var(--accent);font-weight:700;margin-bottom:8px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:.95rem}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--accent-l);color:var(--accent);font-size:.85rem}
+td a{color:var(--accent);font-weight:600;text-decoration:none}
+.note{background:var(--warm-l);border-left:4px solid var(--warm);padding:12px 16px;margin-top:16px;color:var(--ink)}
+.note a{color:var(--accent);font-weight:600}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px}
+.flow span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.92rem}
+.flow i{font-style:normal;color:var(--muted)}
+.lead a{color:var(--accent);font-weight:600}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.88em;background:var(--accent-l);color:var(--accent);padding:1px 6px;border-radius:4px}
+.tw{overflow-x:auto;border-radius:14px}
+.casos{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.casos .card h3{font-size:.98rem}
+.casos .card p{font-size:.9rem}
+.casos .card p.q{margin-top:8px;color:var(--accent);font-style:italic}
+.grid4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.lang{display:flex;justify-content:flex-end;gap:10px;padding-top:18px;font-size:.9rem}
+.lang a{color:var(--accent);font-weight:600;text-decoration:none}
+.lang b{color:var(--muted);font-weight:600}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+footer a{color:var(--accent)}
+@media (max-width:600px){header{padding-top:36px}th,td{padding:8px 10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="lang" aria-label="Language"><a href="../" lang="es">Español</a> · <b>English</b></nav>
+
+<header>
+<h1>Your knowledge base, kept by Claude</h1>
+<p class="lead">A folder of text files where Claude keeps what you tell it —suppliers, contracts, accounts, decisions, open items—, each fact with its date and its source, and which warns you about what is about to expire and what does not add up.</p>
+<div class="flow"><span>You tell it something</span><i>→</i><span>It files it in its place</span><i>→</i><span>It updates what is related</span><i>→</i><span>It warns you if it contradicts something</span></div>
+</header>
+
+<h2>What you can keep in it</h2>
+<p class="lead">No need to choose in advance: when you paste the initial prompt, Claude shows you this list, <b>asks which ones are yours</b> and sets up only those. The rest can be added whenever you need it.</p>
+<div class="grid casos" style="margin-top:16px">
+<div class="card"><h3>Suppliers and contacts</h3><p>Who is who and what each one does.</p><p class="q">"Who handles our support for X?"</p></div>
+<div class="card"><h3>Contracts and renewals</h3><p>Dates, notice periods and renewals.</p><p class="q">"What expires in six months?"</p></div>
+<div class="card"><h3>Invoices</h3><p>Each one linked to its contract.</p><p class="q">"What are we paying with no contract?"</p></div>
+<div class="card"><h3>Budget</h3><p>Lines, planned and actual, checked against contracts.</p><p class="q">"Which lines go up, and why?"</p></div>
+<div class="card"><h3>Receipts and expenses</h3><p>Every card charge with its receipt.</p><p class="q">"Which charges have no receipt?"</p></div>
+<div class="card"><h3>Service accounts</h3><p>Address and account. Never passwords.</p><p class="q">"Which account do we log in with?"</p></div>
+<div class="card"><h3>Domains and subscriptions</h3><p>The renewal calendar.</p><p class="q">"What renews this quarter?"</p></div>
+<div class="card"><h3>Procedures</h3><p>How each thing is done, step by step.</p><p class="q">"How do we set up a new user?"</p></div>
+<div class="card"><h3>Projects and decisions</h3><p>Status, milestones and the why.</p><p class="q">"Why did we rule that out?"</p></div>
+<div class="card"><h3>Inventories</h3><p>Equipment and licenses, always dated.</p><p class="q">"How many licenses do we have?"</p></div>
+</div>
+<p class="note">What pays off most is <b>cross-checking them</b>: an invoice with no contract, a contract with no budget line or a supplier who bills you and is not in the directory only show up when everything is in the same place. <a href="use-cases.html">What each case sets up</a>.</p>
+
+<h2>Where to start</h2>
+<div class="grid">
+<a class="card path" href="guide-cowork.html"><h3>With Claude Cowork</h3><p>Nothing to install. You create a folder, add it to a project and paste a prompt.</p><span class="go">Read the guide →</span></a>
+<a class="card path" href="guide-claude-code.html"><h3>With Claude Code</h3><p>In the terminal or in the Code tab of the desktop app. Adds its own tools and rules that enforce themselves.</p><span class="go">Read the guide →</span></a>
+</div>
+<p class="note">Both build the same structure on the same folder, so you can use them together. Prefer a document to print or pass on? <a href="https://github.com/fjolivaresDH/kb-con-claude/releases/latest">Download both guides in Word</a>.</p>
+
+<h2>Three principles</h2>
+<div class="grid">
+<div class="card"><div class="num">1</div><h3>Capture it when it happens</h3><p>You tell Claude in the chat, with no forms. What is not written down at the time gets lost.</p></div>
+<div class="card"><div class="num">2</div><h3>Every fact, with a date and proof</h3><p>Without a date you cannot tell if it is out of date; without a source you cannot check it.</p></div>
+<div class="card"><div class="num">3</div><h3>One source, with an owner</h3><p>Each thing lives in one document, and the others link to it instead of copying it.</p></div>
+</div>
+
+<h2>An open format, not an app</h2>
+<p class="lead">The documents follow the <a href="https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md">Open Knowledge Format (OKF) v0.2</a>, an open specification from Google Cloud designed so that the same knowledge can be understood by people and by AI agents. It is deliberately minimal: Markdown files with a header, no central registry and no required tools.</p>
+<div class="grid grid4" style="margin-top:16px">
+<div class="card"><h3>Readable without tools</h3><p>Text files any editor can open, today and in ten years.</p></div>
+<div class="card"><h3>An agent understands it as is</h3><p>Claude reads and writes it directly, with no adapters and no database.</p></div>
+<div class="card"><h3>Every change shows</h3><p>A change is a text diff, in git or in your cloud's version history.</p></div>
+<div class="card"><h3>It is yours and moves with you</h3><p>It depends on no app: switch tools and take it all with you.</p></div>
+</div>
+
+<h2>Every fact, with its source, its date and how reliable it is</h2>
+<p class="lead">A base kept by an agent has to say not only what it knows, but where it knows it from and how much it is worth. OKF solves it with fields in the header; this method, with rules Claude applies to every fact.</p>
+<div class="tw" style="margin-top:16px">
+<table>
+<thead><tr><th>The question</th><th>In OKF v0.2</th><th>In this method</th></tr></thead>
+<tbody>
+<tr><td><b>Where does it come from?</b></td><td><code>sources</code></td><td>Every fact carries its proof: the original is filed and linked</td></tr>
+<tr><td><b>How far can I trust it?</b></td><td><code>verified</code></td><td>"Signed" only with proof; what is missing is "to confirm", never made up</td></tr>
+<tr><td><b>Is it still true?</b></td><td><code>stale_after</code></td><td>Every perishable fact is dated, and the health check looks for old ones</td></tr>
+<tr><td><b>Is it current?</b></td><td><code>status</code></td><td>One source per topic, and a log of what changed and when</td></tr>
+<tr><td><b>Does anything contradict it?</b></td><td>—</td><td>If two facts clash, both are noted with their source</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>The prompts, ready to copy</h2>
+<table>
+<thead><tr><th>Prompt</th><th>When</th></tr></thead>
+<tbody>
+<tr><td><a href="prompts/01-initial-cowork.html">Initial · Cowork</a></td><td>Day one</td></tr>
+<tr><td><a href="prompts/02-initial-claude-code.html">Initial · Claude Code</a></td><td>Day one</td></tr>
+<tr><td><a href="prompts/03-growth.html">Growth</a></td><td>Weeks later: generated views, cross-checks and queries</td></tr>
+<tr><td><a href="prompts/04-hooks-claude-code.html">Hooks · Claude Code</a></td><td>So the rules enforce themselves</td></tr>
+<tr><td><a href="prompts/05-handoff.html">Handoff log</a></td><td>If you work from more than one computer</td></tr>
+</tbody>
+</table>
+
+<h2>What we learned by breaking it</h2>
+<div class="grid">
+<div class="card"><h3>One false alarm switches off the rest</h3><p>Before marking something urgent, check whether it renews by itself.</p></div>
+<div class="card"><h3>What is answered in the chat evaporates</h3><p>If an answer took work, file it as a document.</p></div>
+<div class="card"><h3>The base only knows what goes through it</h3><p>Five minutes a week telling it what did not come up in the chat.</p></div>
+</div>
+
+<footer>
+Document format: <a href="https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md">Open Knowledge Format (OKF) v0.2</a>. Author: Francisco Javier Rivas Olivares · License: <a href="../LICENSE">CC BY 4.0</a>.
+</footer>
+
+</div>
+</body>
+</html>

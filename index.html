@@ -41,6 +41,9 @@ code{font-family:ui-monospace,Consolas,monospace;font-size:.88em;background:var(
 .casos .card p{font-size:.9rem}
 .casos .card p.q{margin-top:8px;color:var(--accent);font-style:italic}
 .grid4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.lang{display:flex;justify-content:flex-end;gap:10px;padding-top:18px;font-size:.9rem}
+.lang a{color:var(--accent);font-weight:600;text-decoration:none}
+.lang b{color:var(--muted);font-weight:600}
 footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
 footer a{color:var(--accent)}
 @media (max-width:600px){header{padding-top:36px}th,td{padding:8px 10px}}
@@ -48,6 +51,7 @@ footer a{color:var(--accent)}
 </head>
 <body>
 <div class="wrap">
+<nav class="lang" aria-label="Idioma"><b>Español</b> · <a href="en/" lang="en">English</a></nav>
 
 <header>
 <h1>Tu base de conocimiento, mantenida por Claude</h1>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420">
+  <rect x="0" y="0" width="900" height="420" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-family="Arial" font-size="19" font-weight="bold" fill="#1a2a3a">Every invoice and every contract lives in two views</text>
+  <text x="450" y="52" text-anchor="middle" font-family="Arial" font-size="12" font-style="italic" fill="#8a94a0">Illustrative diagram (not a screenshot)</text>
+
+  <!-- source document -->
+  <rect x="330" y="70" width="240" height="52" rx="8" fill="#fff5e8" stroke="#e08a2b" stroke-width="2"/>
+  <text x="450" y="94" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#7a4a10">A PDF in _documents/</text>
+  <text x="450" y="112" text-anchor="middle" font-family="Arial" font-size="12" fill="#5c3c0e">supplier-invoice.pdf</text>
+
+  <path d="M 400 122 L 400 140 L 210 140 L 210 162" fill="none" stroke="#9bb0c4" stroke-width="2.5"/>
+  <polygon points="203,162 210,176 217,162" fill="#9bb0c4"/>
+  <path d="M 500 122 L 500 140 L 690 140 L 690 162" fill="none" stroke="#9bb0c4" stroke-width="2.5"/>
+  <polygon points="683,162 690,176 697,162" fill="#9bb0c4"/>
+
+  <!-- MARKDOWN -->
+  <rect x="30" y="176" width="360" height="182" rx="10" fill="#eef4fb" stroke="#3b7dd8" stroke-width="2"/>
+  <text x="210" y="202" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold" fill="#254a72">Markdown table</text>
+  <text x="210" y="221" text-anchor="middle" font-family="Courier New" font-size="12" fill="#33475b">invoice-register.md</text>
+
+  <rect x="48" y="234" width="324" height="60" rx="5" fill="#ffffff" stroke="#c3d4e8"/>
+  <text x="58" y="252" font-family="Courier New" font-size="11" fill="#33475b">| No.     | Supplier  | Total    |</text>
+  <text x="58" y="268" font-family="Courier New" font-size="11" fill="#33475b">|---------|-----------|----------|</text>
+  <text x="58" y="284" font-family="Courier New" font-size="11" fill="#33475b">| F-001   | Example   | 1,210.00 |</text>
+
+  <text x="210" y="316" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#254a72">For reading and sharing</text>
+  <text x="210" y="336" text-anchor="middle" font-family="Arial" font-size="12" fill="#33475b">Opens and makes sense without any tools.</text>
+  <text x="210" y="351" text-anchor="middle" font-family="Arial" font-size="12" fill="#33475b">You can send it to anyone.</text>
+
+  <!-- JSON -->
+  <rect x="510" y="176" width="360" height="182" rx="10" fill="#e7f7f1" stroke="#178a6e" stroke-width="2"/>
+  <text x="690" y="202" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold" fill="#0f5e4b">JSON record</text>
+  <text x="690" y="221" text-anchor="middle" font-family="Courier New" font-size="12" fill="#1a4a3d">_data/invoices.json</text>
+
+  <rect x="528" y="234" width="324" height="60" rx="5" fill="#ffffff" stroke="#b6e0d0"/>
+  <text x="538" y="252" font-family="Courier New" font-size="11" fill="#1a4a3d">{ "number": "F-001",</text>
+  <text x="538" y="268" font-family="Courier New" font-size="11" fill="#1a4a3d">  "supplier": "Example",</text>
+  <text x="538" y="284" font-family="Courier New" font-size="11" fill="#1a4a3d">  "total": 1210.00 }</text>
+
+  <text x="690" y="316" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#0f5e4b">For querying and adding up</text>
+  <text x="690" y="336" text-anchor="middle" font-family="Arial" font-size="12" fill="#1a4a3d">“What expires in 6 months?”</text>
+  <text x="690" y="351" text-anchor="middle" font-family="Arial" font-size="12" fill="#1a4a3d">“Total invoiced per supplier”</text>
+
+  <!-- sync -->
+  <path d="M 392 267 L 500 267" stroke="#d5342f" stroke-width="2.5"/>
+  <polygon points="392,260 378,267 392,274" fill="#d5342f"/>
+  <polygon points="500,260 514,267 500,274" fill="#d5342f"/>
+  <rect x="378" y="222" width="136" height="34" rx="17" fill="#fdecec" stroke="#d5342f" stroke-width="1.5"/>
+  <text x="446" y="243" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#8a1a17">keep both in sync</text>
+
+  <text x="450" y="392" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="#8a1a17">Golden rule: when you add or change something, update BOTH views.</text>
+  <text x="450" y="410" text-anchor="middle" font-family="Arial" font-size="12" fill="#6b7a8d">The rest of the knowledge (concepts, procedures, decisions) goes in Markdown only.</text>
+</svg>

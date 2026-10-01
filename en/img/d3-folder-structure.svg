@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <rect x="0" y="0" width="900" height="500" fill="#ffffff"/>
+  <text x="450" y="30" text-anchor="middle" font-family="Arial" font-size="19" font-weight="bold" fill="#1a2a3a">What the prompt creates, and what each part is for</text>
+  <text x="450" y="52" text-anchor="middle" font-family="Arial" font-size="12" font-style="italic" fill="#8a94a0">Illustrative diagram (not a screenshot)</text>
+
+  <rect x="28" y="72" width="430" height="72" rx="8" fill="#f4f7fa"/>
+  <rect x="28" y="150" width="430" height="98" rx="8" fill="#fff5e8"/>
+  <rect x="28" y="254" width="430" height="76" rx="8" fill="#e7f7f1"/>
+  <rect x="28" y="336" width="430" height="130" rx="8" fill="#eef4fb"/>
+
+  <text x="44" y="94" font-family="Courier New" font-size="15" font-weight="bold" fill="#1a2a3a">MyKnowledge/</text>
+  <text x="44" y="118" font-family="Courier New" font-size="14" fill="#33475b">├── index.md</text>
+  <text x="44" y="140" font-family="Courier New" font-size="14" fill="#33475b">├── log.md</text>
+
+  <text x="44" y="174" font-family="Courier New" font-size="14" font-weight="bold" fill="#7a4a10">├── _documents/</text>
+  <text x="44" y="196" font-family="Courier New" font-size="14" fill="#7a4a10">│   ├── invoices/</text>
+  <text x="44" y="218" font-family="Courier New" font-size="14" fill="#7a4a10">│   ├── contracts/</text>
+  <text x="44" y="240" font-family="Courier New" font-size="14" fill="#7a4a10">│   └── other/</text>
+
+  <text x="44" y="278" font-family="Courier New" font-size="14" font-weight="bold" fill="#0f5e4b">├── _data/</text>
+  <text x="44" y="300" font-family="Courier New" font-size="14" fill="#0f5e4b">│   ├── invoices.json</text>
+  <text x="44" y="322" font-family="Courier New" font-size="14" fill="#0f5e4b">│   └── contracts.json</text>
+
+  <text x="44" y="360" font-family="Courier New" font-size="14" font-weight="bold" fill="#254a72">├── clients/</text>
+  <text x="44" y="382" font-family="Courier New" font-size="14" fill="#254a72">│   ├── index.md</text>
+  <text x="44" y="404" font-family="Courier New" font-size="14" fill="#254a72">│   └── directory.md</text>
+  <text x="44" y="426" font-family="Courier New" font-size="14" font-weight="bold" fill="#254a72">└── processes/</text>
+  <text x="44" y="448" font-family="Courier New" font-size="14" fill="#254a72">    └── index.md</text>
+
+  <path d="M 458 108 L 492 108" stroke="#9bb0c4" stroke-width="2"/>
+  <path d="M 458 199 L 492 199" stroke="#e08a2b" stroke-width="2"/>
+  <path d="M 458 292 L 492 292" stroke="#178a6e" stroke-width="2"/>
+  <path d="M 458 401 L 492 401" stroke="#3b7dd8" stroke-width="2"/>
+
+  <rect x="492" y="78" width="386" height="60" rx="8" fill="#ffffff" stroke="#9bb0c4" stroke-width="1.5"/>
+  <text x="506" y="100" font-family="Arial" font-size="14" font-weight="bold" fill="#1a2a3a">The base</text>
+  <text x="506" y="120" font-family="Arial" font-size="12.5" fill="#33475b">Index of everything and a change log. Only the root</text>
+  <text x="506" y="134" font-family="Arial" font-size="12.5" fill="#33475b">index has frontmatter.</text>
+
+  <rect x="492" y="163" width="386" height="72" rx="8" fill="#ffffff" stroke="#e08a2b" stroke-width="1.5"/>
+  <text x="506" y="185" font-family="Arial" font-size="14" font-weight="bold" fill="#7a4a10">The original documents</text>
+  <text x="506" y="205" font-family="Arial" font-size="12.5" fill="#5c3c0e">Drop the PDFs here just as they arrive. Only three</text>
+  <text x="506" y="222" font-family="Arial" font-size="12.5" fill="#5c3c0e">destinations: invoice? contract? if not, “other”.</text>
+
+  <rect x="492" y="260" width="386" height="64" rx="8" fill="#ffffff" stroke="#178a6e" stroke-width="1.5"/>
+  <text x="506" y="282" font-family="Arial" font-size="14" font-weight="bold" fill="#0f5e4b">The queryable data</text>
+  <text x="506" y="302" font-family="Arial" font-size="12.5" fill="#1a4a3d">Invoices and contracts in JSON: to filter,</text>
+  <text x="506" y="319" font-family="Arial" font-size="12.5" fill="#1a4a3d">sort and add up (“what expires in 6 months”).</text>
+
+  <rect x="492" y="360" width="386" height="80" rx="8" fill="#ffffff" stroke="#3b7dd8" stroke-width="1.5"/>
+  <text x="506" y="382" font-family="Arial" font-size="14" font-weight="bold" fill="#254a72">Your topic areas</text>
+  <text x="506" y="402" font-family="Arial" font-size="12.5" fill="#33475b">One folder per topic, with its index inside.</text>
+  <text x="506" y="419" font-family="Arial" font-size="12.5" fill="#33475b">This is where prose knowledge lives: concepts,</text>
+  <text x="506" y="436" font-family="Arial" font-size="12.5" fill="#33475b">procedures, decisions and their context.</text>
+
+  <text x="450" y="486" text-anchor="middle" font-family="Arial" font-size="11.5" fill="#6b7a8d">Folders starting with _ are service folders. Formatting rules are edited in the project’s “Instructions” (saved as CLAUDE.md).</text>
+</svg>
