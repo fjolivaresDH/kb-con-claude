@@ -33,6 +33,10 @@ td a{color:var(--accent);font-weight:600;text-decoration:none}
 .flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px}
 .flow span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.92rem}
 .flow i{font-style:normal;color:var(--muted)}
+.lead a{color:var(--accent);font-weight:600}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.88em;background:var(--accent-l);color:var(--accent);padding:1px 6px;border-radius:4px}
+.tw{overflow-x:auto;border-radius:14px}
+.grid4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
 footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
 footer a{color:var(--accent)}
 @media (max-width:600px){header{padding-top:36px}th,td{padding:8px 10px}}
@@ -59,6 +63,30 @@ footer a{color:var(--accent)}
 <div class="card"><div class="num">1</div><h3>Se captura cuando ocurre</h3><p>Se le cuenta a Claude en el chat, sin formularios. Lo que no se apunta en el momento se pierde.</p></div>
 <div class="card"><div class="num">2</div><h3>Cada dato, con fecha y prueba</h3><p>Sin fecha no se sabe si está caducado; sin origen no se puede comprobar.</p></div>
 <div class="card"><div class="num">3</div><h3>Una sola fuente, con dueño</h3><p>Cada cosa vive en un documento, y los demás la enlazan en vez de copiarla.</p></div>
+</div>
+
+<h2>Un formato abierto, no una aplicación</h2>
+<p class="lead">Los documentos siguen el <a href="https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md">Open Knowledge Format (OKF) v0.2</a>, una especificación abierta de Google Cloud pensada para que el mismo conocimiento lo entiendan personas y agentes de IA. Es mínima a propósito: archivos Markdown con una cabecera, sin registro central ni herramientas obligatorias.</p>
+<div class="grid grid4" style="margin-top:16px">
+<div class="card"><h3>Se lee sin herramientas</h3><p>Archivos de texto que abre cualquier editor, hoy y dentro de diez años.</p></div>
+<div class="card"><h3>Un agente la entiende tal cual</h3><p>Claude la lee y la escribe directamente, sin adaptadores ni base de datos.</p></div>
+<div class="card"><h3>Cada cambio se ve</h3><p>Una modificación es una diferencia de texto, en git o en el historial de tu nube.</p></div>
+<div class="card"><h3>Es tuya y se mueve contigo</h3><p>No depende de ninguna aplicación: cambias de herramienta y te la llevas entera.</p></div>
+</div>
+
+<h2>Cuando la escribe un agente, guardar el texto no basta</h2>
+<p class="lead">Una base que mantiene un agente tiene que decir, además de lo que sabe, de dónde lo sabe y cuánto vale. OKF lo resuelve con campos en la cabecera; este método, con reglas que Claude aplica a cada dato.</p>
+<div class="tw" style="margin-top:16px">
+<table>
+<thead><tr><th>La pregunta</th><th>En OKF v0.2</th><th>En este método</th></tr></thead>
+<tbody>
+<tr><td><b>¿De dónde sale?</b></td><td><code>sources</code></td><td>Cada dato lleva su prueba: el original se archiva y se enlaza</td></tr>
+<tr><td><b>¿Cuánto me fío?</b></td><td><code>verified</code></td><td>«Firmado» solo con constancia; lo que falta, «por confirmar», nunca inventado</td></tr>
+<tr><td><b>¿Sigue siendo verdad?</b></td><td><code>stale_after</code></td><td>Cada dato perecedero lleva su fecha, y la revisión de salud busca los viejos</td></tr>
+<tr><td><b>¿Es lo vigente?</b></td><td><code>status</code></td><td>Una sola fuente por tema, y un log de qué cambió y cuándo</td></tr>
+<tr><td><b>¿Lo contradice algo?</b></td><td>—</td><td>Si un dato choca con otro, se anotan los dos con su origen</td></tr>
+</tbody>
+</table>
 </div>
 
 <h2>Los prompts, listos para copiar</h2>

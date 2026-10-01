@@ -37,8 +37,36 @@ dicen siempre lo mismo.
 2. **Cada dato lleva su fecha y su prueba**: si no, no se sabe si está caducado ni se puede comprobar.
 3. **Una sola fuente, con dueño**: cada cosa vive en un documento, y los demás la enlazan.
 
-El formato de los documentos sigue el **Open Knowledge Format (OKF) v0.2** de Google Cloud:
-<https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md>.
+## Por qué este formato
+
+Los documentos siguen el **[Open Knowledge Format (OKF) v0.2](https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md)**,
+una especificación abierta de Google Cloud pensada para que el mismo conocimiento lo entiendan igual las personas y los
+agentes de IA. Es mínima a propósito: una carpeta de archivos Markdown con una cabecera YAML, sin registro central y sin
+ninguna herramienta obligatoria. Eso da a la base cuatro propiedades:
+
+| | Qué significa en la práctica |
+|---|---|
+| **Se lee sin herramientas** | Son archivos de texto: se abren con cualquier editor, hoy y dentro de diez años. |
+| **Un agente la entiende tal cual** | Claude la lee y la escribe directamente, sin adaptadores ni base de datos. |
+| **Cada cambio se ve** | Una modificación es una diferencia de texto, en git o en el historial de versiones de tu nube. |
+| **Es tuya y se mueve contigo** | No depende de ninguna aplicación: cambias de herramienta o de equipo y te la llevas entera. |
+
+Y es tolerante: lo único obligatorio es que cada documento diga **qué tipo de cosa es**. Todo lo demás es opcional, así
+que se puede empezar con poco y ir creciendo.
+
+### Cuando la escribe un agente, guardar el texto no basta
+
+La especificación parte de la misma idea que este método. Una base que **mantiene un agente** tiene que poder decir,
+además de lo que sabe, de dónde lo sabe y cuánto vale. OKF v0.2 lo resuelve con campos en la cabecera de cada documento;
+aquí, con reglas de trabajo que Claude aplica a cada dato:
+
+| La pregunta | En OKF v0.2 | En este método |
+|---|---|---|
+| **¿De dónde sale?** | `sources`: las fuentes de cada documento | Cada dato lleva su prueba: el original se archiva en `_documentos/` y se enlaza |
+| **¿Cuánto me fío?** | `verified`: sin verificar, confirmado por un proceso o revisado por una persona | «Firmado» solo con constancia real; lo que falta se marca «por confirmar», nunca se inventa |
+| **¿Sigue siendo verdad?** | `stale_after`: una fecha de caducidad por documento | **Cada dato** perecedero lleva la fecha en que se aportó, y la revisión de salud busca los viejos |
+| **¿Es lo vigente?** | `status`: borrador, estable u obsoleto | Una sola fuente por tema; lo superado se marca, y `log.md` dice qué cambió y cuándo |
+| **¿Lo contradice algo?** | — | Si un dato nuevo choca con uno guardado, se anotan los dos con su origen en vez de elegir en silencio |
 
 ## Autor y licencia
 
