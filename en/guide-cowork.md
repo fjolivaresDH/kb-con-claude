@@ -116,8 +116,8 @@ have just created. The first time it will ask for permission; after that it reme
 ## PART 2 — The prompt
 
 > ✏️ **This prompt is a starting point, not a closed recipe.** The first thing it does is
-> **offer you ten examples already worked through** —suppliers, contracts, invoices, budget, receipts, access,
-> domains, procedures, projects and inventories— and **ask which ones fit you and what other topics
+> **offer you eleven examples already worked through** —suppliers, contracts, invoices, budget, receipts, access,
+> domains, procedures, projects, inventories and articles— and **ask which ones fit you and what other topics
 > you want to keep**: the base is yours and it sets up only what you choose. Even so, adapt it freely: change the areas, add whatever you are missing (a register of customers, of incidents, of
 > meetings…) and rewrite the rules that do not fit the way you work. The structure below is the
 > one that works for us; **the right one is the one that reflects your day-to-day.**
@@ -165,6 +165,8 @@ later with one sentence.
    8. Procedures                -> how each thing is done, step by step.
    9. Projects and decisions    -> status, milestones and why each thing was decided.
   10. Inventories               -> equipment, licenses or software, always dated.
+  11. Articles and communication -> a guide to how I write, a register of what I have published
+                                   and each article with its drafts, so it writes in my voice.
 If I have not filled in [AREAS], propose them based on what I choose. And before creating
 each case, tell me in one line what you are going to create for it.
 

@@ -13,7 +13,7 @@ to build yours.
 ## Some examples of what you can keep
 
 Suppliers and contacts · contracts and expiry dates · invoices · budget · receipts and expenses · access to services ·
-domains, certificates and subscriptions · procedures · projects and decisions · inventories.
+domains, certificates and subscriptions · procedures · projects and decisions · inventories · articles and communication.
 
 **These are examples we have already worked through, not a limit: everyone builds their own base with their own
 topics.** When you paste the initial prompt, Claude offers them, asks whether any of them fits you and what other

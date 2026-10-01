@@ -1,6 +1,6 @@
 # Ejemplos de lo que puedes llevar en la base
 
-Diez ejemplos que salen de una base real y que ya funcionan. **No son un límite: cada uno construye su base con sus
+Once ejemplos que salen de una base real y que ya funcionan. **No son un límite: cada uno construye su base con sus
 propios temas.** Al pegar el prompt inicial, Claude te los ofrece, te pregunta si alguno es tu caso y qué otros temas
 quieres llevar, y **monta solo lo que vayas a usar**. Lo demás se añade cuando haga falta, con una frase.
 
@@ -16,6 +16,7 @@ quieres llevar, y **monta solo lo que vayas a usar**. Lo demás se añade cuando
 | **Procedimientos** | Cómo se hace cada cosa, paso a paso | *«¿Cómo se da de alta a un usuario?»* |
 | **Proyectos y decisiones** | Estado, hitos y por qué se decidió cada cosa | *«¿Por qué descartamos aquella opción?»* · *«¿Qué tenemos parado?»* |
 | **Inventarios** | Equipos, licencias o software, siempre con fecha | *«¿Cuántas licencias tenemos, y desde cuándo no se revisa?»* |
+| **Artículos y comunicación** | Una guía de cómo escribes —tu tono, lo que no usas, lo que ya te han corregido—, un registro de lo publicado y cada artículo con sus borradores | *«Escríbeme un borrador con mi estilo»* · *«¿Qué cifras usé en el último artículo, y de dónde salían?»* |
 
 > 💡 **Lo que más rinde es cruzarlos.** Cada caso sirve solo, pero el valor aparece cuando se juntan: una factura
 > que no responde a ningún contrato, un contrato sin partida en el presupuesto o un proveedor que cobra y no está en

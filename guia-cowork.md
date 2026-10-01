@@ -118,8 +118,8 @@ carpeta que acabas de crear. La primera vez te pedirá permiso; después la recu
 ## PARTE 2 — El prompt
 
 > ✏️ **Este prompt es un punto de partida, no una receta cerrada.** Lo primero que hace es
-> **ofrecerte diez ejemplos ya trabajados** —proveedores, contratos, facturas, presupuesto, tickets,
-> accesos, dominios, procedimientos, proyectos e inventarios— y **preguntarte cuáles te sirven y qué otros
+> **ofrecerte once ejemplos ya trabajados** —proveedores, contratos, facturas, presupuesto, tickets,
+> accesos, dominios, procedimientos, proyectos, inventarios y artículos— y **preguntarte cuáles te sirven y qué otros
 > temas quieres llevar**: la base es tuya y monta solo lo que elijas. Aun así, adáptalo con total libertad: cambia las áreas, añade lo que te falte (un registro de clientes, de incidencias, de
 > reuniones…) y reescribe las reglas que no encajen con tu forma de trabajar. La estructura de
 > abajo es la que a nosotros nos funciona; **la buena es la que refleje tu día a día.**
@@ -167,6 +167,8 @@ más adelante con una frase.
    8. Procedimientos            -> cómo se hace cada cosa, paso a paso.
    9. Proyectos y decisiones    -> estado, hitos y por qué se decidió cada cosa.
   10. Inventarios               -> equipos, licencias o software, siempre con fecha.
+  11. Artículos y comunicación  -> una guía de cómo escribo, un registro de lo publicado y
+                                   cada artículo con sus borradores, para escribir con mi voz.
 Si no he puesto áreas en [ÁREAS], propónmelas a partir de lo que elija. Y antes de crear cada
 caso, dime en una línea qué vas a crear para él.
 

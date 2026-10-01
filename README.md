@@ -13,7 +13,7 @@ la tuya.
 ## Algunos ejemplos de lo que puedes llevar
 
 Proveedores y contactos · contratos y vencimientos · facturas · presupuesto · tickets y gastos · accesos a servicios ·
-dominios, certificados y suscripciones · procedimientos · proyectos y decisiones · inventarios.
+dominios, certificados y suscripciones · procedimientos · proyectos y decisiones · inventarios · artículos y comunicación.
 
 **Son ejemplos ya trabajados, no un límite: cada uno construye su base con sus propios temas.** Al pegar el prompt
 inicial, Claude te los ofrece, te pregunta si alguno es tu caso y qué otros temas quieres llevar, y monta solo eso. Qué monta cada uno y qué preguntas responde: [`casos-de-uso.md`](casos-de-uso.md).

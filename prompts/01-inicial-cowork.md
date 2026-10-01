@@ -37,6 +37,8 @@ más adelante con una frase.
    8. Procedimientos            -> cómo se hace cada cosa, paso a paso.
    9. Proyectos y decisiones    -> estado, hitos y por qué se decidió cada cosa.
   10. Inventarios               -> equipos, licencias o software, siempre con fecha.
+  11. Artículos y comunicación  -> una guía de cómo escribo, un registro de lo publicado y
+                                   cada artículo con sus borradores, para escribir con mi voz.
 Si no he puesto áreas en [ÁREAS], propónmelas a partir de lo que elija. Y antes de crear cada
 caso, dime en una línea qué vas a crear para él.
 

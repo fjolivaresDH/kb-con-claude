@@ -1,6 +1,6 @@
 # Examples of what you can keep in the base
 
-Ten examples that come from a real base and already work. **They are not a limit: everyone builds their own base
+Eleven examples that come from a real base and already work. **They are not a limit: everyone builds their own base
 with their own topics.** When you paste the initial prompt, Claude offers them, asks whether any of them fits you and
 what other topics you want to keep, and **builds only what you are going to use**. The rest can be added when you
 need it, with one sentence.
@@ -17,6 +17,7 @@ need it, with one sentence.
 | **Procedures** | How each thing is done, step by step | *"How do we set up a new user?"* |
 | **Projects and decisions** | Status, milestones and why each thing was decided | *"Why did we rule out that option?"* · *"What do we have on hold?"* |
 | **Inventories** | Equipment, licenses or software, always dated | *"How many licenses do we have, and when was this last checked?"* |
+| **Articles and communication** | A guide to how you write —your tone, what you never use, what has already been corrected—, a register of what you have published and each article with its drafts | *"Write me a draft in my style"* · *"Which figures did I use in my last article, and where did they come from?"* |
 
 > 💡 **The real payoff is cross-checking them.** Each case works on its own, but the value appears when they come
 > together: an invoice that doesn't match any contract, a contract with no line in the budget, or a supplier who bills
