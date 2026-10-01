@@ -54,7 +54,7 @@ ninguna herramienta obligatoria. Eso da a la base cuatro propiedades:
 Y es tolerante: lo único obligatorio es que cada documento diga **qué tipo de cosa es**. Todo lo demás es opcional, así
 que se puede empezar con poco y ir creciendo.
 
-### Cuando la escribe un agente, guardar el texto no basta
+### Cada dato, con su origen, su fecha y su fiabilidad
 
 La especificación parte de la misma idea que este método. Una base que **mantiene un agente** tiene que poder decir,
 además de lo que sabe, de dónde lo sabe y cuánto vale. OKF v0.2 lo resuelve con campos en la cabecera de cada documento;
