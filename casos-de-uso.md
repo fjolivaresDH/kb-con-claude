@@ -1,0 +1,24 @@
+# Qué puedes llevar en la base
+
+Diez casos de uso que salen de una base real. **No hace falta elegirlos de antemano**: al pegar el prompt inicial,
+Claude te enseña esta lista, te pregunta cuáles son los tuyos y **monta solo lo que vayas a usar**. Lo demás se
+añade cuando haga falta, con una frase.
+
+| Caso | Qué monta | Preguntas que responde |
+|---|---|---|
+| **Proveedores y contactos** | Un directorio único: empresa, qué hace y quién es quién | *«¿Quién nos lleva el soporte de X?»* · *«¿Con quién hablo de la factura?»* |
+| **Contratos y vencimientos** | Un registro de contratos, en tabla y en JSON, con fechas, preavisos y renovaciones | *«¿Qué vence en los próximos seis meses?»* · *«¿Qué está sin firmar?»* |
+| **Facturas** | Un registro de facturas enlazado a su contrato | *«¿Cuánto llevamos pagado de esta bolsa de horas?»* · *«¿Qué pagamos sin contrato?»* |
+| **Presupuesto** | Un documento por año con las partidas, lo previsto y lo real, cruzado con contratos y facturas | *«¿Qué partidas suben y por qué?»* · *«¿Qué contratos no tienen partida?»* |
+| **Tickets y gastos** | La conciliación mensual de los cargos de una tarjeta con su justificante, y un registro de meses entregados | *«¿Qué cargos de este mes no tienen ticket?»* · *«¿Qué suscripciones van en la tarjeta equivocada?»* |
+| **Accesos a servicios** | Qué servicio, su dirección y con qué cuenta se entra. **Nunca contraseñas** | *«¿Con qué cuenta se entra en la consola de X?»* |
+| **Dominios, certificados y suscripciones** | Su calendario de renovaciones | *«¿Qué se renueva este trimestre, y con qué tarjeta?»* |
+| **Procedimientos** | Cómo se hace cada cosa, paso a paso | *«¿Cómo se da de alta a un usuario?»* |
+| **Proyectos y decisiones** | Estado, hitos y por qué se decidió cada cosa | *«¿Por qué descartamos aquella opción?»* · *«¿Qué tenemos parado?»* |
+| **Inventarios** | Equipos, licencias o software, siempre con fecha | *«¿Cuántas licencias tenemos, y desde cuándo no se revisa?»* |
+
+> 💡 **Lo que más rinde es cruzarlos.** Cada caso sirve solo, pero el valor aparece cuando se juntan: una factura
+> que no responde a ningún contrato, un contrato sin partida en el presupuesto o un proveedor que cobra y no está en
+> el directorio. Eso solo sale cuando la información está en el mismo sitio.
+
+Volver a la [portada](README.md) · [Guía de Cowork](guia-cowork.md) · [Guía de Claude Code](guia-claude-code.md)

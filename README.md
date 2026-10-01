@@ -21,6 +21,14 @@ Las dos montan la misma estructura sobre la misma carpeta, así que **se pueden 
 Se generan solas a partir de estos mismos archivos cada vez que se publica una versión, así que la web y el Word
 dicen siempre lo mismo.
 
+## Qué puedes llevar en ella
+
+Proveedores y contactos · contratos y vencimientos · facturas · presupuesto · tickets y gastos · accesos a servicios ·
+dominios, certificados y suscripciones · procedimientos · proyectos y decisiones · inventarios.
+
+**No hace falta elegir antes**: al pegar el prompt inicial, Claude te enseña la lista, te pregunta cuáles son los tuyos
+y monta solo esos. Qué monta cada uno y qué preguntas responde: [`casos-de-uso.md`](casos-de-uso.md).
+
 ## Los prompts, listos para copiar
 
 | Prompt | Cuándo |

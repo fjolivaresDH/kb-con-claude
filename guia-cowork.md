@@ -117,9 +117,10 @@ carpeta que acabas de crear. La primera vez te pedirá permiso; después la recu
 
 ## PARTE 2 — El prompt
 
-> ✏️ **Este prompt es un punto de partida, no una receta cerrada.** Adáptalo a tu trabajo con
-> total libertad: cambia las áreas, quita lo que no uses (si no manejas contratos ni facturas,
-> fuera la capa JSON), añade lo que te falte (un registro de clientes, de incidencias, de
+> ✏️ **Este prompt es un punto de partida, no una receta cerrada.** Lo primero que hace es
+> **enseñarte una lista de casos de uso** —proveedores, contratos, facturas, presupuesto, tickets,
+> accesos, dominios, procedimientos, proyectos e inventarios— y **preguntarte cuáles son los tuyos**:
+> monta solo esos. Aun así, adáptalo con total libertad: cambia las áreas, añade lo que te falte (un registro de clientes, de incidencias, de
 > reuniones…) y reescribe las reglas que no encajen con tu forma de trabajar. La estructura de
 > abajo es la que a nosotros nos funciona; **la buena es la que refleje tu día a día.**
 
@@ -145,6 +146,28 @@ https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md
 
 Aviso: las siglas "OKF" designan también otras cosas (por ejemplo la Open Knowledge
 Foundation). Usa exclusivamente la especificación del enlace anterior.
+
+ANTES DE CREAR NADA, PREGÚNTAME QUÉ VOY A GUARDAR.
+Enséñame esta lista y pregúntame cuáles son mi caso. Puedo elegir varios, ninguno o añadir
+otros. Espera mi respuesta y monta solo lo que necesite lo elegido: lo demás se podrá añadir
+más adelante con una frase.
+   1. Proveedores y contactos   -> un directorio único: empresa, qué hace y quién es quién.
+   2. Contratos y vencimientos  -> registro de contratos (tabla + JSON) con fechas, preavisos
+                                   y renovaciones.
+   3. Facturas                  -> registro de facturas (tabla + JSON) enlazado a su contrato.
+   4. Presupuesto               -> un documento por año con las partidas, lo previsto y lo
+                                   real, cruzado con contratos y facturas.
+   5. Tickets y gastos          -> conciliación mensual de los cargos de una tarjeta con su
+                                   justificante, y un registro de los meses entregados.
+   6. Accesos a servicios       -> qué servicio, su dirección y con qué cuenta se entra.
+                                   Nunca contraseñas.
+   7. Dominios, certificados    -> su calendario de renovaciones.
+      y suscripciones
+   8. Procedimientos            -> cómo se hace cada cosa, paso a paso.
+   9. Proyectos y decisiones    -> estado, hitos y por qué se decidió cada cosa.
+  10. Inventarios               -> equipos, licencias o software, siempre con fecha.
+Si no he puesto áreas en [ÁREAS], propónmelas a partir de lo que elija. Y antes de crear cada
+caso, dime en una línea qué vas a crear para él.
 
 REGLAS DE FORMATO (aplícalas siempre, también en el futuro):
 - Un tema = un archivo .md, con nombre en kebab-case (ejemplo: registro-facturas.md).
@@ -177,10 +200,14 @@ CREA ESTA ESTRUCTURA:
 4. _documentos/ con un README.md que explique que es el "buzón" donde se dejan los PDFs
    pendientes de procesar, y tres subcarpetas: facturas/, contratos/ y otros/ (esta última para
    todo lo que no sea ni factura ni contrato: certificados, ofertas, actas, informes, manuales…).
-5. _data/ con index.md, facturas.json y contratos.json (ver el apartado siguiente).
+5. _data/ con index.md, facturas.json y contratos.json, SOLO si he elegido contratos o
+   facturas (ver el apartado siguiente).
 6. Una carpeta por cada una de estas áreas, cada una con su index.md: [ÁREAS]
+7. Lo que pida cada caso elegido. Por ejemplo, para tickets y gastos, un procedimiento mensual
+   y un registro de meses entregados; para presupuesto, el documento del año en curso; para
+   accesos, una tabla de servicios sin ninguna contraseña.
 
-CAPA DE DATOS EN JSON (_data/):
+CAPA DE DATOS EN JSON (_data/) — SOLO SI HE ELEGIDO CONTRATOS O FACTURAS:
 Además de las tablas en Markdown, quiero los contratos y las facturas en JSON, porque son
 registros que se filtran, ordenan y suman. Crea los dos ficheros con el array vacío y un
 bloque "_meta" que documente el esquema, usando exactamente estos campos:
@@ -231,7 +258,7 @@ ejemplos de consulta y escribe estas dos reglas de mantenimiento:
    la fila del Markdown. Y si difieren: el JSON manda en los datos duros (fechas, importes,
    estados) y el Markdown manda en el relato (qué dice el contrato, qué cláusula importa).
 
-Crea también estos dos registros en Markdown, enlazados con sus JSON:
+Crea también, para los que haya elegido, estos registros en Markdown, enlazados con sus JSON:
 - Un registro de contratos (tabla: contrato, proveedor, objeto, empresa, fecha/estado,
   importe) más una sección "Vencimientos y renovaciones" para poder responder en cualquier
   momento a "qué vence en los próximos 6 meses".
@@ -333,7 +360,7 @@ son **registros** que además se filtran, se ordenan y se suman. Por eso viven e
 | **El JSON** | Consultar y cruzar: qué vence, cuánto se lleva pagado, qué está sin firmar. | **Los datos duros** (fechas, importes, estados) |
 
 Cuesta un poco más de mantenimiento —hay que tocar los dos— y a cambio te da respuestas que una
-tabla sola no puede dar. **Si no manejas contratos ni facturas, quita esta capa del prompt**: para
+tabla sola no puede dar. **Si no eliges contratos ni facturas al empezar, esta capa no se crea**: para
 un inventario o unas notas de reunión no compensa.
 
 > ⚠️ **La regla que evita el 90 % de los problemas: primero el JSON, después la fila.** Cuando esto

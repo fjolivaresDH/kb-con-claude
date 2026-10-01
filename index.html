@@ -36,6 +36,10 @@ td a{color:var(--accent);font-weight:600;text-decoration:none}
 .lead a{color:var(--accent);font-weight:600}
 code{font-family:ui-monospace,Consolas,monospace;font-size:.88em;background:var(--accent-l);color:var(--accent);padding:1px 6px;border-radius:4px}
 .tw{overflow-x:auto;border-radius:14px}
+.casos{grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.casos .card h3{font-size:.98rem}
+.casos .card p{font-size:.9rem}
+.casos .card p.q{margin-top:8px;color:var(--accent);font-style:italic}
 .grid4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
 footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
 footer a{color:var(--accent)}
@@ -57,6 +61,22 @@ footer a{color:var(--accent)}
 <a class="card path" href="guia-claude-code.html"><h3>Con Claude Code</h3><p>En la terminal o en la pestaña Code de la aplicación de escritorio. Añade utilidades propias y reglas que se cumplen solas.</p><span class="go">Leer la guía →</span></a>
 </div>
 <p class="note">Las dos montan la misma estructura sobre la misma carpeta, así que se pueden usar a la vez. ¿Prefieres un documento para imprimir o pasar a alguien? <a href="https://github.com/fjolivaresDH/kb-con-claude/releases/latest">Descarga las dos guías en Word</a>.</p>
+
+<h2>Qué puedes llevar en ella</h2>
+<p class="lead">No hace falta elegir antes: al pegar el prompt inicial, Claude te enseña esta lista, <b>te pregunta cuáles son los tuyos</b> y monta solo esos. Lo demás se añade cuando haga falta.</p>
+<div class="grid casos" style="margin-top:16px">
+<div class="card"><h3>Proveedores y contactos</h3><p>Quién es quién y qué hace cada uno.</p><p class="q">«¿Quién nos lleva el soporte de X?»</p></div>
+<div class="card"><h3>Contratos y vencimientos</h3><p>Fechas, preavisos y renovaciones.</p><p class="q">«¿Qué vence en seis meses?»</p></div>
+<div class="card"><h3>Facturas</h3><p>Cada una enlazada a su contrato.</p><p class="q">«¿Qué pagamos sin contrato?»</p></div>
+<div class="card"><h3>Presupuesto</h3><p>Partidas, previsto y real, cruzado con contratos.</p><p class="q">«¿Qué partidas suben y por qué?»</p></div>
+<div class="card"><h3>Tickets y gastos</h3><p>Cada cargo de la tarjeta con su justificante.</p><p class="q">«¿Qué cargos no tienen ticket?»</p></div>
+<div class="card"><h3>Accesos a servicios</h3><p>Dirección y cuenta. Nunca contraseñas.</p><p class="q">«¿Con qué cuenta se entra?»</p></div>
+<div class="card"><h3>Dominios y suscripciones</h3><p>El calendario de renovaciones.</p><p class="q">«¿Qué se renueva este trimestre?»</p></div>
+<div class="card"><h3>Procedimientos</h3><p>Cómo se hace cada cosa, paso a paso.</p><p class="q">«¿Cómo se da de alta un usuario?»</p></div>
+<div class="card"><h3>Proyectos y decisiones</h3><p>Estado, hitos y el porqué.</p><p class="q">«¿Por qué descartamos aquello?»</p></div>
+<div class="card"><h3>Inventarios</h3><p>Equipos y licencias, siempre con fecha.</p><p class="q">«¿Cuántas licencias tenemos?»</p></div>
+</div>
+<p class="note">Lo que más rinde es <b>cruzarlos</b>: una factura sin contrato, un contrato sin partida en el presupuesto o un proveedor que cobra y no está en el directorio solo aparecen cuando todo está en el mismo sitio. <a href="casos-de-uso.html">Qué monta cada caso</a>.</p>
 
 <h2>Tres principios</h2>
 <div class="grid">

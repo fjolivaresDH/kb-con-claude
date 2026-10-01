@@ -132,7 +132,8 @@ Es un único mensaje que crea la estructura entera: está en
 - `[ORGANIZACIÓN]` → el nombre de tu empresa, equipo o proyecto.
 - `[ÁREAS]` → las áreas que quieras, separadas por comas. Por ejemplo: `proveedores, sistemas, presupuestos, personas`.
 
-Y **adáptalo sin miedo**: si no llevas contratos ni facturas, quita esa parte; si te falta un registro de reuniones o
+Lo primero que hace es **enseñarte la [lista de casos de uso](casos-de-uso.md) y preguntarte cuáles son los tuyos**, y
+monta solo esos. Y **adáptalo sin miedo**: si te falta un registro de reuniones o
 de incidencias, añádelo. La estructura buena es la que refleja tu día a día.
 
 ### Qué crea
