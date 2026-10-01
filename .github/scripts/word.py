@@ -16,6 +16,10 @@ WEB = "https://fjolivaresdh.github.io/kb-con-claude"
 RAIZ = pathlib.Path(__file__).resolve().parents[2]
 DIST = RAIZ / "dist"
 TMP = RAIZ / "dist" / "tmp"
+# Página A4 con márgenes de 2,5 cm (pandoc trae carta americana).
+A4 = ('<w:sectPr><w:pgSz w:w="11906" w:h="16838"/>'
+      '<w:pgMar w:top="1418" w:right="1418" w:bottom="1418" w:left="1418" '
+      'w:header="709" w:footer="709" w:gutter="0"/></w:sectPr>')
 
 
 def enlaces_a_la_web(md):
@@ -63,6 +67,19 @@ def documento_de_referencia():
     return salida
 
 
+def pagina_a4(docx):
+    tmp = docx.with_suffix(".tmp")
+    with zipfile.ZipFile(docx) as zin, zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as zout:
+        for item in zin.infolist():
+            datos = zin.read(item.filename)
+            if item.filename == "word/document.xml":
+                xml = re.sub(r"<w:sectPr\b(?:[^>]*/>|.*?</w:sectPr>)", A4,
+                             datos.decode("utf-8"), flags=re.S)
+                datos = xml.encode("utf-8")
+            zout.writestr(item, datos)
+    tmp.replace(docx)
+
+
 def ajustar_tamano(xml, estilo, medios_puntos):
     patron = re.compile(r'(<w:style\b[^>]*w:styleId="%s"[^>]*>)(.*?)(</w:style>)' % estilo, re.S)
     m = patron.search(xml)
@@ -86,6 +103,7 @@ def generar(fuente, destino, version, fecha, ref, anexo=""):
     tmp.write_text(md, encoding="utf-8")
     subprocess.run(["pandoc", str(tmp), "-f", "gfm", "-o", str(DIST / destino),
                     "--reference-doc", str(ref), "--resource-path", str(RAIZ)], check=True)
+    pagina_a4(DIST / destino)
     print("OK", DIST / destino)
 
 
