@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Base de conocimiento con Claude</title>
+<meta name="description" content="Cómo montar una base de conocimiento de trabajo que Claude ordena, cruza y mantiene al día. Guías y prompts para Cowork y Claude Code.">
+<style>
+:root{--bg:#f7f6f2;--card:#ffffff;--ink:#1f1e1b;--muted:#5f5e5a;--line:#e3e1d9;--accent:#0f6e56;--accent-l:#e1f5ee;--warm:#993c1d;--warm-l:#faece7}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a1a18;--card:#242422;--ink:#f1efe8;--muted:#b4b2a9;--line:#3a3936;--accent:#5dcaa5;--accent-l:#123a30;--warm:#f0997b;--warm-l:#3d2117}}
+:root[data-theme="dark"]{--bg:#1a1a18;--card:#242422;--ink:#f1efe8;--muted:#b4b2a9;--line:#3a3936;--accent:#5dcaa5;--accent-l:#123a30;--warm:#f0997b;--warm-l:#3d2117}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:0 16px 64px}
+header{padding:56px 0 28px}
+h1{font-size:clamp(2rem,5vw,3.1rem);line-height:1.08;margin:0 0 14px;letter-spacing:-.015em}
+.lead{font-size:1.15rem;color:var(--muted);max-width:62ch;margin:0}
+h2{font-size:1.35rem;margin:44px 0 14px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.card h3{margin:0 0 6px;font-size:1.05rem}
+.card p{margin:0;color:var(--muted)}
+.path{display:block;text-decoration:none;color:inherit;border-top:4px solid var(--accent);transition:border-color .2s}
+.path:hover,.path:focus-visible{border-color:var(--warm);outline:none}
+.path .go{display:inline-block;margin-top:12px;color:var(--accent);font-weight:600}
+.num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--accent-l);color:var(--accent);font-weight:700;margin-bottom:8px}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:.95rem}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--accent-l);color:var(--accent);font-size:.85rem}
+td a{color:var(--accent);font-weight:600;text-decoration:none}
+.note{background:var(--warm-l);border-left:4px solid var(--warm);padding:12px 16px;margin-top:16px;color:var(--ink)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:18px}
+.flow span{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.92rem}
+.flow i{font-style:normal;color:var(--muted)}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}
+footer a{color:var(--accent)}
+@media (max-width:600px){header{padding-top:36px}th,td{padding:8px 10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+<h1>Tu base de conocimiento, mantenida por Claude</h1>
+<p class="lead">Una carpeta de archivos de texto donde Claude guarda lo que le cuentas —proveedores, contratos, accesos, decisiones, pendientes—, cada dato con su fecha y su origen, y que te avisa de lo que vence y de lo que no cuadra.</p>
+<div class="flow"><span>Le cuentas algo</span><i>→</i><span>Lo archiva en su sitio</span><i>→</i><span>Actualiza lo relacionado</span><i>→</i><span>Te avisa si contradice algo</span></div>
+</header>
+
+<h2>Por dónde empezar</h2>
+<div class="grid">
+<a class="card path" href="guia-cowork.html"><h3>Con Claude Cowork</h3><p>Sin instalar nada. Creas una carpeta, la añades a un proyecto y pegas un prompt.</p><span class="go">Leer la guía →</span></a>
+<a class="card path" href="guia-claude-code.html"><h3>Con Claude Code</h3><p>En la terminal o en la pestaña Code de la aplicación de escritorio. Añade utilidades propias y reglas que se cumplen solas.</p><span class="go">Leer la guía →</span></a>
+</div>
+<p class="note">Las dos montan la misma estructura sobre la misma carpeta, así que se pueden usar a la vez.</p>
+
+<h2>Tres principios</h2>
+<div class="grid">
+<div class="card"><div class="num">1</div><h3>Se captura cuando ocurre</h3><p>Se le cuenta a Claude en el chat, sin formularios. Lo que no se apunta en el momento se pierde.</p></div>
+<div class="card"><div class="num">2</div><h3>Cada dato, con fecha y prueba</h3><p>Sin fecha no se sabe si está caducado; sin origen no se puede comprobar.</p></div>
+<div class="card"><div class="num">3</div><h3>Una sola fuente, con dueño</h3><p>Cada cosa vive en un documento, y los demás la enlazan en vez de copiarla.</p></div>
+</div>
+
+<h2>Los prompts, listos para copiar</h2>
+<table>
+<thead><tr><th>Prompt</th><th>Cuándo</th></tr></thead>
+<tbody>
+<tr><td><a href="prompts/01-inicial-cowork.html">Inicial · Cowork</a></td><td>El primer día</td></tr>
+<tr><td><a href="prompts/02-inicial-claude-code.html">Inicial · Claude Code</a></td><td>El primer día</td></tr>
+<tr><td><a href="prompts/03-crecimiento.html">Crecimiento</a></td><td>Semanas después: vistas generadas, cruces y consultas</td></tr>
+<tr><td><a href="prompts/04-hooks-claude-code.html">Hooks · Claude Code</a></td><td>Para que las reglas se cumplan solas</td></tr>
+<tr><td><a href="prompts/05-bitacora.html">Bitácora</a></td><td>Si trabajas desde más de un equipo</td></tr>
+</tbody>
+</table>
+
+<h2>Lo que aprendimos rompiéndolo</h2>
+<div class="grid">
+<div class="card"><h3>Una alarma falsa apaga las demás</h3><p>Antes de marcar algo como urgente, comprueba si se renueva solo.</p></div>
+<div class="card"><h3>Lo que se responde en el chat se evapora</h3><p>Si una respuesta ha costado trabajo, se archiva como documento.</p></div>
+<div class="card"><h3>La base solo sabe lo que pasa por ella</h3><p>Cinco minutos a la semana contándole lo que no pasó por el chat.</p></div>
+</div>
+
+<footer>
+Formato de documentos: <a href="https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md">Open Knowledge Format (OKF) v0.2</a>. Autor: Francisco Javier Rivas Olivares · Licencia: <a href="LICENSE">CC BY 4.0</a>.
+</footer>
+
+</div>
+</body>
+</html>

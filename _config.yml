@@ -1,0 +1,11 @@
+title: Base de conocimiento con Claude
+description: Guías y prompts para montar una base de conocimiento que Claude ordena, cruza y mantiene al día.
+lang: es
+theme: minima
+plugins:
+  - jekyll-relative-links
+relative_links:
+  enabled: true
+  collections: false
+exclude:
+  - img/*.svg
