@@ -48,9 +48,8 @@ def documento_de_referencia():
     """La plantilla de estilos de pandoc, con el código a 7,5 pt: las líneas del prompt rondan
     los 95 caracteres y a tamaño normal se parten."""
     ref = TMP / "ref.docx"
-    with open(ref, "wb") as f:
-        subprocess.run(["pandoc", "-o", "-", "--print-default-data-file", "reference.docx"],
-                       stdout=f, check=True)
+    subprocess.run(["pandoc", "-o", str(ref), "--print-default-data-file", "reference.docx"],
+                   check=True)
     salida = TMP / "ref-ajustada.docx"
     with zipfile.ZipFile(ref) as zin, zipfile.ZipFile(salida, "w", zipfile.ZIP_DEFLATED) as zout:
         for item in zin.infolist():
