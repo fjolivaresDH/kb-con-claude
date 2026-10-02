@@ -1,57 +1,61 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
-  <rect x="0" y="0" width="900" height="500" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 566">
+  <rect x="0" y="0" width="900" height="566" fill="#ffffff"/>
   <text x="450" y="30" text-anchor="middle" font-family="Arial" font-size="19" font-weight="bold" fill="#1a2a3a">Qué crea el prompt, y para qué sirve cada cosa</text>
   <text x="450" y="52" text-anchor="middle" font-family="Arial" font-size="12" font-style="italic" fill="#8a94a0">Diagrama ilustrativo (no es una captura de pantalla)</text>
 
-  <rect x="28" y="72" width="430" height="72" rx="8" fill="#f4f7fa"/>
-  <rect x="28" y="150" width="430" height="98" rx="8" fill="#fff5e8"/>
-  <rect x="28" y="254" width="430" height="76" rx="8" fill="#e7f7f1"/>
-  <rect x="28" y="336" width="430" height="130" rx="8" fill="#eef4fb"/>
+  <rect x="28" y="72" width="430" height="138" rx="8" fill="#f4f7fa"/>
+  <rect x="28" y="216" width="430" height="98" rx="8" fill="#fff5e8"/>
+  <rect x="28" y="320" width="430" height="76" rx="8" fill="#e7f7f1"/>
+  <rect x="28" y="402" width="430" height="130" rx="8" fill="#eef4fb"/>
 
   <text x="44" y="94" font-family="Courier New" font-size="15" font-weight="bold" fill="#1a2a3a">MiConocimiento/</text>
   <text x="44" y="118" font-family="Courier New" font-size="14" fill="#33475b">├── index.md</text>
   <text x="44" y="140" font-family="Courier New" font-size="14" fill="#33475b">├── log.md</text>
+  <text x="44" y="162" font-family="Courier New" font-size="14" fill="#33475b">├── CONVENCIONES.md</text>
+  <text x="44" y="184" font-family="Courier New" font-size="14" fill="#33475b">├── CLAUDE.md</text>
+  <text x="44" y="206" font-family="Courier New" font-size="14" fill="#33475b">├── _plantillas/</text>
 
-  <text x="44" y="174" font-family="Courier New" font-size="14" font-weight="bold" fill="#7a4a10">├── _documentos/</text>
-  <text x="44" y="196" font-family="Courier New" font-size="14" fill="#7a4a10">│   ├── facturas/</text>
-  <text x="44" y="218" font-family="Courier New" font-size="14" fill="#7a4a10">│   ├── contratos/</text>
-  <text x="44" y="240" font-family="Courier New" font-size="14" fill="#7a4a10">│   └── otros/</text>
+  <text x="44" y="240" font-family="Courier New" font-size="14" font-weight="bold" fill="#7a4a10">├── _documentos/</text>
+  <text x="44" y="262" font-family="Courier New" font-size="14" fill="#7a4a10">│   ├── facturas/</text>
+  <text x="44" y="284" font-family="Courier New" font-size="14" fill="#7a4a10">│   ├── contratos/</text>
+  <text x="44" y="306" font-family="Courier New" font-size="14" fill="#7a4a10">│   └── otros/</text>
 
-  <text x="44" y="278" font-family="Courier New" font-size="14" font-weight="bold" fill="#0f5e4b">├── _data/</text>
-  <text x="44" y="300" font-family="Courier New" font-size="14" fill="#0f5e4b">│   ├── facturas.json</text>
-  <text x="44" y="322" font-family="Courier New" font-size="14" fill="#0f5e4b">│   └── contratos.json</text>
+  <text x="44" y="344" font-family="Courier New" font-size="14" font-weight="bold" fill="#0f5e4b">├── _data/</text>
+  <text x="44" y="366" font-family="Courier New" font-size="14" fill="#0f5e4b">│   ├── facturas.json</text>
+  <text x="44" y="388" font-family="Courier New" font-size="14" fill="#0f5e4b">│   └── contratos.json</text>
 
-  <text x="44" y="360" font-family="Courier New" font-size="14" font-weight="bold" fill="#254a72">├── clientes/</text>
-  <text x="44" y="382" font-family="Courier New" font-size="14" fill="#254a72">│   ├── index.md</text>
-  <text x="44" y="404" font-family="Courier New" font-size="14" fill="#254a72">│   └── directorio.md</text>
-  <text x="44" y="426" font-family="Courier New" font-size="14" font-weight="bold" fill="#254a72">└── procesos/</text>
-  <text x="44" y="448" font-family="Courier New" font-size="14" fill="#254a72">    └── index.md</text>
+  <text x="44" y="426" font-family="Courier New" font-size="14" font-weight="bold" fill="#254a72">├── clientes/</text>
+  <text x="44" y="448" font-family="Courier New" font-size="14" fill="#254a72">│   ├── index.md</text>
+  <text x="44" y="470" font-family="Courier New" font-size="14" fill="#254a72">│   └── directorio.md</text>
+  <text x="44" y="492" font-family="Courier New" font-size="14" font-weight="bold" fill="#254a72">└── procesos/</text>
+  <text x="44" y="514" font-family="Courier New" font-size="14" fill="#254a72">    └── index.md</text>
 
-  <path d="M 458 108 L 492 108" stroke="#9bb0c4" stroke-width="2"/>
-  <path d="M 458 199 L 492 199" stroke="#e08a2b" stroke-width="2"/>
-  <path d="M 458 292 L 492 292" stroke="#178a6e" stroke-width="2"/>
-  <path d="M 458 401 L 492 401" stroke="#3b7dd8" stroke-width="2"/>
+  <path d="M 458 141 L 492 141" stroke="#9bb0c4" stroke-width="2"/>
+  <path d="M 458 265 L 492 265" stroke="#e08a2b" stroke-width="2"/>
+  <path d="M 458 358 L 492 358" stroke="#178a6e" stroke-width="2"/>
+  <path d="M 458 467 L 492 467" stroke="#3b7dd8" stroke-width="2"/>
 
-  <rect x="492" y="78" width="386" height="60" rx="8" fill="#ffffff" stroke="#9bb0c4" stroke-width="1.5"/>
-  <text x="506" y="100" font-family="Arial" font-size="14" font-weight="bold" fill="#1a2a3a">La base</text>
-  <text x="506" y="120" font-family="Arial" font-size="12.5" fill="#33475b">Índice de todo y diario de cambios. Solo el índice</text>
-  <text x="506" y="134" font-family="Arial" font-size="12.5" fill="#33475b">raíz lleva frontmatter.</text>
+  <rect x="492" y="103" width="386" height="76" rx="8" fill="#ffffff" stroke="#9bb0c4" stroke-width="1.5"/>
+  <text x="506" y="125" font-family="Arial" font-size="14" font-weight="bold" fill="#1a2a3a">La base</text>
+  <text x="506" y="145" font-family="Arial" font-size="12.5" fill="#33475b">Índice, diario de cambios, reglas de formato</text>
+  <text x="506" y="159" font-family="Arial" font-size="12.5" fill="#33475b">completas (CONVENCIONES.md), tu resumen de reglas</text>
+  <text x="506" y="173" font-family="Arial" font-size="12.5" fill="#33475b">(CLAUDE.md) y las plantillas de documento.</text>
 
-  <rect x="492" y="163" width="386" height="72" rx="8" fill="#ffffff" stroke="#e08a2b" stroke-width="1.5"/>
-  <text x="506" y="185" font-family="Arial" font-size="14" font-weight="bold" fill="#7a4a10">Los documentos originales</text>
-  <text x="506" y="205" font-family="Arial" font-size="12.5" fill="#5c3c0e">Aquí dejas los PDFs tal cual te llegan. Solo tres</text>
-  <text x="506" y="222" font-family="Arial" font-size="12.5" fill="#5c3c0e">destinos: ¿factura? ¿contrato? si no, «otros».</text>
+  <rect x="492" y="229" width="386" height="72" rx="8" fill="#ffffff" stroke="#e08a2b" stroke-width="1.5"/>
+  <text x="506" y="251" font-family="Arial" font-size="14" font-weight="bold" fill="#7a4a10">El buzón de entrada</text>
+  <text x="506" y="271" font-family="Arial" font-size="12.5" fill="#5c3c0e">Aquí dejas los PDFs por procesar. Solo tres</text>
+  <text x="506" y="288" font-family="Arial" font-size="12.5" fill="#5c3c0e">destinos: ¿factura? ¿contrato? si no, «otros».</text>
 
-  <rect x="492" y="260" width="386" height="64" rx="8" fill="#ffffff" stroke="#178a6e" stroke-width="1.5"/>
-  <text x="506" y="282" font-family="Arial" font-size="14" font-weight="bold" fill="#0f5e4b">Los datos consultables</text>
-  <text x="506" y="302" font-family="Arial" font-size="12.5" fill="#1a4a3d">Facturas y contratos en JSON: para filtrar,</text>
-  <text x="506" y="319" font-family="Arial" font-size="12.5" fill="#1a4a3d">ordenar y sumar (&#171;qué vence en 6 meses&#187;).</text>
+  <rect x="492" y="326" width="386" height="64" rx="8" fill="#ffffff" stroke="#178a6e" stroke-width="1.5"/>
+  <text x="506" y="348" font-family="Arial" font-size="14" font-weight="bold" fill="#0f5e4b">Los datos consultables</text>
+  <text x="506" y="368" font-family="Arial" font-size="12.5" fill="#1a4a3d">Solo si llevas contratos o facturas: en JSON,</text>
+  <text x="506" y="385" font-family="Arial" font-size="12.5" fill="#1a4a3d">para filtrar, ordenar y sumar (&#171;qué vence en 6 meses&#187;).</text>
 
-  <rect x="492" y="360" width="386" height="80" rx="8" fill="#ffffff" stroke="#3b7dd8" stroke-width="1.5"/>
-  <text x="506" y="382" font-family="Arial" font-size="14" font-weight="bold" fill="#254a72">Tus áreas temáticas</text>
-  <text x="506" y="402" font-family="Arial" font-size="12.5" fill="#33475b">Una carpeta por tema, con su índice dentro.</text>
-  <text x="506" y="419" font-family="Arial" font-size="12.5" fill="#33475b">Aquí vive el conocimiento en prosa: conceptos,</text>
-  <text x="506" y="436" font-family="Arial" font-size="12.5" fill="#33475b">procedimientos, decisiones y su contexto.</text>
+  <rect x="492" y="426" width="386" height="80" rx="8" fill="#ffffff" stroke="#3b7dd8" stroke-width="1.5"/>
+  <text x="506" y="448" font-family="Arial" font-size="14" font-weight="bold" fill="#254a72">Tus áreas temáticas</text>
+  <text x="506" y="468" font-family="Arial" font-size="12.5" fill="#33475b">Una carpeta por tema, con su índice dentro.</text>
+  <text x="506" y="485" font-family="Arial" font-size="12.5" fill="#33475b">Aquí vive el conocimiento en prosa: conceptos,</text>
+  <text x="506" y="502" font-family="Arial" font-size="12.5" fill="#33475b">procedimientos, decisiones y su contexto.</text>
 
-  <text x="450" y="486" text-anchor="middle" font-family="Arial" font-size="11.5" fill="#6b7a8d">Las carpetas que empiezan por _ son de servicio. Las reglas de formato se editan en «Instrucciones» del proyecto (se guardan como CLAUDE.md).</text>
+  <text x="450" y="552" text-anchor="middle" font-family="Arial" font-size="11.5" fill="#6b7a8d">Las carpetas que empiezan por _ son de servicio. Las reglas completas están en CONVENCIONES.md; su resumen, en «Instrucciones» (CLAUDE.md).</text>
 </svg>

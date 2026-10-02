@@ -1,6 +1,6 @@
 # Prompt inicial · Cowork
 
-Pégalo en un proyecto nuevo de Cowork con la carpeta vacía ya añadida. Antes, sustituye `[ORGANIZACIÓN]` y `[ÁREAS]`. Explicación completa en la [guía de Cowork](../guia-cowork.md).
+Pégalo en un proyecto nuevo de Cowork con la carpeta vacía ya añadida. Antes, sustituye `[ORGANIZACIÓN]`; `[ÁREAS]` es opcional: si lo dejas, Claude te propone las áreas. Explicación completa en la [guía de Cowork](../guia-cowork.md).
 
 ```
 Quiero que construyas en esta carpeta una base de conocimiento para [ORGANIZACIÓN].
@@ -66,7 +66,9 @@ REGLAS DE FORMATO (aplícalas siempre, también en el futuro):
 CREA ESTA ESTRUCTURA:
 1. index.md en la raíz: índice general, con la lista de áreas y cómo está organizado todo
    (su único frontmatter es okf_version: "0.2").
-2. log.md en la raíz: diario de cambios (empieza con la línea de la creación inicial).
+2. log.md en la raíz: diario de cambios (empieza con la línea de la creación inicial), y
+   CONVENCIONES.md, también en la raíz, con las reglas de formato completas: es el "documento
+   de convenciones" que se cita más arriba.
 3. _plantillas/ con index.md y una plantilla vacía por cada tipo, lista para copiar:
    referencia.md, procedimiento.md, herramienta.md y concepto.md. Cada una con su frontmatter de
    ejemplo, y el "type" de cada plantilla debe ser el suyo (la de concepto dice Concepto, no otro).

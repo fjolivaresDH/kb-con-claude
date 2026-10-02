@@ -1,6 +1,6 @@
 # Prompt inicial · Claude Code
 
-Pégalo en Claude Code, dentro de la carpeta vacía. Antes, sustituye `[ORGANIZACIÓN]` y `[ÁREAS]`. Es el mismo que el de Cowork, pero deja las reglas en un `CLAUDE.md`. Explicación en la [guía de Claude Code](../guia-claude-code.md).
+Pégalo en Claude Code, dentro de la carpeta vacía. Antes, sustituye `[ORGANIZACIÓN]`; `[ÁREAS]` es opcional: si lo dejas, Claude te propone las áreas. Es el mismo que el de Cowork, pero deja las reglas en un `CLAUDE.md`. Explicación en la [guía de Claude Code](../guia-claude-code.md).
 
 ```
 Quiero que construyas en esta carpeta una base de conocimiento para [ORGANIZACIÓN].
@@ -66,7 +66,9 @@ REGLAS DE FORMATO (aplícalas siempre, también en el futuro):
 CREA ESTA ESTRUCTURA:
 1. index.md en la raíz: índice general, con la lista de áreas y cómo está organizado todo
    (su único frontmatter es okf_version: "0.2").
-2. log.md en la raíz: diario de cambios (empieza con la línea de la creación inicial).
+2. log.md en la raíz: diario de cambios (empieza con la línea de la creación inicial), y
+   CONVENCIONES.md, también en la raíz, con las reglas de formato completas: es el "documento
+   de convenciones" que se cita más arriba.
 3. _plantillas/ con index.md y una plantilla vacía por cada tipo, lista para copiar:
    referencia.md, procedimiento.md, herramienta.md y concepto.md. Cada una con su frontmatter de
    ejemplo, y el "type" de cada plantilla debe ser el suyo (la de concepto dice Concepto, no otro).
@@ -207,6 +209,6 @@ Cuando termines:
 2. Crea en la raíz un CLAUDE.md, que es lo que Claude Code lee al abrir cada sesión: un resumen de
    todas las reglas anteriores como instrucciones permanentes (máximo 20 líneas, dirigiéndote a ti
    mismo en segunda persona, sin adornos), y que importe el índice y las convenciones con dos
-   líneas "@index.md" y "@CONVENCIONES.md". Pon las reglas de formato completas en CONVENCIONES.md.
+   líneas "@index.md" y "@CONVENCIONES.md".
 3. Dime cómo empezamos a cargar conocimiento.
 ```

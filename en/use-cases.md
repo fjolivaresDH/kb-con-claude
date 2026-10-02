@@ -9,7 +9,7 @@ need it, with one sentence.
 |---|---|---|
 | **Suppliers and contacts** | A single directory: company, what it does and who is who | *"Who handles our support for X?"* · *"Who do I talk to about the invoice?"* |
 | **Contracts and expiry dates** | A contract register, as a table and in JSON, with dates, notice periods and renewals | *"What expires in the next six months?"* · *"What is unsigned?"* |
-| **Invoices** | An invoice register linked to its contract | *"How much have we paid so far from this bank of hours?"* · *"What are we paying without a contract?"* |
+| **Invoices** | A register of invoices, in a table and in JSON, linked to its contract | *"How much have we paid so far from this bank of hours?"* · *"What are we paying without a contract?"* |
 | **Budget** | One document per year with the budget lines, planned and actual, cross-checked with contracts and invoices | *"Which lines go up, and why?"* · *"Which contracts have no budget line?"* |
 | **Receipts and expenses** | The monthly reconciliation of a card's charges with their receipts, and a register of months handed in | *"Which charges this month have no receipt?"* · *"Which subscriptions are on the wrong card?"* |
 | **Access to services** | Which service, its address and which account you sign in with. **Never passwords** | *"Which account do we use to sign in to the X console?"* |

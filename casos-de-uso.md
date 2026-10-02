@@ -8,7 +8,7 @@ quieres llevar, y **monta solo lo que vayas a usar**. Lo demás se añade cuando
 |---|---|---|
 | **Proveedores y contactos** | Un directorio único: empresa, qué hace y quién es quién | *«¿Quién nos lleva el soporte de X?»* · *«¿Con quién hablo de la factura?»* |
 | **Contratos y vencimientos** | Un registro de contratos, en tabla y en JSON, con fechas, preavisos y renovaciones | *«¿Qué vence en los próximos seis meses?»* · *«¿Qué está sin firmar?»* |
-| **Facturas** | Un registro de facturas enlazado a su contrato | *«¿Cuánto llevamos pagado de esta bolsa de horas?»* · *«¿Qué pagamos sin contrato?»* |
+| **Facturas** | Un registro de facturas, en tabla y en JSON, enlazado a su contrato | *«¿Cuánto llevamos pagado de esta bolsa de horas?»* · *«¿Qué pagamos sin contrato?»* |
 | **Presupuesto** | Un documento por año con las partidas, lo previsto y lo real, cruzado con contratos y facturas | *«¿Qué partidas suben y por qué?»* · *«¿Qué contratos no tienen partida?»* |
 | **Tickets y gastos** | La conciliación mensual de los cargos de una tarjeta con su justificante, y un registro de meses entregados | *«¿Qué cargos de este mes no tienen ticket?»* · *«¿Qué suscripciones van en la tarjeta equivocada?»* |
 | **Accesos a servicios** | Qué servicio, su dirección y con qué cuenta se entra. **Nunca contraseñas** | *«¿Con qué cuenta se entra en la consola de X?»* |

@@ -1,6 +1,6 @@
 # Hooks prompt · Claude Code
 
-So that Claude Code enforces the rules that get forgotten most: regenerating the views, warning about changes not noted down and not editing generated files by hand.
+So that Claude Code enforces the rules that get forgotten most: regenerating the views, warning about changes not noted down and not editing generated files by hand. **Paste it after the growth prompt (03)**, which is the one that creates the views.
 
 ```
 I want Claude Code, not my memory, to enforce the rules that get forgotten most.
@@ -11,7 +11,7 @@ Create two Python scripts in _tools/:
    - regenerates the views if there are documents newer than _catalog.md;
    - warns if documents have been touched after the last entry in log.md;
    - looks for patterns of passwords, keys or tokens in what was just written;
-   - warns if documents have been touched today and handoff.md has no entry for today.
+   - if handoff.md exists, warns when documents have been touched today and it has no entry for today.
    It should only speak when there is something to say, returning a JSON with "systemMessage".
 
 2. protect_views.py, which DENIES editing by hand any of the generated views

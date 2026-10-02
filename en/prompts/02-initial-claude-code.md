@@ -1,6 +1,6 @@
 # Initial prompt · Claude Code
 
-Paste it into Claude Code, inside the empty folder. First, replace `[ORGANIZATION]` and `[AREAS]`. It is the same as the Cowork one, but it leaves the rules in a `CLAUDE.md`. Explanation in the [Claude Code guide](../guide-claude-code.md).
+Paste it into Claude Code, inside the empty folder. First, replace `[ORGANIZATION]`; `[AREAS]` is optional: if you leave it, Claude proposes the areas. It is the same as the Cowork one, but it leaves the rules in a `CLAUDE.md`. Explanation in the [Claude Code guide](../guide-claude-code.md).
 
 ```
 I want you to build a knowledge base for [ORGANIZATION] in this folder.
@@ -66,7 +66,9 @@ FORMATTING RULES (always apply them, in the future too):
 CREATE THIS STRUCTURE:
 1. index.md at the root: general index, with the list of areas and how everything is organized
    (its only frontmatter is okf_version: "0.2").
-2. log.md at the root: change diary (it starts with the line for the initial creation).
+2. log.md at the root: change diary (it starts with the line for the initial creation), and
+   CONVENTIONS.md, also at the root, with the full formatting rules: it is the "conventions
+   document" cited above.
 3. _templates/ with index.md and one empty template per type, ready to copy:
    reference.md, procedure.md, tool.md and concept.md. Each one with its example frontmatter,
    and the "type" of each template must be its own (the concept one says Concept, not another).
@@ -207,6 +209,6 @@ When you finish:
 2. Create a CLAUDE.md at the root, which is what Claude Code reads when it opens each session: a summary of
    all the rules above as standing instructions (20 lines at most, addressing yourself
    in the second person, without embellishments), and have it import the index and the conventions with two
-   lines "@index.md" and "@CONVENTIONS.md". Put the full formatting rules in CONVENTIONS.md.
+   lines "@index.md" and "@CONVENTIONS.md".
 3. Tell me how we start loading knowledge.
 ```

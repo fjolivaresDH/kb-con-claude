@@ -1,6 +1,6 @@
 # Prompt de los hooks · Claude Code
 
-Para que las reglas que más se olvidan las haga cumplir Claude Code: regenerar las vistas, avisar de cambios sin anotar y no editar a mano lo generado.
+Para que las reglas que más se olvidan las haga cumplir Claude Code: regenerar las vistas, avisar de cambios sin anotar y no editar a mano lo generado. **Se pega después del prompt de crecimiento (03)**, que es el que crea las vistas.
 
 ```
 Quiero que las reglas que más se olvidan las haga cumplir Claude Code, no mi memoria.
@@ -11,7 +11,7 @@ Crea en _herramientas/ dos scripts en Python:
    - regenera las vistas si hay documentos más nuevos que _catalogo.md;
    - avisa si se han tocado documentos después de la última entrada de log.md;
    - busca patrones de contraseñas, claves o tokens en lo recién escrito;
-   - avisa si hoy se han tocado documentos y bitacora.md no tiene entrada de hoy.
+   - si existe bitacora.md, avisa cuando hoy se han tocado documentos y no tiene entrada de hoy.
    Que solo hable cuando haya algo que decir, devolviendo un JSON con "systemMessage".
 
 2. proteger_vistas.py, que DENIEGA editar a mano cualquiera de las vistas generadas

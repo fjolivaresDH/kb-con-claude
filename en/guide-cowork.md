@@ -1,4 +1,4 @@
-# Build your knowledge base in Cowork — in 2 steps
+# Build your knowledge base in Cowork
 
 *A practical guide, from an empty folder to a base that keeps itself up to date.*
 
@@ -79,8 +79,9 @@ It does not need a project. It needs you to start and keep telling it things.
 
 ---
 
-This document has **two parts**: first you prepare the folder (5 minutes), and then you paste
-**a single prompt** into Claude Cowork that creates the whole structure in one go.
+To get started there are **two parts**: first you prepare the folder (5 minutes), and then you paste
+**a prompt** into Claude Cowork that asks what you are going to keep and sets up only that. Weeks
+later, once the base has content, there is a **third part** with the tools that keep it maintained.
 
 ![The 6 steps, from an empty folder to a working knowledge base](img/01-six-steps.png)
 
@@ -122,43 +123,44 @@ have just created. The first time it will ask for permission; after that it reme
 > meetings…) and rewrite the rules that do not fit the way you work. The structure below is the
 > one that works for us; **the right one is the one that reflects your day-to-day.**
 
-**Before pasting it, replace what is in square brackets:**
+**Before pasting it, replace `[ORGANIZATION]` (and, if you want, `[AREAS]`):**
 
 - `[ORGANIZATION]` → the name of your company, team or project.
 - `[AREAS]` → the subject areas you want, separated by commas
-  (example: `customers, suppliers, finance, processes, people`).
+  (example: `customers, suppliers, finance, processes, people`). **It is optional**: if you leave it
+  as is, Claude proposes them based on what you choose.
 
 Copy the whole block below and paste it into Cowork:
 
 ```
 I want you to build a knowledge base for [ORGANIZATION] in this folder.
 
-What I want it for: for you to act as an assistant that holds on to everything I find hard to
-remember or that I have scattered across emails, folders, spreadsheets and different programs
-—expiries, access, decisions and why they were made, contacts, project status—. You store it
-in its place and keep a record, so I can ask you about it later or read it directly.
+What I want it for: for you to act as an assistant that keeps everything I find hard to remember or
+have scattered across emails, folders, spreadsheets and different programs —expiry dates,
+access details, decisions and why they were made, contacts, project status—. You store it in its
+place and keep a record, so that I can ask you about it later or read it directly.
 
-Use the OKF format (Google Cloud's Open Knowledge Format). This is the specification; read it
-before you start:
+Use the OKF format (Google Cloud's Open Knowledge Format). This is the specification;
+read it before you start:
 https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md
 
 Note: the acronym "OKF" also refers to other things (for example the Open Knowledge
 Foundation). Use only the specification at the link above.
 
-BEFORE CREATING ANYTHING, ASK ME WHAT I AM GOING TO STORE.
+BEFORE YOU CREATE ANYTHING, ASK ME WHAT I AM GOING TO KEEP.
 These are examples that already work, not a closed list: the base is mine and I build it with
 my own topics. Show them to me, ask whether any of them fits me and what other topics I want to
 keep. Wait for my answer and build only what the chosen ones need: the rest can be added
 later with one sentence.
    1. Suppliers and contacts    -> a single directory: company, what it does and who is who.
-   2. Contracts and expiries    -> contract register (table + JSON) with dates, notice periods
-                                   and renewals.
+   2. Contracts and expiry      -> contract register (table + JSON) with dates, notice periods
+      dates                        and renewals.
    3. Invoices                  -> invoice register (table + JSON) linked to its contract.
    4. Budget                    -> one document per year with the budget lines, planned and
-                                   actual, cross-checked against contracts and invoices.
+                                   actual, cross-checked with contracts and invoices.
    5. Receipts and expenses     -> monthly reconciliation of a card's charges with their
                                    receipts, and a register of the months handed in.
-   6. Access to services        -> which service, its address and which account you log in
+   6. Access to services        -> which service, its address and which account you sign in
                                    with. Never passwords.
    7. Domains, certificates     -> their renewal calendar.
       and subscriptions
@@ -167,52 +169,53 @@ later with one sentence.
   10. Inventories               -> equipment, licenses or software, always dated.
   11. Articles and communication -> a guide to how I write, a register of what I have published
                                    and each article with its drafts, so it writes in my voice.
-If I have not filled in [AREAS], propose them based on what I choose. And before creating
+If I haven't put any areas in [AREAS], suggest them based on what I choose. And before you create
 each case, tell me in one line what you are going to create for it.
 
-FORMAT RULES (always apply them, in the future too):
+FORMATTING RULES (always apply them, in the future too):
 - One topic = one .md file, with a kebab-case name (example: invoice-register.md).
 - Every concept document starts with YAML frontmatter and the "type" field is MANDATORY.
-  "type" is an open vocabulary (the spec does not register the values centrally), but open
-  does NOT mean free: two labels for the same thing split the vocabulary and break any
-  filter by type. We will start with these four, in English and in the singular:
+  "type" is an open vocabulary (the spec doesn't register the values centrally), but being
+  open does NOT mean free: two labels for the same thing split the vocabulary and break
+  any filter by type. We will start with these four, in English and in the singular:
     Reference     -> what something is and how it is set up. The normal case.
     Procedure     -> steps to do something.
-    Tool          -> profile of an application or service.
+    Tool          -> record of an application or service.
     Concept       -> an idea or term, with no specific instance behind it.
-  Keep the list of types in use written in the conventions document. If one day none fits
-  and a new one is needed, ADD IT TO THAT LIST in the same change: otherwise nobody will
-  know it exists and it will end up duplicated.
+  Keep the list of types in use written in the conventions document. If one day none of them
+  fits and a new one is needed, ADD IT TO THAT LIST in the same change: otherwise nobody will know it
+  exists and it will end up duplicated.
   Also include: title, description, tags (list) and timestamp (date YYYY-MM-DD).
-- Each folder has its own index.md listing what it contains, BUT the index.md files do NOT
-  have frontmatter (spec §8). Only exception: the index.md at the root of the bundle, which
-  has only okf_version: "0.2" and nothing else.
+- Every folder has its own index.md listing what it contains, BUT index.md files do NOT have
+  frontmatter (spec §8). The only exception: the index.md at the root of the bundle, which has
+  only okf_version: "0.2" and nothing else.
 - Links between documents use absolute bundle paths: /folder/file.md
-- There is a log.md at the root where you record EVERY change in one line, grouped by day
-  under a "## YYYY-MM-DD" heading.
+- There is a log.md at the root where you write down EVERY change in one line, grouped by day under a
+  "## YYYY-MM-DD" header.
 
 CREATE THIS STRUCTURE:
-1. index.md at the root: general index, with the list of areas and how everything is
-   organized (its only frontmatter is okf_version: "0.2").
-2. log.md at the root: change log (it starts with the line for the initial creation).
+1. index.md at the root: general index, with the list of areas and how everything is organized
+   (its only frontmatter is okf_version: "0.2").
+2. log.md at the root: change diary (it starts with the line for the initial creation), and
+   CONVENTIONS.md, also at the root, with the full formatting rules: it is the "conventions
+   document" cited above.
 3. _templates/ with index.md and one empty template per type, ready to copy:
-   reference.md, procedure.md, tool.md and concept.md. Each one with its sample frontmatter,
+   reference.md, procedure.md, tool.md and concept.md. Each one with its example frontmatter,
    and the "type" of each template must be its own (the concept one says Concept, not another).
 4. _documents/ with a README.md explaining that it is the "inbox" where PDFs waiting to be
-   processed are dropped, and three subfolders: invoices/, contracts/ and other/ (the last
-   one for anything that is neither an invoice nor a contract: certificates, offers, minutes,
-   reports, manuals…).
+   processed are left, and three subfolders: invoices/, contracts/ and other/ (the last one for
+   anything that is neither an invoice nor a contract: certificates, offers, minutes, reports, manuals…).
 5. _data/ with index.md, invoices.json and contracts.json, ONLY if I have chosen contracts or
    invoices (see the next section).
 6. One folder for each of these areas, each with its own index.md: [AREAS]
-7. Whatever each chosen case needs. For example, for receipts and expenses, a monthly
-   procedure and a register of months handed in; for budget, the document for the current
-   year; for access, a table of services without a single password.
+7. Whatever each chosen case needs. For example, for receipts and expenses, a monthly procedure
+   and a register of months handed in; for budget, the document for the current year; for
+   access, a table of services without a single password.
 
 JSON DATA LAYER (_data/) — ONLY IF I HAVE CHOSEN CONTRACTS OR INVOICES:
-On top of the Markdown tables, I want contracts and invoices in JSON, because they are
-records that get filtered, sorted and added up. Create both files with an empty array and a
-"_meta" block documenting the schema, using exactly these fields:
+Besides the Markdown tables, I want contracts and invoices in JSON, because they are
+records that get filtered, sorted and added up. Create the two files with an empty array and a
+"_meta" block that documents the schema, using exactly these fields:
 
 invoices.json -> array "invoices", each element with:
   number, contract_id, date, due_date, supplier, supplier_id, description, company,
@@ -222,132 +225,125 @@ contracts.json -> array "contracts", each element with:
   id, subject, supplier, supplier_id, company, date, status, signed_date,
   amount, currency, duration, expiry, notice_period, historical, notes
 
-THE LINK BETWEEN THE TWO (important, and it is what pays off the most):
-Almost every invoice answers to a contract, and almost every contract ends up in invoices.
-Store that link IN ONE DIRECTION ONLY, so you do not have to maintain it twice:
-- Each invoice carries "contract_id" with the id of the contract it answers to, or null if
-  it is a one-off purchase.
-- Contracts do NOT carry a list of invoices: you get it by filtering on contract_id.
-With that you can ask "how much have we paid so far on this bank of hours" or "which
-contracts have not generated any invoice yet". And warn me about invoices with contract_id
-null that should have one: it means something is being paid that is not contracted in the
-register.
+THE LINK BETWEEN THE TWO (important, and it is what pays off most):
+Almost every invoice corresponds to a contract, and almost every contract ends up in invoices. Store that
+link IN ONE DIRECTION ONLY, so you don't have to maintain it twice:
+- Each invoice carries "contract_id" with the id of the contract it corresponds to, or null if it is a
+  one-off purchase.
+- Contracts do NOT carry a list of invoices: you get it by filtering by contract_id.
+With that you can ask "how much have we paid so far from this bank of hours" or "which contracts
+haven't generated any invoice yet". And warn me about invoices with contract_id null that should
+have one: it means something is being paid that isn't contracted in the register.
 
-Data conventions: dates in YYYY-MM-DD format; amounts as numbers with no thousands
-separator; null when the data is not on record.
+Data conventions: dates in YYYY-MM-DD format; numeric amounts without a thousands
+separator; null when the fact is not recorded.
 
 The "status" field of contracts is a CLOSED LIST declared in the _meta
-(signed, invoiced, unsigned, pending_offer, to_confirm). Using an undeclared value breaks
-filters silently: if a new one is needed, it is added to the _meta in the same change.
+(signed, invoiced, unsigned, pending_offer, to_confirm). Using an undeclared value
+silently breaks the filters: if a new one is needed, it is added to the _meta in the same change.
 
-Invoices do NOT have a "status" field: whether an invoice is paid, overdue or pending is a
-matter for accounting, not for the knowledge base. A field that was always "registered"
-would be read as payment status and would be lying. Do not add it.
+Invoices do NOT have a "status" field: whether an invoice is paid, overdue or pending is a matter
+for accounting, not for the knowledge base. A field that always said "registered" would be
+read as a payment status and would be lying. Don't add it.
 
-DECLARE THE SCOPE OF EACH REGISTER in its _meta and in the header of its table, because it
-changes how they are used and cannot be guessed by reading them:
-- Contracts = CENSUS: they aim to all be there. If one is missing, it is a hole to be closed.
-  Contracts that have ended are not deleted: they carry "historical": true and stay there,
-  because "what have we ever contracted with X" is a real question.
-- Invoices = YOU decide and write it down. If you are going to add all of them, it is a
-  census and they can be added up. If you are only going to add some to record that the
-  expense exists, it is a SAMPLE and then you must warn that they are NEVER added up as
-  total spend.
+DECLARE THE SCOPE OF EACH REGISTER in its _meta and in the header of its table, because it changes
+how they are used and can't be guessed by reading them:
+- Contracts = CENSUS: they aim to be complete. If one is missing, it is a gap that has to be closed.
+  Contracts that have ended are not deleted: they carry "historical": true and stay there, because "what have we
+  ever contracted with X" is a real question.
+- Invoices = YOU decide and write it down. If you are going to put all of them in, it is a census and they can be added up. If
+  you are going to put in only some, to record that the expense exists, it is a SAMPLE and
+  then you have to warn that they are NEVER added up as total spend.
 
-In _data/index.md explain what the data layer is for, document both schemas, leave sample
-queries and write these two maintenance rules:
-1. When adding or changing a contract or an invoice you must update BOTH VIEWS, the Markdown
+In _data/index.md explain what the data layer is for, document both schemas, leave
+query examples and write these two maintenance rules:
+1. When you add or change a contract or an invoice you have to update BOTH VIEWS, the Markdown
    table (readable, for reading and sharing) and the JSON (structured, for querying).
-2. JSON FIRST AND THE ROW AFTER. When this gets out of sync, what is missing is almost always
+2. FIRST THE JSON, THEN THE ROW. When this gets out of sync, what is missing is almost always
    the Markdown row. And if they differ: the JSON rules on hard data (dates, amounts,
-   statuses) and the Markdown rules on the narrative (what the contract says, which clause
-   matters).
+   statuses) and the Markdown rules on the narrative (what the contract says, which clause matters).
 
-Also create, for the ones I have chosen, these Markdown registers, linked to their JSON:
-- A contract register (table: contract, supplier, subject, company, date/status, amount)
-  plus an "Expiries and renewals" section so you can answer at any time "what expires in
-  the next 6 months".
+Also create, for the ones I have chosen, these registers in Markdown, linked to their JSON:
+- A contract register (table: contract, supplier, subject, company, date/status,
+  amount) plus an "Expiry dates and renewals" section so you can answer at any
+  time "what expires in the next 6 months".
 - An invoice register (table: no., date, due date, supplier, description, company,
   net, VAT, total, notes).
 
-WATCH OUT WITH "WHAT EXPIRES": supplier contracts are not the only thing that expires.
-Domains, hosting, certificates and subscriptions have their own calendar, and they usually
-expire sooner and more often. If you keep those things in another document, MAKE THE TWO
-CITE EACH OTHER, and to answer "what expires in the next 6 months" always look at both. A
-calendar that does not know the other one exists gives an incomplete answer that looks
-complete.
+WATCH OUT WITH "WHAT EXPIRES": contracts with suppliers are not the only thing that expires. Domains,
+hosting, certificates and subscriptions have their own calendar, and they tend to expire sooner
+and more often. If you keep those things in another document, MAKE THE TWO REFERENCE EACH OTHER, and
+to answer "what expires in the next 6 months" always look at both. A calendar that doesn't
+know the other one exists gives an incomplete answer that looks complete.
 
 HOW WE ARE GOING TO WORK (this is the most important part):
-Most of the knowledge will not reach you as documents in a folder; I will tell it to you:
-loose facts in the chat, emails I paste, screenshots, decisions, clarifications and
-corrections to things you had already stored for me. I want you to treat that as first-class
-material and file it just as well as a PDF. Specifically:
-- When I give you a fact or explain something, YOU decide which document in the bundle it
-  fits in and store it there, without asking me where it goes. If the right document does
-  not exist, create it in the corresponding area and add it to that folder's index.md.
-- Before creating something new, check whether a document covering that topic already
-  exists and update it instead of duplicating the information.
-- THE SWEEP: if the fact affects several documents, propagate it to ALL the affected places,
-  not just one. This is the step that turns a folder of files into a knowledge base, and it
-  is the one most often forgotten. Always ask yourself: the folder's index.md (otherwise the
-  page is born orphaned), the contacts directory, the registers and their JSON, the expiry
-  calendars, the inventories and the access list.
-- If what I tell you contradicts something you already have stored, WARN ME by pointing out
-  the contradiction instead of just overwriting. And if it is not on record which one is
-  right, WRITE IT DOWN in the document, with both versions, the date, where each one comes
-  from and what it would take to settle it. The danger is not the contradiction: it is
-  choosing one version without leaving a trace, because whoever reads it later will see a
-  clean fact and will not know there were two.
+Most of the knowledge won't reach you as documents in a folder; instead, I will
+tell you about it: loose facts in the chat, emails I paste, screenshots, decisions,
+clarifications and corrections to things you had already stored for me. I want you to treat that as
+first-class material and file it as well as a PDF. Specifically:
+- When I give you a fact or explain something, YOU decide which document in the bundle it fits in and
+  store it there, without asking me where it goes. If the right document doesn't exist, create it in the
+  matching area and add it to that folder's index.md.
+- Before you create something new, check whether there is already a document covering that topic and
+  update it instead of duplicating the information.
+- THE SWEEP: if the fact affects several documents, propagate it to ALL the affected places, not
+  just one. This is the step that turns a folder of files into a knowledge base,
+  and it is the one most often forgotten. Always ask yourself: the folder's index.md (otherwise the page is born
+  orphaned), the contact directory, the registers and their JSON, the expiry
+  calendars, the inventories and the access records.
+- If what I tell you contradicts something you already have stored, WARN ME by pointing out the contradiction
+  instead of simply overwriting. And if it isn't recorded which one is right, WRITE IT DOWN in the
+  document, with both versions, the date, where each one comes from and what it would take to
+  close it. The danger is not the contradiction: it is choosing one version without leaving a trace, because
+  whoever reads it later will see a clean fact and won't know there were two.
   Note: a fact that has CHANGED (a price that goes up, a contact who leaves) is not a
   contradiction, it is an update: it is replaced and re-dated.
-- WHATEVER YOU ANSWER ME THAT IS WORTH KEEPING, FILE IT. Much of the value does not appear
-  when storing a document, but when asking: a comparison, a cross-check between areas, a
-  mismatch that shows up when the information is put together. That is born in the chat and
-  dies in the chat if nobody writes it down. If an answer took work and would be needed
-  again, save it as a document in the right area and add it to its index.md. Signs that it
-  is time: the question has been asked more than once, the answer spans several documents,
-  a fact appears that was in none of them, or a decision is made and you will want to know
-  WHY six months from now.
-- If we review something that looked like a problem and decide it is not, NOTE IT WITH ITS
-  DATE as reviewed and dismissed. Otherwise it will come up as a finding in every review and
-  we will end up ignoring the warnings.
-- When I correct you, correct the document and leave no trace of the previous version unless
+- WHAT YOU ANSWER ME THAT IS WORTH IT, FILE IT. Much of the value doesn't appear when you store a
+  document, but when you ask: a comparison, a cross-check between areas, a mismatch that shows up when
+  you put the information together. That is born in the chat and dies in the chat if nobody writes it down. If an
+  answer took work and would be needed again, store it as a document in the matching area
+  and add it to its index.md. Signs that it's time: the question has been asked more than once, the
+  answer crosses several documents, a fact appears that wasn't in any of them, or a
+  decision is made and it's worth knowing WHY six months from now.
+- If we review something that looked like a problem and decide that it isn't, WRITE IT DOWN WITH ITS DATE as
+  reviewed and ruled out. Otherwise, it will come up again as a finding in every review and we will end up
+  ignoring the warnings.
+- When I correct you, correct the document and don't leave traces of the previous version unless
   the history has value; in that case, mark it clearly as superseded.
 - DATE THE INFORMATION THAT EXPIRES. When you store a perishable fact —inventories and counts
   (units, equipment, licenses), statuses ("unsigned", "pending activation", "in progress"),
   figures you see on
-  a screen or screenshot, prices and fees, contacts— note in brackets the date I give it to
-  you: for example "340 units contracted (data from 2026-03-15)" or "pending activation
-  (March 2026)". That way I will know whether a fact is fresh or stale. There is no
+  a screen or screenshot, prices and fees, contacts— write in brackets the date I give it
+  to you: for example "340 units contracted (as of 2026-03-15)" or "pending activation
+  (March 2026)". That way I'll know whether a fact is fresh or out of date. There is no
   need to date what is stable (a tax ID, a clause of a signed contract, a definition). If
   we review a dated fact and it is still valid, update the date.
-- Record every change in log.md, ONE LINE PER CHANGE, under a "## YYYY-MM-DD" heading for the
-  day. Open a new heading each day; do not pile entries under an earlier date. The log says
-  WHAT changed and WHEN; it is not the place for reasoning or analysis. If a log entry is
-  turning into a paragraph, that paragraph belongs in a document.
+- Write each change in log.md, ONE LINE PER CHANGE, under a "## YYYY-MM-DD" header for the day.
+  Open a new header each day; don't pile entries under an earlier date. The log says WHAT
+  changed and WHEN; it is not the place for reasoning or analysis. If a log entry
+  is turning into a paragraph, that paragraph belongs in a document.
 - At the end of a block of work, tell me which files you have written to.
 
 CRITERIA YOU MUST ALWAYS RESPECT:
-- Privacy: NEVER store passwords, API keys or sensitive personal data. If a document
-  contains them, extract only what is needed and leave out the rest, telling me so.
-- Evidence: mark something as "signed" or "contracted" ONLY if there is real evidence
-  (signed document, contract in force or invoice). If it is a draft, an offer or an
-  authorized expense, say so; do not treat it as signed.
-- Amounts: you can store them in the knowledge base, but do not include them in documents
+- Privacy: NEVER store passwords, API keys or sensitive personal data. If a
+  document contains them, extract only what is needed and leave out the rest, telling me so.
+- Evidence: mark something as "signed" or "contracted" ONLY if there is real evidence (signed
+  document, contract in force or invoice). If it is a draft, an offer or an authorized expense,
+  say so; don't treat it as signed.
+- Amounts: you can store them in the knowledge base, but don't include them in documents
   meant for third parties unless I ask you to explicitly.
-- When in doubt or if a fact is missing, ask me or mark it as "to confirm". Do not make it up.
+- When in doubt or if a fact is missing, ask me or mark it as "to confirm". Don't make it up.
 
 When you finish:
 1. Show me the tree of folders and files created.
-2. Give me, in a separate text block ready to copy in one go, a summary of all the rules
-   above written as standing instructions (15 lines maximum). I am going to paste it into
-   the "Instructions" section of this project, so: write it addressing yourself in the
-   second person, with no headings or decoration, and get to the point — OKF format with the
-   link to the specification, index.md without frontmatter, how to handle knowledge that
-   reaches you through the chat, where each thing goes, the rule of keeping the Markdown
-   table in sync with the JSON, the one about dating data that expires, the sweep to every
-   affected document, filing whatever you answer me that is worth keeping, and the privacy
-   and evidence criteria.
+2. Give me, in a separate text block ready to copy in one go, a summary of all the
+   rules above written as standing instructions (15 lines at most). I am going to paste it
+   into the "Instructions" section of this project, so: write it addressing yourself
+   in the second person, without headings or embellishments, and get to the point — OKF format with the link to
+   the specification, index.md without frontmatter, how to handle the knowledge that reaches you through the
+   chat, where each thing goes, the rule for keeping the Markdown table in sync with the JSON, the one about dating
+   the facts that expire, the one about the sweep to all the affected documents, the one about filing what
+   you answer me that is worth it, and the privacy and evidence criteria.
 3. Tell me how we start loading knowledge.
 ```
 
@@ -406,7 +402,8 @@ If you are interested, **add this block to the end of the prompt** before pastin
 OPTIONAL ADD-ON — ARCHIVE OF ORIGINAL DOCUMENTS
 I want to keep the documents that back up what you store, not just the extracted knowledge.
 Organize _documents/ with two separate functions:
-- _documents/_inbox/  -> what is PENDING processing. It gets emptied: what is processed is archived or discarded.
+- _documents/_inbox/  -> what is PENDING processing (the inbox stops being _documents/ and becomes
+  this subfolder). It gets emptied: what is processed is archived or discarded.
 - _documents/contracts/, _documents/invoices/ and _documents/other/  -> the ARCHIVE of what has
   been processed. "other" holds EVERYTHING that is not a contract or an invoice: certificates,
   offers and quotes, minutes, reports, manuals, screenshots of a status, technical
@@ -447,7 +444,7 @@ Archive rules:
 
 ## What to do next
 
-![Expected result: the folder structure and the role of each folder](img/03-folder-structure.png)
+![Example result: the folder structure and the role of each folder](img/03-folder-structure.png)
 
 1. **Check** that the structure is what you expected (Cowork will show you the tree).
 2. **Paste the rules into "Instructions".** ← *the step you must not skip*
@@ -481,9 +478,9 @@ Archive rules:
    **d) Correcting it.** Just as important as contributing: keeping what is already there up to date.
    > *"No, that is no longer the case: it was dropped in March. Update it."*
 
-   **e) And yes, with documents too**: straight into the chat, or by leaving them in
-   `_documents/invoices/` and `_documents/contracts/` to process them in batches:
-   > *"Process the PDFs in `_documents/invoices/` and add them to the register and the JSON."*
+   **e) And yes, with documents too**: straight into the chat, or by dropping them in the inbox
+   (`_documents/`, or `_documents/_inbox/` if you enabled the archive of originals) to process them in batches:
+   > *"Process the PDFs in the inbox and store what they say where it belongs; if they are invoices, in their register and in the JSON."*
 
    If you pass the document through the chat and want to **keep the original**, ask for it:
    > *"Copy this file to `_documents/` and then extract what is relevant."*
@@ -495,17 +492,18 @@ Archive rules:
    > knowledge raw. If it picks the wrong place, you tell it and it moves it.
 
 4. **Query whenever you want**, in natural language:
-   - *"Which contracts expire in the next 6 months?"*
-   - *"How much have we paid so far on this supplier's bank of hours?"*
-   - *"List the contracts that are unsigned."*
-   - *"What are we paying for that has no contract in the register?"*
+   - *"What expires in the next 6 months?"*
+   - *"Who handles support for this tool, and since when do we know?"*
+   - *"What do I have pending, and which of it has a date?"*
+   - *"What are we paying for that has no contract in the register?"* *(if you keep contracts and invoices)*
 
    > 💡 **And when an answer is good, ask it to save it.** It is the advice we took longest to
    > learn: the comparisons, cross-checks and mismatches that come out of asking **are worth more
    > than many documents**, and by default they stay in the chat and are lost.
    > *"What you just worked out, save it as a document where it belongs."*
 
-5. **Optional but recommended: automate the maintenance.** See the next section.
+5. **Optional but recommended: automate the maintenance.** See
+   [Automate with "Scheduled"](#automate-with-scheduled).
 
 ---
 
@@ -582,63 +580,66 @@ this will still be here when you need it.**
 Copy the block and paste it **onto the base you already have**:
 
 ```
-The knowledge base already has content and it is getting big for me: to answer a question I
-have to open several files. I want to add the tools that solve that.
+The knowledge base already has content and it's getting big for me: to answer a
+question I have to open several files. I want to add the tools that solve that.
 
-Before writing anything, READ what is already there and tell me what you find. Do not invent
-generic rules: I want them to come from MY documents.
+Before you write anything, READ what is already there and tell me what you find. Don't make up generic rules:
+I want them to come from MY documents.
 
-1. GENERATED VIEWS. Write a script that regenerates them all at once, and create them:
+1. GENERATED VIEWS. Write a Python script, in _tools/regenerate.py, that regenerates all of them at once,
+   and create them:
    - _catalog.md     -> every document with its type, title and description, taken from the
-                        frontmatter. Answers "which document talks about this".
+                        frontmatter. It answers "which document talks about this".
    - _pending.md     -> every line marked as pending or warning, WITH FILE AND LINE.
                         It is fed by the markers I write (⚠️, 🚨, "- [ ]",
-                        "pending", "to confirm") and closed by marking the line with ✅
-                        or "resolved". Head it with "what has a date", sorted by
-                        proximity: it includes every future date that appears on the line,
-                        and a past date only if the text talks about a deadline (before,
-                        expires, due). Careful: most dates in the base are "data from such
-                        a day" stamps and are NOT deadlines; if you let them in, the view
-                        is useless.
-   - _calendar.md    -> expiries and key dates sorted by proximity.
+                        "pending", "to confirm") and an item is closed by marking the line with ✅
+                        or "resolved". Start it with "what has a date", sorted by
+                        proximity: that includes every future date that appears in the line, and
+                        a past date only if the text talks about a deadline (before, expires,
+                        lapses). Careful: most dates in the base are stamps of
+                        "fact as of such a day" and are NOT deadlines; if you let them in, the view is
+                        useless.
+   - _calendar.md    -> expiry dates and key dates sorted by proximity.
    - _crosschecks.md -> the mismatches. See point 2.
    - _entities.md    -> identifiers (emails, tax IDs, domains) that appear in 2 or more
                         documents, with where they appear.
 
-2. CROSS-CHECK RULES. This is the important point and I want you to do it by looking at my
-   data: review the base and propose "expected absence" rules —something that is in one
-   document and should be in another— based on mismatches you see FOR REAL. Show me the list
-   with a real example of each before coding them, and we drop the ones that are no good.
+2. CROSS-CHECK RULES. This is the important point and I want you to do it by looking at my data:
+   go through the base and propose "expected absence" rules —something that is in one document and
+   should be in another— based on mismatches you ACTUALLY see. Show me the list with a
+   real example of each before you code them, and we'll drop the ones that aren't worth it.
 
-3. NAMED QUERIES. A separate script for the questions I repeat, and a _queries/index.md that
-   lists them with their command. Store the RECIPE, not the answer: a written answer goes
-   stale without warning and nobody notices.
+3. NAMED QUERIES. A separate script, in _tools/query.py, for the questions I repeat, and a
+   _queries/index.md
+   that lists them with their command. Store the RECIPE, not the answer: a written answer goes out of date
+   without warning and nobody notices.
 
-4. HEALTH CHECK. A health-check.md with what to look at periodically: dated data older than
-   six months, pending items whose date has passed, broken links checked by opening them,
-   mismatches between each table and its JSON, documents without "type" and pages that do
-   not hang from any index.md.
+4. HEALTH CHECK. A health-check.md with what to look at periodically: dated facts older than
+   six months, pending items whose date has already passed, broken links checked by opening them,
+   mismatches between each table and its JSON, documents without "type" and pages that don't hang from
+   any index.md.
 
-5. _findings.md: one line for each cross-check that has already given us value, with its
-   sources, so we do not discover it again. Start it with the ones you find now.
+5. _findings.md: one line for each cross-check that has already given us value, with its sources, so we don't
+   discover it again. Start it with the ones you find now.
 
-6. In _data/, add events.json (dates that are not contract expiries: domains, certificates,
-   end of support, reminders) and aliases.json (different names for the same thing, so the
-   matches index does not split it in two).
+6. In _data/ (create it if it does not exist, with its index.md), add events.json (dates that
+   aren't contract expiry dates: domains,
+   certificates, end of support, reminders) and aliases.json (different names for the same
+   thing, so the index of matches doesn't split it in two).
 
 RULES THAT MUST BE WRITTEN DOWN in the conventions document:
-- The generated views are NOT edited by hand, ever. You fix the source document and
+- Generated views are NOT edited by hand, ever. You correct the source document and
   regenerate. A change written in the view is lost on the next run and, while it lasts,
   it lies.
-- They are regenerated at the end of each block of changes.
-- A pending item written without a marker is hidden, not recorded. And if it has a deadline,
-  the date goes on the same line.
-- When a mismatch is a conscious decision and not an error, the reason is noted in the
-  source document so it stops firing.
+- They are regenerated at the end of every block of changes.
+- A pending item written without a marker is hidden, not noted. And if it has a deadline, the date goes
+  on the same line.
+- When a mismatch is a conscious decision and not an error, the reason is written in the
+  source document so that it stops being flagged.
 
-Do NOT touch the existing content except to add missing markers, and tell me beforehand
-what you are going to change. When you finish, show me the tree and run the regeneration once
-so I can see the views filled in.
+DON'T touch the content that already exists except to add the missing markers, and tell me beforehand
+what you are going to change. When you finish, show me the tree and run the regeneration once so I
+can see the views filled in.
 ```
 
 > 💡 **Notice point 2**: it is the only one where it is asked to **look at your data before coding
@@ -723,7 +724,7 @@ subscription you detect deserves a reminder a few weeks before.
 
 ## When it grows: the generated views
 
-The first twenty documents can be handled from memory. Beyond that, something happens that you do
+The first 25 or 30 documents can be handled from memory. Beyond that, something happens that you do
 not see coming: **the cost stops being in reading and moves to finding**. The information is all
 there, but answering *"what do I have pending?"* means opening twelve files, and in the end nobody
 asks.
@@ -745,20 +746,15 @@ invoices and is not in the directory. An invoice that answers to no contract. A 
 of one company and invoiced to another.* None of that raises an error anywhere — it only shows up when
 someone cross-checks two lists, which is exactly what nobody does by hand.
 
-To ask for it:
-
-```
-Write a script that goes through the base and generates four views: a catalog of documents
-from the frontmatter, the pending items with file and line, a calendar sorted by
-proximity and a report of mismatches between documents. They should regenerate with one
-command. And write it down in the rules: those views are not edited by hand.
-```
+**To ask for them, use the prompt in [Part 3](#part-3--the-growth-prompt-once-you-have-content)**, which, besides the five views, sets up
+the cross-check rules, the named queries and the health check.
 
 ### Three rules so they do not turn into lies
 
 1. 🚫 **They are not edited by hand. Ever.** You fix the source document and regenerate. A change
    written directly in the view is lost on the next run — and while it lasts, **it lies**.
-2. 🔄 **They are regenerated at the end of a block of changes**, and at night with a scheduled task.
+2. 🔄 **They are regenerated at the end of a block of changes**; in Claude Code, a scheduled task can
+   also do it every night.
 3. 🏷️ **The markers are the switch.** Pending items are picked up on their own if you write `⚠️`,
    `- [ ]` or "pending"; and they **disappear** when you mark the line with `✅` or "resolved".
    A pending item written without a marker is hidden, not recorded.
@@ -789,16 +785,18 @@ When you press the `+`, the **"Create scheduled task"** form opens. This is what
 | **Model** | Leave the default unless you have a reason. |
 | **Frequency** | ⚠️ **It comes set to "Manual": change it.** If you leave it like that, it will never run on its own. |
 
-### Three tasks that pay off from day one
+### Three tasks that pay off
 
 **1. Expiry alert** — *monthly frequency*
 
 ```
 Name:         expiries-6-months
-Description:  Monthly alert of contracts about to expire
-Instruction:  Review _data/contracts.json and tell me what expires in the next 6 months,
-              sorted by date. Flag those whose notice period is about to run out. If
-              there are none in the window, say so in one line and do nothing else.
+Description:  Monthly alert of what expires
+Instruction:  Review the contract register (if you keep one) and the other expiry
+              calendars —domains, subscriptions, certificates— and tell me what expires in
+              the next 6 months, sorted by date. Flag those whose notice period is about
+              to run out. If there are none in the window, say so in one line and do
+              nothing else.
 ```
 
 **2. Process whatever has arrived** — *weekly frequency*
@@ -806,27 +804,30 @@ Instruction:  Review _data/contracts.json and tell me what expires in the next 6
 ```
 Name:         pending-intake
 Description:  Process new PDFs from the inbox
-Instruction:  Check whether there are PDFs in _documents/ that are not already recorded. If
-              there are, extract their data, add them to the Markdown table and the matching
-              JSON, do the sweep to the other affected documents and record the change in
-              log.md. If there is nothing new, do nothing.
+Instruction:  Check whether there are PDFs in the _documents/ inbox that are not already
+              recorded. If there are, extract their data, store them where they belong (and
+              in the table and the JSON if they are contracts or invoices), do the sweep to
+              the other affected documents and record the change in log.md.
+              If there is nothing new, do nothing.
 ```
 
-**3. Health check** — *monthly frequency* · **the least appealing one and the one that rescues most**
+**3. Health check** — *monthly frequency* · **the least appealing one and the one that rescues most** · *for once
+you have done [Part 3](#part-3--the-growth-prompt-once-you-have-content), which creates `health-check.md`*
 
 ```
 Name:         health-check
 Description:  Monthly check of the state of the base
-Instruction:  Review the base and give me a report, ordered by what hurts most. Look for:
+Instruction:  Review the base following health-check.md and give me a report, ordered by
+              what hurts most. Look for, at least:
               1. Dated data older than 6 months (those that support a decision, first).
               2. "pending", "to confirm" or "not found" markers whose date has passed.
                  Do not repeat the ones already noted as reviewed and dismissed.
               3. Expiries in ALL calendars, not just the contracts one. Before marking
                  one as urgent, check whether it renews automatically.
-              4. Things marked as signed with no archived document, and archived
-                 documents that do not appear in any register.
-              5. Mismatches between each Markdown table and its JSON, and invoices whose
-                 contract_id points to a contract that does not exist.
+              4. (If you archive originals) things marked as signed with no archived
+                 document, and archived documents that do not appear in any register.
+              5. (If you keep contracts and invoices) mismatches between each Markdown table
+                 and its JSON, and invoices whose contract_id points to a contract that does not exist.
               6. Pages that are not linked from any index.md.
               7. Broken internal links. Check them by opening the file, not by reading the path.
               8. Documents without "type" or with a type that is not in the list of types in
@@ -860,7 +861,7 @@ a terminal window. Same base, same files, another way of talking to them.
 | **Querying** in natural language | ✅ | ✅ |
 | **Unattended recurring tasks** | ✅ the *Scheduled* section | has them too |
 | **Batch-processing documents** *(dozens of PDFs)* | it chokes | ✅ by far |
-| **Giving the base its own utilities** *(generating the views, named queries)* | no | ✅ this is exactly what it is for |
+| **Giving the base its own utilities** *(generating the views, named queries)* | on request: you ask it to "regenerate the views" | ✅ this is exactly what it is for: a command, or a nightly task |
 | **Installation** | none | needs installing |
 
 In short: **start in Cowork**. If one day you catch yourself asking *"work this out for me again"*
@@ -885,7 +886,7 @@ curl -fsSL https://claude.ai/install.sh | bash
 own session and not with an administrator's.)*
 
 Then, **open your base's folder and type `claude`**. That is it: it answers about those files,
-without uploading anything anywhere.
+without having to add the folder to any project.
 
 ### The equivalents
 
@@ -897,14 +898,14 @@ What in Cowork are sections of the project, here are files inside the folder its
 | **Context** *(the folder)* | the folder you start from; no need to add it |
 | **Scheduled** | scheduled tasks, with the same *"if there is nothing, do nothing"* criterion |
 
-> 💡 **Ask it to write the `CLAUDE.md` itself**, from the rules you already pasted into
-> Instructions: *"Create a CLAUDE.md with these rules that imports the index and the conventions"*.
-> They are the same thing said in two places, and you want them to stay together.
+> 💡 **The `CLAUDE.md` already exists**: it is where Cowork stores the project's Instructions. Ask Claude
+> Code to check that it imports the index and the conventions: *"Check that the CLAUDE.md imports
+> index.md and CONVENTIONS.md"*. They are the same thing seen from two places, and you want them to stay together.
 
 ### What you really gain
 
-It is not speed: it is that **the base starts to have tools**. The generated views from the previous
-section are a script that runs with one command. And the questions that get repeated stop being
+It is not speed: it is that **the base starts to have tools**. The generated views from Part 3
+are a script that runs with one command. And the questions that get repeated stop being
 questions and become named utilities:
 
 ```
@@ -959,14 +960,13 @@ Only **the last ten** are kept: anything older is already in the log. And two us
 ### The prompt
 
 ```
-I want to be able to continue the work from another computer. Create a handoff.md file at the
-root: one entry per session, the most recent at the top, with a "## YYYY-MM-DD · computer"
-heading and five sections (in progress with the exact step, waiting on, next step, documents
-touched, warnings). Only the last ten entries. Explain at the top what does not travel between
-computers. Add to the Instructions (or to CLAUDE.md) that at the start the first entry is read
-and at the end a new one is written, and move there the preferences you have learned about me in
-this folder. The generated views must not read the handoff log. Write the first entry with what
-we have open right now.
+I want to be able to continue the work from another computer. Create a handoff.md file at the root: one
+entry per session, the most recent at the top, with the header "## YYYY-MM-DD · computer" and five sections
+(in progress with the exact step, waiting on, next step, documents touched, warnings). Only the
+last ten entries. Explain at the start what doesn't travel between computers. Add to the Instructions
+(or to CLAUDE.md) that the first entry is read at the start and a new one is written at the close, and move
+there the preferences you have learned from me in this folder. The generated views must not read the
+handoff log. Write the first entry with what we have open right now.
 ```
 
 > 💡 **Even if you work on a single computer, it is worth it.** A two-minute entry at the end saves

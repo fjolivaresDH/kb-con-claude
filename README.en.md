@@ -39,7 +39,7 @@ files always say the same thing.
 | [`prompts/01-initial-cowork.md`](en/prompts/01-initial-cowork.md) | On day one, in Cowork |
 | [`prompts/02-initial-claude-code.md`](en/prompts/02-initial-claude-code.md) | On day one, in Claude Code |
 | [`prompts/03-growth.md`](en/prompts/03-growth.md) | **Weeks later**: generated views, cross-checks and queries |
-| [`prompts/04-hooks-claude-code.md`](en/prompts/04-hooks-claude-code.md) | In Claude Code, so the rules enforce themselves |
+| [`prompts/04-hooks-claude-code.md`](en/prompts/04-hooks-claude-code.md) | In Claude Code, after the growth prompt: so the rules enforce themselves |
 | [`prompts/05-handoff.md`](en/prompts/05-handoff.md) | If you work from more than one computer |
 
 ## The idea in three principles
@@ -73,7 +73,7 @@ each document; here, with working rules that Claude applies to each fact:
 
 | The question | In OKF v0.2 | In this method |
 |---|---|---|
-| **Where does it come from?** | `sources`: the sources of each document | Every fact carries its proof: the original is filed in `_documents/` and linked |
+| **Where does it come from?** | `sources`: the sources of each document | Every fact carries its proof: the original is linked (and, if you enable the archive, kept in `_documents/`) |
 | **How much do I trust it?** | `verified`: unverified, confirmed by a process or reviewed by a person | "Signed" only with real evidence; whatever is missing is marked "to confirm", never made up |
 | **Is it still true?** | `stale_after`: an expiry date per document | **Every** perishable **fact** carries the date it was provided, and the health check looks for the old ones |
 | **Is it the current one?** | `status`: draft, stable or obsolete | One source per topic; whatever is superseded is marked, and `log.md` says what changed and when |

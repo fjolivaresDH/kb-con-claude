@@ -1,6 +1,6 @@
 # Prompt de crecimiento
 
-**Semanas después**, sobre la base que ya tienes: añade las vistas generadas, las reglas de cruce y las consultas. Funciona en Cowork y en Claude Code. Por qué no se pega el primer día: [guía de Cowork, parte 3](../guia-cowork.md).
+**Semanas después**, sobre la base que ya tienes: añade las vistas generadas, las reglas de cruce y las consultas. Funciona en Cowork y en Claude Code. Por qué no se pega el primer día: [guía de Cowork, parte 3](../guia-cowork.md#parte-3--el-prompt-de-crecimiento-cuando-ya-tengas-contenido).
 
 ```
 La base de conocimiento ya tiene contenido y se me está haciendo grande: para responder una
@@ -32,7 +32,8 @@ quiero que salgan de MIS documentos.
    debería estar en otro— basadas en descuadres que veas DE VERDAD. Enséñame la lista con un
    ejemplo real de cada una antes de programarlas, y descartamos las que no valgan.
 
-3. CONSULTAS CON NOMBRE. Un script aparte para las preguntas que repito, y un _consultas/index.md
+3. CONSULTAS CON NOMBRE. Un script aparte, en _herramientas/consultar.py, para las preguntas que
+   repito, y un _consultas/index.md
    que las liste con su comando. Guarda la RECETA, no la respuesta: una respuesta escrita caduca
    sin avisar y nadie se entera.
 
@@ -44,7 +45,8 @@ quiero que salgan de MIS documentos.
 5. _hallazgos.md: una línea por cada cruce que ya nos haya dado valor, con sus fuentes, para no
    volver a descubrirlo. Arráncalo con los que encuentres ahora.
 
-6. En _data/, añade eventos.json (fechas que no son vencimientos de contrato: dominios,
+6. En _data/ (créala si no existe, con su index.md), añade eventos.json (fechas que no son
+   vencimientos de contrato: dominios,
    certificados, fines de soporte, recordatorios) y alias.json (nombres distintos para la misma
    cosa, para que el índice de coincidencias no la parta en dos).
 

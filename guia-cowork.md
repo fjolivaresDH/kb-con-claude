@@ -1,4 +1,4 @@
-# Crear tu base de conocimiento en Cowork — en 2 pasos
+# Crear tu base de conocimiento en Cowork
 
 *Guía práctica, de la carpeta vacía a una base que se mantiene sola.*
 
@@ -80,8 +80,9 @@ No requiere un proyecto. Requiere empezar y no dejar de contarle cosas.
 
 ---
 
-Este documento tiene **dos partes**: primero preparas la carpeta (5 minutos), y después pegas
-**un único prompt** en Claude Cowork que crea toda la estructura de golpe.
+Para empezar hay **dos partes**: primero preparas la carpeta (5 minutos), y después pegas **un
+prompt** en Claude Cowork que te pregunta qué vas a guardar y monta solo eso. Semanas después, cuando
+la base ya tenga contenido, hay una **tercera parte** con las herramientas que la mantienen.
 
 ![Los 6 pasos, de la carpeta vacía a la base de conocimiento funcionando](img/01-flujo-6-pasos.png)
 
@@ -124,11 +125,12 @@ carpeta que acabas de crear. La primera vez te pedirá permiso; después la recu
 > reuniones…) y reescribe las reglas que no encajen con tu forma de trabajar. La estructura de
 > abajo es la que a nosotros nos funciona; **la buena es la que refleje tu día a día.**
 
-**Antes de pegarlo, sustituye lo que va entre corchetes:**
+**Antes de pegarlo, sustituye `[ORGANIZACIÓN]` (y, si quieres, `[ÁREAS]`):**
 
 - `[ORGANIZACIÓN]` → el nombre de tu empresa, equipo o proyecto.
 - `[ÁREAS]` → las áreas temáticas que quieras, separadas por comas
-  (ejemplo: `clientes, proveedores, finanzas, procesos, personas`).
+  (ejemplo: `clientes, proveedores, finanzas, procesos, personas`). **Es opcional**: si lo dejas tal
+  cual, Claude te las propone a partir de lo que elijas.
 
 Copia todo el bloque siguiente y pégalo en Cowork:
 
@@ -196,7 +198,9 @@ REGLAS DE FORMATO (aplícalas siempre, también en el futuro):
 CREA ESTA ESTRUCTURA:
 1. index.md en la raíz: índice general, con la lista de áreas y cómo está organizado todo
    (su único frontmatter es okf_version: "0.2").
-2. log.md en la raíz: diario de cambios (empieza con la línea de la creación inicial).
+2. log.md en la raíz: diario de cambios (empieza con la línea de la creación inicial), y
+   CONVENCIONES.md, también en la raíz, con las reglas de formato completas: es el "documento
+   de convenciones" que se cita más arriba.
 3. _plantillas/ con index.md y una plantilla vacía por cada tipo, lista para copiar:
    referencia.md, procedimiento.md, herramienta.md y concepto.md. Cada una con su frontmatter de
    ejemplo, y el "type" de cada plantilla debe ser el suyo (la de concepto dice Concepto, no otro).
@@ -400,7 +404,8 @@ Si te interesa, **añade este bloque al final del prompt** antes de pegarlo:
 AÑADIDO OPCIONAL — ARCHIVO DE DOCUMENTOS ORIGINALES
 Quiero conservar los documentos que respaldan lo que guardas, no solo el conocimiento extraído.
 Organiza _documentos/ con dos funciones separadas:
-- _documentos/_buzon/  -> lo PENDIENTE de procesar. Se vacía: lo procesado se archiva o se descarta.
+- _documentos/_buzon/  -> lo PENDIENTE de procesar (el buzón deja de ser _documentos/ y pasa a ser
+  esta subcarpeta). Se vacía: lo procesado se archiva o se descarta.
 - _documentos/contratos/, _documentos/facturas/ y _documentos/otros/  -> el ARCHIVO de lo ya
   procesado. En "otros" va TODO lo que no sea contrato ni factura: certificados, ofertas y
   presupuestos, actas, informes, manuales, capturas de un estado, documentación técnica. Así solo
@@ -439,7 +444,7 @@ Reglas del archivo:
 
 ## Qué hacer después
 
-![Resultado esperado: la estructura de carpetas y el papel de cada una](img/03-estructura-carpetas.png)
+![Ejemplo de resultado: la estructura de carpetas y el papel de cada una](img/03-estructura-carpetas.png)
 
 1. **Comprueba** que la estructura es la que esperabas (Cowork te mostrará el árbol).
 2. **Pega las reglas en «Instrucciones».** ← *el paso que no hay que saltarse*
@@ -473,9 +478,9 @@ Reglas del archivo:
    **d) Corrigiéndole.** Igual de importante que aportar: mantener al día lo que ya está.
    > *"No, eso ya no es así: se descartó en marzo. Actualízalo."*
 
-   **e) Y sí, también con documentos**: al chat directamente, o dejándolos en
-   `_documentos/facturas/` y `_documentos/contratos/` para procesarlos en lote:
-   > *"Procesa los PDFs de `_documentos/facturas/` y añádelos al registro y al JSON."*
+   **e) Y sí, también con documentos**: al chat directamente, o dejándolos en el buzón
+   (`_documentos/`, o `_documentos/_buzon/` si activaste el archivo de originales) para procesarlos en lote:
+   > *"Procesa los PDFs del buzón y guarda lo que digan donde toque; si son facturas, en su registro y en el JSON."*
 
    Si el documento lo pasas por el chat y quieres **conservar el original**, pídelo:
    > *"Copia este archivo a `_documentos/` y luego extrae lo relevante."*
@@ -487,17 +492,18 @@ Reglas del archivo:
    > conocimiento en crudo. Si se equivoca de sitio, se lo dices y lo mueve.
 
 4. **Consulta cuando quieras**, en lenguaje natural:
-   - *"¿Qué contratos vencen en los próximos 6 meses?"*
-   - *"¿Cuánto llevamos pagado de la bolsa de horas de este proveedor?"*
-   - *"Lista los contratos que están sin firmar."*
-   - *"¿Qué estamos pagando que no tenga contrato en el registro?"*
+   - *"¿Qué vence en los próximos 6 meses?"*
+   - *"¿Quién lleva el soporte de esta herramienta, y desde cuándo lo sabemos?"*
+   - *"¿Qué tengo pendiente, y qué de eso tiene fecha?"*
+   - *"¿Qué estamos pagando que no tenga contrato en el registro?"* *(si llevas contratos y facturas)*
 
    > 💡 **Y cuando una respuesta sea buena, pídele que la guarde.** Es el consejo que más tardamos
    > en aprender: las comparativas, los cruces y los descuadres que salen preguntando **valen más
    > que muchos documentos**, y por defecto se quedan en el chat y se pierden.
    > *"Esto que acabas de sacar, guárdalo como documento donde toque."*
 
-5. **Opcional pero recomendable: automatiza el mantenimiento.** Ver el apartado siguiente.
+5. **Opcional pero recomendable: automatiza el mantenimiento.** Ver
+   [Automatizar con «Programado»](#automatizar-con-programado).
 
 ---
 
@@ -580,7 +586,8 @@ pregunta tengo que abrir varios archivos. Quiero añadirle las herramientas que 
 Antes de escribir nada, LEE lo que ya hay y dime qué encuentras. No inventes reglas genéricas:
 quiero que salgan de MIS documentos.
 
-1. VISTAS GENERADAS. Escribe un script que las regenere todas de una vez, y créalas:
+1. VISTAS GENERADAS. Escribe un script en Python, en _herramientas/regenerar.py, que las regenere todas de una vez,
+   y créalas:
    - _catalogo.md    -> todos los documentos con su tipo, título y descripción, sacados del
                         frontmatter. Responde "qué documento habla de esto".
    - _pendientes.md  -> cada línea marcada como pendiente o aviso, CON ARCHIVO Y LÍNEA.
@@ -602,7 +609,8 @@ quiero que salgan de MIS documentos.
    debería estar en otro— basadas en descuadres que veas DE VERDAD. Enséñame la lista con un
    ejemplo real de cada una antes de programarlas, y descartamos las que no valgan.
 
-3. CONSULTAS CON NOMBRE. Un script aparte para las preguntas que repito, y un _consultas/index.md
+3. CONSULTAS CON NOMBRE. Un script aparte, en _herramientas/consultar.py, para las preguntas que
+   repito, y un _consultas/index.md
    que las liste con su comando. Guarda la RECETA, no la respuesta: una respuesta escrita caduca
    sin avisar y nadie se entera.
 
@@ -614,7 +622,8 @@ quiero que salgan de MIS documentos.
 5. _hallazgos.md: una línea por cada cruce que ya nos haya dado valor, con sus fuentes, para no
    volver a descubrirlo. Arráncalo con los que encuentres ahora.
 
-6. En _data/, añade eventos.json (fechas que no son vencimientos de contrato: dominios,
+6. En _data/ (créala si no existe, con su index.md), añade eventos.json (fechas que no son
+   vencimientos de contrato: dominios,
    certificados, fines de soporte, recordatorios) y alias.json (nombres distintos para la misma
    cosa, para que el índice de coincidencias no la parta en dos).
 
@@ -713,7 +722,7 @@ recordatorio unas semanas antes.
 
 ## Cuando crezca: las vistas generadas
 
-Los primeros veinte documentos se manejan de memoria. A partir de ahí pasa algo que no se ve venir:
+Los primeros 25 o 30 documentos se manejan de memoria. A partir de ahí pasa algo que no se ve venir:
 **el coste deja de estar en leer y pasa a estar en localizar**. La información está toda, pero
 responder *«¿qué tengo pendiente?»* obliga a abrir doce archivos, y al final no se pregunta.
 
@@ -734,20 +743,15 @@ el directorio. Una factura que no responde a ningún contrato. Un contrato a nom
 y facturado a otra.* Nada de eso da error en ninguna parte — solo aparece cuando alguien cruza dos
 listas, que es exactamente lo que nadie hace a mano.
 
-Para pedirlo:
-
-```
-Escribe un script que recorra la base y genere cuatro vistas: un catálogo de documentos
-a partir del frontmatter, los pendientes con archivo y línea, un calendario ordenado por
-proximidad y un informe de descuadres entre documentos. Que se regeneren con un comando.
-Y déjalo anotado en las reglas: esas vistas no se editan a mano.
-```
+**Para pedirlas, usa el prompt de la [Parte 3](#parte-3--el-prompt-de-crecimiento-cuando-ya-tengas-contenido)**, que además de las cinco vistas monta
+las reglas de cruce, las consultas con nombre y la revisión de salud.
 
 ### Tres reglas para que no se conviertan en mentira
 
 1. 🚫 **No se editan a mano. Nunca.** Se corrige el documento de origen y se regenera. Un cambio
    escrito directamente en la vista se pierde en la siguiente pasada — y mientras dure, **miente**.
-2. 🔄 **Se regeneran al terminar un bloque de cambios**, y de noche con una tarea programada.
+2. 🔄 **Se regeneran al terminar un bloque de cambios**; en Claude Code, además, puede hacerlo una
+   tarea programada cada noche.
 3. 🏷️ **Los marcadores son el interruptor.** Los pendientes se recogen solos si escribes `⚠️`,
    `- [ ]` o «pendiente»; y **desaparecen** cuando marcas la línea con `✅` o «resuelto».
    Un pendiente escrito sin marcador está escondido, no anotado.
@@ -778,16 +782,18 @@ Al pulsar el `+` se abre el formulario **«Crear tarea programada»**. Esto es l
 | **Modelo** | Déjalo en el predeterminado salvo que tengas una razón. |
 | **Frecuencia** | ⚠️ **Viene en «Manual»: cámbialo.** Si lo dejas así, no se ejecutará solo nunca. |
 
-### Tres tareas que compensan desde el primer día
+### Tres tareas que compensan
 
 **1. Aviso de vencimientos** — *frecuencia mensual*
 
 ```
 Nombre:       vencimientos-6-meses
-Descripción:  Aviso mensual de contratos por vencer
-Instrucción:  Revisa _data/contratos.json y dime qué vence en los próximos 6 meses,
-              ordenado por fecha. Señala los que tengan el plazo de preaviso a punto de
-              cumplirse. Si no hay ninguno en ventana, dilo en una línea y no hagas nada más.
+Descripción:  Aviso mensual de lo que vence
+Instrucción:  Revisa el registro de contratos (si lo llevas) y los demás calendarios de
+              vencimientos —dominios, suscripciones, certificados— y dime qué vence en los
+              próximos 6 meses, ordenado por fecha. Señala los que tengan el plazo de preaviso
+              a punto de cumplirse. Si no hay ninguno en ventana, dilo en una línea y no hagas
+              nada más.
 ```
 
 **2. Procesar lo que haya llegado** — *frecuencia semanal*
@@ -795,27 +801,30 @@ Instrucción:  Revisa _data/contratos.json y dime qué vence en los próximos 6 
 ```
 Nombre:       ingesta-pendiente
 Descripción:  Procesar PDFs nuevos del buzón
-Instrucción:  Mira si hay PDFs en _documentos/ que no estén ya registrados. Si hay, extrae
-              sus datos, añádelos a la tabla Markdown y al JSON correspondiente, haz el
-              barrido a los demás documentos afectados y anota el cambio en log.md.
+Instrucción:  Mira si hay PDFs en el buzón de _documentos/ que no estén ya registrados. Si
+              hay, extrae sus datos, guárdalos donde toque (y en la tabla y el JSON si son
+              contratos o facturas), haz el barrido a los demás documentos afectados y anota
+              el cambio en log.md.
               Si no hay nada nuevo, no hagas nada.
 ```
 
-**3. Revisión de salud** — *frecuencia mensual* · **la que menos apetece y más rescata**
+**3. Revisión de salud** — *frecuencia mensual* · **la que menos apetece y más rescata** · *para cuando
+hayas hecho la [Parte 3](#parte-3--el-prompt-de-crecimiento-cuando-ya-tengas-contenido), que crea `revision-salud.md`*
 
 ```
 Nombre:       revision-salud
 Descripción:  Chequeo mensual del estado de la base
-Instrucción:  Revisa la base y dame un informe, ordenado por lo que más duele. Busca:
+Instrucción:  Revisa la base siguiendo revision-salud.md y dame un informe, ordenado por lo
+              que más duele. Busca, como mínimo:
               1. Datos fechados con más de 6 meses (los que sostienen una decisión, primero).
               2. Marcadores "pendiente", "por confirmar" o "no localizado" cuya fecha ya pasó.
                  No repitas los que ya estén anotados como revisados y descartados.
               3. Vencimientos en TODOS los calendarios, no solo en el de contratos. Antes de
                  marcar uno como urgente, comprueba si tiene renovación automática.
-              4. Cosas marcadas como firmadas sin documento archivado, y documentos
-                 archivados que no aparecen en ningún registro.
-              5. Descuadres entre cada tabla Markdown y su JSON, y facturas cuyo contrato_id
-                 apunte a un contrato que no existe.
+              4. (Si archivas originales) cosas marcadas como firmadas sin documento
+                 archivado, y documentos archivados que no aparecen en ningún registro.
+              5. (Si llevas contratos y facturas) descuadres entre cada tabla Markdown y su
+                 JSON, y facturas cuyo contrato_id apunte a un contrato que no existe.
               6. Páginas que no estén enlazadas desde ningún index.md.
               7. Enlaces internos rotos. Compruébalos abriendo el archivo, no leyendo la ruta.
               8. Documentos sin "type" o con un type que no esté en la lista de tipos en uso,
@@ -850,7 +859,7 @@ de hablar con ellos.
 | **Consultar** en lenguaje natural | ✅ | ✅ |
 | **Tareas recurrentes** desatendidas | ✅ el apartado *Programado* | también las tiene |
 | **Procesar documentos en lote** *(decenas de PDFs)* | se atraganta | ✅ con diferencia |
-| **Que la base tenga utilidades propias** *(generar las vistas, consultas con nombre)* | no | ✅ es justo para esto |
+| **Que la base tenga utilidades propias** *(generar las vistas, consultas con nombre)* | a petición: le pides «regenera las vistas» | ✅ es justo para esto: un comando, o una tarea cada noche |
 | **Instalación** | ninguna | requiere instalarlo |
 
 En resumen: **empieza en Cowork**. Si un día te descubres pidiendo *«vuelve a calcularme esto»*
@@ -874,7 +883,7 @@ curl -fsSL https://claude.ai/install.sh | bash
 y no con la de un administrador.)*
 
 Después, **abre la carpeta de tu base y escribe `claude`**. Ya está: te responde sobre esos
-archivos, sin subir nada a ningún sitio.
+archivos, sin tener que añadir la carpeta a ningún proyecto.
 
 ### Las equivalencias
 
@@ -886,14 +895,14 @@ Lo que en Cowork son apartados del proyecto, aquí son archivos dentro de la pro
 | **Contexto** *(la carpeta)* | la carpeta desde la que arrancas; no hay que añadirla |
 | **Programado** | tareas programadas, con el mismo criterio de *«si no hay nada, no hagas nada»* |
 
-> 💡 **Pídele que te escriba el `CLAUDE.md` él mismo**, a partir de las reglas que ya pegaste en
-> Instrucciones: *«Crea un CLAUDE.md con estas reglas y que importe el índice y las convenciones»*.
-> Son la misma cosa dicha en dos sitios, y conviene que no se separen.
+> 💡 **El `CLAUDE.md` ya existe**: es donde Cowork guarda las Instrucciones del proyecto. Pídele a Claude
+> Code que compruebe que importa el índice y las convenciones: *«Revisa que el CLAUDE.md importe
+> index.md y CONVENCIONES.md»*. Son la misma cosa vista desde dos sitios, y conviene que no se separen.
 
 ### Lo que se gana de verdad
 
-No es velocidad: es que **la base empieza a tener herramientas**. Las vistas generadas del apartado
-anterior son un script que se ejecuta con un comando. Y las preguntas que se repiten dejan de ser
+No es velocidad: es que **la base empieza a tener herramientas**. Las vistas generadas de la Parte 3
+son un script que se ejecuta con un comando. Y las preguntas que se repiten dejan de ser
 preguntas y pasan a ser utilidades con nombre:
 
 ```

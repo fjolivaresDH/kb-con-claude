@@ -43,9 +43,9 @@
   <circle cx="60" cy="292" r="15" fill="#178a6e"/>
   <text x="60" y="298" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#ffffff">4</text>
   <text x="86" y="298" font-family="Arial" font-size="15" font-weight="bold" fill="#0f5e4b">Pegar el prompt</text>
-  <text x="50" y="329" font-family="Arial" font-size="13" fill="#1a4a3d">Rellena [ORGANIZACIÓN] y</text>
-  <text x="50" y="348" font-family="Arial" font-size="13" fill="#1a4a3d">[ÁREAS], pega el bloque y</text>
-  <text x="50" y="367" font-family="Arial" font-size="13" fill="#1a4a3d">deja que cree todo.</text>
+  <text x="50" y="329" font-family="Arial" font-size="13" fill="#1a4a3d">Pon tu [ORGANIZACIÓN], pega el</text>
+  <text x="50" y="348" font-family="Arial" font-size="13" fill="#1a4a3d">bloque y elige qué vas a</text>
+  <text x="50" y="367" font-family="Arial" font-size="13" fill="#1a4a3d">guardar: crea solo eso.</text>
 
   <path d="M300 319 L340 319" stroke="#9bb0c4" stroke-width="3"/>
   <polygon points="340,312 356,319 340,326" fill="#9bb0c4"/>

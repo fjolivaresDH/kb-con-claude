@@ -63,12 +63,12 @@ footer a{color:var(--accent)}
 <p class="lead"><b>Everyone builds their own base, with their own topics.</b> These eleven are examples we have already worked through: when you paste the initial prompt, Claude offers them, asks whether any of them fits you and <b>what other topics you want to keep</b>. Keep several, none, or start with your own.</p>
 <div class="grid casos" style="margin-top:16px">
 <div class="card"><h3>Suppliers and contacts</h3><p>Who is who and what each one does.</p><p class="q">"Who handles our support for X?"</p></div>
-<div class="card"><h3>Contracts and renewals</h3><p>Dates, notice periods and renewals.</p><p class="q">"What expires in six months?"</p></div>
+<div class="card"><h3>Contracts and expiry dates</h3><p>Dates, notice periods and renewals.</p><p class="q">"What expires in six months?"</p></div>
 <div class="card"><h3>Invoices</h3><p>Each one linked to its contract.</p><p class="q">"What are we paying with no contract?"</p></div>
 <div class="card"><h3>Budget</h3><p>Lines, planned and actual, checked against contracts.</p><p class="q">"Which lines go up, and why?"</p></div>
 <div class="card"><h3>Receipts and expenses</h3><p>Every card charge with its receipt.</p><p class="q">"Which charges have no receipt?"</p></div>
-<div class="card"><h3>Service accounts</h3><p>Address and account. Never passwords.</p><p class="q">"Which account do we log in with?"</p></div>
-<div class="card"><h3>Domains and subscriptions</h3><p>The renewal calendar.</p><p class="q">"What renews this quarter?"</p></div>
+<div class="card"><h3>Access to services</h3><p>Address and account. Never passwords.</p><p class="q">"Which account do we log in with?"</p></div>
+<div class="card"><h3>Domains, certificates and subscriptions</h3><p>The renewal calendar.</p><p class="q">"What renews this quarter?"</p></div>
 <div class="card"><h3>Procedures</h3><p>How each thing is done, step by step.</p><p class="q">"How do we set up a new user?"</p></div>
 <div class="card"><h3>Projects and decisions</h3><p>Status, milestones and the why.</p><p class="q">"Why did we rule that out?"</p></div>
 <div class="card"><h3>Inventories</h3><p>Equipment and licenses, always dated.</p><p class="q">"How many licenses do we have?"</p></div>
@@ -105,7 +105,7 @@ footer a{color:var(--accent)}
 <table>
 <thead><tr><th>The question</th><th>In OKF v0.2</th><th>In this method</th></tr></thead>
 <tbody>
-<tr><td><b>Where does it come from?</b></td><td><code>sources</code></td><td>Every fact carries its proof: the original is filed and linked</td></tr>
+<tr><td><b>Where does it come from?</b></td><td><code>sources</code></td><td>Every fact carries its proof: the original is linked and, if you enable the archive, kept</td></tr>
 <tr><td><b>How far can I trust it?</b></td><td><code>verified</code></td><td>"Signed" only with proof; what is missing is "to confirm", never made up</td></tr>
 <tr><td><b>Is it still true?</b></td><td><code>stale_after</code></td><td>Every perishable fact is dated, and the health check looks for old ones</td></tr>
 <tr><td><b>Is it current?</b></td><td><code>status</code></td><td>One source per topic, and a log of what changed and when</td></tr>
@@ -121,7 +121,7 @@ footer a{color:var(--accent)}
 <tr><td><a href="prompts/01-initial-cowork.html">Initial · Cowork</a></td><td>Day one</td></tr>
 <tr><td><a href="prompts/02-initial-claude-code.html">Initial · Claude Code</a></td><td>Day one</td></tr>
 <tr><td><a href="prompts/03-growth.html">Growth</a></td><td>Weeks later: generated views, cross-checks and queries</td></tr>
-<tr><td><a href="prompts/04-hooks-claude-code.html">Hooks · Claude Code</a></td><td>So the rules enforce themselves</td></tr>
+<tr><td><a href="prompts/04-hooks-claude-code.html">Hooks · Claude Code</a></td><td>After the growth prompt, so the rules enforce themselves</td></tr>
 <tr><td><a href="prompts/05-handoff.html">Handoff log</a></td><td>If you work from more than one computer</td></tr>
 </tbody>
 </table>

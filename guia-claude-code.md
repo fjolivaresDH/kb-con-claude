@@ -126,11 +126,12 @@ pestaña **Code** y elige la carpeta.
 
 ## 5. El prompt inicial
 
-Es un único mensaje que crea la estructura entera: está en
-[`prompts/02-inicial-claude-code.md`](prompts/02-inicial-claude-code.md). Antes de pegarlo, sustituye dos cosas:
+Es un único mensaje: primero te pregunta qué vas a guardar y después crea solo eso. Está en
+[`prompts/02-inicial-claude-code.md`](prompts/02-inicial-claude-code.md). Antes de pegarlo, sustituye `[ORGANIZACIÓN]` (y, si quieres, `[ÁREAS]`):
 
 - `[ORGANIZACIÓN]` → el nombre de tu empresa, equipo o proyecto.
 - `[ÁREAS]` → las áreas que quieras, separadas por comas. Por ejemplo: `proveedores, sistemas, presupuestos, personas`.
+  **Es opcional**: si lo dejas tal cual, Claude te las propone a partir de lo que elijas.
 
 Lo primero que hace es **ofrecerte los [ejemplos ya trabajados](casos-de-uso.md) y preguntarte cuáles te sirven y qué otros
 temas quieres llevar**: la base es tuya y monta solo lo que elijas. Y **adáptalo sin miedo**: si te falta un registro de reuniones o
@@ -145,8 +146,8 @@ de incidencias, añádelo. La estructura buena es la que refleja tu día a día.
 | `index.md` | El mapa de la base, y uno más en cada carpeta |
 | `log.md` | Una línea por cambio, agrupadas por día |
 | `_plantillas/` | Una plantilla por tipo de documento |
-| `_documentos/` | Donde se archivan los originales: facturas, contratos y otros |
-| `_data/` | Contratos y facturas también en JSON, para poder filtrarlos y sumarlos |
+| `_documentos/` | El buzón donde dejas los PDFs por procesar (y, si lo pides, el [archivo de los originales](guia-cowork.md#opcional--conservar-los-documentos-originales)) |
+| `_data/` | Solo si eliges contratos o facturas: también en JSON, para poder filtrarlos y sumarlos |
 | Una carpeta por área | Cada una con su `index.md` |
 
 > **Revisa el `CLAUDE.md` que genere.** Debe importar el índice y las convenciones con dos líneas `@index.md` y
@@ -191,15 +192,19 @@ reglas que detectan descuadres se escriben contra descuadres reales: inventadas,
 
 ### Qué añade
 
-| Vista | Responde a… |
+| Añade | Para qué |
 |---|---|
 | `_catalogo.md` | «¿Qué documento habla de esto?» |
 | `_pendientes.md` | «¿Qué tengo abierto?», con archivo y línea, y lo que tiene fecha arriba |
 | `_calendario.md` | «¿Qué vence pronto?» |
 | `_cruces.md` | «¿Qué no cuadra?»: lo que está en un documento y falta en otro |
 | `_entidades.md` | «¿Dónde más sale este correo, este CIF o este dominio?» |
+| `_consultas/index.md` | Las preguntas frecuentes, con el comando que las responde |
+| `revision-salud.md` | Qué mirar en el chequeo periódico, escrito una vez |
+| `_hallazgos.md` | Los cruces que ya dieron valor, para no redescubrirlos |
+| `eventos.json` · `alias.json` | Las fechas que no son vencimientos de contrato, y los nombres distintos de una misma cosa |
 
-Las genera un script de Python que Claude escribe y ejecuta. **Nunca se editan a mano**: se corrige el documento de
+Las vistas las genera un script de Python que Claude escribe y ejecuta. **Nunca se editan a mano**: se corrige el documento de
 origen y se regeneran. El prompt está en [`prompts/03-crecimiento.md`](prompts/03-crecimiento.md).
 
 ## 8. Que las reglas se cumplan solas
@@ -211,7 +216,7 @@ olvida:
 
 | Cuándo | Qué hace |
 |---|---|
-| **Al terminar cada respuesta** | Regenera las vistas si hace falta, avisa si hay cambios sin anotar en el log o sin entrada en la bitácora, y busca contraseñas coladas |
+| **Al terminar cada respuesta** | Regenera las vistas si hace falta, avisa si hay cambios sin anotar en el log (o, si llevas bitácora, sin entrada de hoy) y busca contraseñas coladas |
 | **Antes de escribir un archivo** | Impide editar a mano las vistas generadas |
 
 El prompt para que Claude los monte está en [`prompts/04-hooks-claude-code.md`](prompts/04-hooks-claude-code.md).

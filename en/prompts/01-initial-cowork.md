@@ -1,6 +1,6 @@
 # Initial prompt · Cowork
 
-Paste it into a new Cowork project with the empty folder already added. First, replace `[ORGANIZATION]` and `[AREAS]`. Full explanation in the [Cowork guide](../guide-cowork.md).
+Paste it into a new Cowork project with the empty folder already added. First, replace `[ORGANIZATION]`; `[AREAS]` is optional: if you leave it, Claude proposes the areas. Full explanation in the [Cowork guide](../guide-cowork.md).
 
 ```
 I want you to build a knowledge base for [ORGANIZATION] in this folder.
@@ -66,7 +66,9 @@ FORMATTING RULES (always apply them, in the future too):
 CREATE THIS STRUCTURE:
 1. index.md at the root: general index, with the list of areas and how everything is organized
    (its only frontmatter is okf_version: "0.2").
-2. log.md at the root: change diary (it starts with the line for the initial creation).
+2. log.md at the root: change diary (it starts with the line for the initial creation), and
+   CONVENTIONS.md, also at the root, with the full formatting rules: it is the "conventions
+   document" cited above.
 3. _templates/ with index.md and one empty template per type, ready to copy:
    reference.md, procedure.md, tool.md and concept.md. Each one with its example frontmatter,
    and the "type" of each template must be its own (the concept one says Concept, not another).

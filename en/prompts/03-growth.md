@@ -32,7 +32,8 @@ I want them to come from MY documents.
    should be in another— based on mismatches you ACTUALLY see. Show me the list with a
    real example of each before you code them, and we'll drop the ones that aren't worth it.
 
-3. NAMED QUERIES. A separate script for the questions I repeat, and a _queries/index.md
+3. NAMED QUERIES. A separate script, in _tools/query.py, for the questions I repeat, and a
+   _queries/index.md
    that lists them with their command. Store the RECIPE, not the answer: a written answer goes out of date
    without warning and nobody notices.
 
@@ -44,7 +45,8 @@ I want them to come from MY documents.
 5. _findings.md: one line for each cross-check that has already given us value, with its sources, so we don't
    discover it again. Start it with the ones you find now.
 
-6. In _data/, add events.json (dates that aren't contract expiry dates: domains,
+6. In _data/ (create it if it does not exist, with its index.md), add events.json (dates that
+   aren't contract expiry dates: domains,
    certificates, end of support, reminders) and aliases.json (different names for the same
    thing, so the index of matches doesn't split it in two).
 

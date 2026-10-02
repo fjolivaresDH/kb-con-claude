@@ -38,7 +38,7 @@ dicen siempre lo mismo.
 | [`prompts/01-inicial-cowork.md`](prompts/01-inicial-cowork.md) | El primer día, en Cowork |
 | [`prompts/02-inicial-claude-code.md`](prompts/02-inicial-claude-code.md) | El primer día, en Claude Code |
 | [`prompts/03-crecimiento.md`](prompts/03-crecimiento.md) | **Semanas después**: vistas generadas, cruces y consultas |
-| [`prompts/04-hooks-claude-code.md`](prompts/04-hooks-claude-code.md) | En Claude Code, para que las reglas se cumplan solas |
+| [`prompts/04-hooks-claude-code.md`](prompts/04-hooks-claude-code.md) | En Claude Code, después del de crecimiento: para que las reglas se cumplan solas |
 | [`prompts/05-bitacora.md`](prompts/05-bitacora.md) | Si trabajas desde más de un equipo |
 
 ## La idea en tres principios
@@ -72,7 +72,7 @@ aquí, con reglas de trabajo que Claude aplica a cada dato:
 
 | La pregunta | En OKF v0.2 | En este método |
 |---|---|---|
-| **¿De dónde sale?** | `sources`: las fuentes de cada documento | Cada dato lleva su prueba: el original se archiva en `_documentos/` y se enlaza |
+| **¿De dónde sale?** | `sources`: las fuentes de cada documento | Cada dato lleva su prueba: se enlaza el original (y, si activas el archivo, se guarda en `_documentos/`) |
 | **¿Cuánto me fío?** | `verified`: sin verificar, confirmado por un proceso o revisado por una persona | «Firmado» solo con constancia real; lo que falta se marca «por confirmar», nunca se inventa |
 | **¿Sigue siendo verdad?** | `stale_after`: una fecha de caducidad por documento | **Cada dato** perecedero lleva la fecha en que se aportó, y la revisión de salud busca los viejos |
 | **¿Es lo vigente?** | `status`: borrador, estable u obsoleto | Una sola fuente por tema; lo superado se marca, y `log.md` dice qué cambió y cuándo |

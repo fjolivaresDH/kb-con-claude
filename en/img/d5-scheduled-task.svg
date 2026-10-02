@@ -12,12 +12,12 @@
 
   <text x="48" y="162" font-family="Arial" font-size="13" font-weight="bold" fill="#33475b">Description</text>
   <rect x="48" y="170" width="384" height="30" rx="5" fill="#ffffff" stroke="#d5dee7"/>
-  <text x="58" y="190" font-family="Courier New" font-size="12" fill="#5a6a7d">Monthly alert of contracts about to expire</text>
+  <text x="58" y="190" font-family="Courier New" font-size="12" fill="#5a6a7d">Monthly alert of what is about to expire</text>
 
   <text x="48" y="226" font-family="Arial" font-size="13" font-weight="bold" fill="#33475b">The instruction (what it should do)</text>
   <rect x="48" y="234" width="384" height="86" rx="5" fill="#ffffff" stroke="#d5dee7"/>
-  <text x="58" y="254" font-family="Courier New" font-size="11.5" fill="#5a6a7d">Check _data/contracts.json and tell me what</text>
-  <text x="58" y="272" font-family="Courier New" font-size="11.5" fill="#5a6a7d">expires in the next 6 months, sorted by</text>
+  <text x="58" y="254" font-family="Courier New" font-size="11.5" fill="#5a6a7d">Check the expiry calendars and tell me</text>
+  <text x="58" y="272" font-family="Courier New" font-size="11.5" fill="#5a6a7d">what expires in the next 6 months, by</text>
   <text x="58" y="290" font-family="Courier New" font-size="11.5" fill="#5a6a7d">date. Flag any notice periods about to</text>
   <text x="58" y="308" font-family="Courier New" font-size="11.5" fill="#5a6a7d">run out.</text>
 
