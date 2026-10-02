@@ -79,6 +79,13 @@ each document; here, with working rules that Claude applies to each fact:
 | **Is it the current one?** | `status`: draft, stable or obsolete | One source per topic; whatever is superseded is marked, and `log.md` says what changed and when |
 | **Does anything contradict it?** | — | If a new fact clashes with a stored one, both are written down with their source instead of choosing silently |
 
+## Suggest improvements
+
+This comes from a real base and gets better with what each person brings: a rule that is not needed, an example
+that is missing, a simpler way to explain something or a technology that helps. Leave it in
+[the repository's issues](https://github.com/fjolivaresDH/kb-con-claude/issues) *(a free GitHub account is
+needed)*. Each published version says what changed.
+
 ## Author and license
 
 Francisco Javier Rivas Olivares. Published under [CC BY 4.0](LICENSE): you can use and adapt it, crediting the author.

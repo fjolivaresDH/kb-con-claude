@@ -78,6 +78,13 @@ aquí, con reglas de trabajo que Claude aplica a cada dato:
 | **¿Es lo vigente?** | `status`: borrador, estable u obsoleto | Una sola fuente por tema; lo superado se marca, y `log.md` dice qué cambió y cuándo |
 | **¿Lo contradice algo?** | — | Si un dato nuevo choca con uno guardado, se anotan los dos con su origen en vez de elegir en silencio |
 
+## Propón mejoras
+
+Esto sale de una base real y se mejora con lo que aporte cada uno: una regla que sobra, un ejemplo que falta, una
+forma más sencilla de explicarlo o una tecnología que ayude. Déjalo en
+[las sugerencias del repositorio](https://github.com/fjolivaresDH/kb-con-claude/issues) *(hace falta una cuenta de
+GitHub, gratuita)*. Cada versión publicada dice qué ha cambiado.
+
 ## Autor y licencia
 
 Francisco Javier Rivas Olivares. Publicado bajo [CC BY 4.0](LICENSE): puedes usarlo y adaptarlo citando la autoría.

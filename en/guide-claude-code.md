@@ -45,7 +45,7 @@ time the base learns to tell you what you have pending, what expires soon and wh
 
 - It doesn't replace your company's systems: accounting stays in accounting and passwords stay in the password
   manager.
-- It is not a place for sensitive personal data or for information that must not leave your team: whatever you give
+- It is not a place for sensitive personal data or for information that must not leave your computer: whatever you give
   Claude is processed on Anthropic's servers.
 
 ## 2. Before you start
