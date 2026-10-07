@@ -15,7 +15,7 @@ need it, with one sentence.
 | **Access to services** | Which service, its address and which account you sign in with. **Never passwords** | *"Which account do we use to sign in to the X console?"* |
 | **Domains, certificates and subscriptions** | Their renewal calendar | *"What renews this quarter, and on which card?"* |
 | **Procedures** | How each thing is done, step by step | *"How do we set up a new user?"* |
-| **Projects and decisions** | Status, milestones and why each thing was decided | *"Why did we rule out that option?"* · *"What do we have on hold?"* |
+| **Projects and decisions** | Who each one is for and who pays, status, milestones, why each thing was decided and what you deliver, with versions | *"Why did we rule out that option?"* · *"Which version did we send them, and when?"* |
 | **Inventories** | Equipment, licenses or software, always dated | *"How many licenses do we have, and when was this last checked?"* |
 | **Articles and communication** | A guide to how you write —your tone, what you never use, what has already been corrected—, a register of what you have published and each article with its drafts | *"Write me a draft in my style"* · *"Which figures did I use in my last article, and where did they come from?"* |
 

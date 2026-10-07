@@ -207,6 +207,18 @@ reglas que detectan descuadres se escriben contra descuadres reales: inventadas,
 Las vistas las genera un script de Python que Claude escribe y ejecuta. **Nunca se editan a mano**: se corrige el documento de
 origen y se regeneran. El prompt está en [`prompts/03-crecimiento.md`](prompts/03-crecimiento.md).
 
+### Y cuando lleves proyectos
+
+Los proyectos tienen **área propia**, `proyectos/`, con una ficha por proyecto que dice **para quién es y quién lo
+paga**. Cuando un proyecto empieza a tener ficheros, se le crea su carpeta con dos subcarpetas: `fuentes/`, para lo que
+llega, y `entregables/`, para lo que generas, **con la versión en el nombre** (`-v1`, `-v2`) y un registro de qué se
+envió y a quién. La carpeta de originales se queda para lo que no es de un proyecto, como contratos y facturas. Así ni
+el documento del proyecto acaba en el área a la que se parece, ni sus ficheros se mezclan con las facturas. El prompt
+está en [`prompts/06-proyectos.md`](prompts/06-proyectos.md).
+
+> 💡 **Antes de un entregable, pide un boceto** y valídalo: corregir un esquema cuesta un minuto; rehacer una
+> presentación, una tarde.
+
 ## 8. Que las reglas se cumplan solas
 
 ### Los hooks
@@ -296,3 +308,4 @@ Fallos reales de una base como esta. Ninguno dio error: todos aparecieron al ir 
 | La lista de «lo que vence» estaba llena de fechas que no eran plazos | Distinguir la fecha de un dato de la fecha de un plazo |
 | Apareció una copia en conflicto del log | Una sola sesión abierta cada vez |
 | Las reglas delicadas vivían en la memoria de un solo equipo | Lo que no puede fallar, en el `CLAUDE.md` |
+| Los proyectos acababan en el área a la que se parecían, y sus ficheros, mezclados con las facturas | Área propia para los proyectos, y una carpeta por proyecto con lo que llega y lo que se entrega, con versiones |

@@ -167,7 +167,8 @@ más adelante con una frase.
    7. Dominios, certificados    -> su calendario de renovaciones.
       y suscripciones
    8. Procedimientos            -> cómo se hace cada cosa, paso a paso.
-   9. Proyectos y decisiones    -> estado, hitos y por qué se decidió cada cosa.
+   9. Proyectos y decisiones    -> para quién es cada uno, estado, hitos, por qué se decidió
+                                   cada cosa y lo que entregas, con versiones.
   10. Inventarios               -> equipos, licencias o software, siempre con fecha.
   11. Artículos y comunicación  -> una guía de cómo escribo, un registro de lo publicado y
                                    cada artículo con sus borradores, para escribir con mi voz.
@@ -763,6 +764,60 @@ las reglas de cruce, las consultas con nombre y la revisión de salud.
 
 ---
 
+## Cuando lleves proyectos: una carpeta por cada uno
+
+Un proyecto no es un tema más. Tiene principio y fin, alguien que lo pide y alguien que lo paga —que no
+siempre es el mismo—, y sobre todo **papeles que entran y papeles que salen**: lo que te mandan para
+estudiar y lo que entregas tú, muchas veces en varias versiones. Si no tiene sitio propio pasan dos cosas
+sin que nadie lo decida: **el documento del proyecto acaba en el área a la que más se parece**, y **sus
+ficheros se mezclan** con contratos y facturas en la carpeta de originales, donde con el tiempo cuesta
+saber cuál es la última versión y cuál se envió.
+
+### Cómo queda
+
+```
+proyectos/
+  index.md                  ← todos: para quién es, quién lo paga y en qué estado está
+  nombre-del-proyecto.md    ← la ficha: objetivo, quién interviene, estado, hitos, decisiones
+  nombre-del-proyecto/
+    fuentes/                ← lo que llega: propuestas, especificaciones, manuales, actas
+    entregables/            ← lo que generas: informe-v1.docx, informe-v2.docx…
+      index.md              ← su registro: versión, fecha, qué cambió y a quién se envió
+```
+
+| Regla | Por qué |
+|---|---|
+| **La ficha dice para quién es y quién lo paga** | No siempre coinciden, y es lo primero que se pregunta |
+| **La versión va en el nombre y nada se sobrescribe** | Para saber qué tenía delante quien recibió la v1 |
+| **El registro de entregables** | *«¿Qué le mandamos y cuándo?»* se responde sin buscar en el correo |
+| **La carpeta de originales, para lo transversal** | Contratos y facturas siguen allí; lo de un proyecto, en su carpeta |
+| **La carpeta, solo cuando hace falta** | Un proyecto pequeño es un solo documento; la carpeta llega con los primeros ficheros, y la ficha se parte si pasa de unas 400 líneas |
+
+### El prompt
+
+```
+Quiero llevar los proyectos en un área propia. Crea la carpeta proyectos/ con su index.md: una tabla
+con cada proyecto, para quién es, quién lo paga y en qué estado está. Cada proyecto tiene su ficha,
+proyectos/<proyecto>.md, que dice en el frontmatter para quién es y quién lo contrata, porque no
+siempre coinciden; y en el cuerpo, el objetivo, quién interviene, el estado con fecha, los hitos y
+cada decisión con su porqué. Cuando un proyecto tenga ficheros, crea su carpeta proyectos/<proyecto>/
+con dos subcarpetas: fuentes/ para lo que nos llega (propuestas, especificaciones, manuales, actas) y
+entregables/ para lo que generamos. Los entregables llevan la versión en el nombre (-v1, -v2...),
+nunca se sobrescriben, y entregables/index.md es su registro: versión, fecha, qué cambió y a quién
+se envió. Si archivo originales en otra carpeta, esa se queda para lo que no es de un proyecto
+(contratos, facturas). Si una ficha pasa de unas 400 líneas, pártela en varios documentos dentro de
+la carpeta del proyecto. Mueve aquí lo que ya tengamos que sea un proyecto y actualiza los enlaces;
+si hay vistas generadas, que no lean fuentes/ ni entregables/. Y antes de generar un entregable
+final, enséñame primero un boceto para validarlo. Añade estas reglas a las Instrucciones (o al
+CLAUDE.md).
+```
+
+> 💡 **Antes del entregable, un boceto.** Pide a Claude un esquema visual —el dibujo de la arquitectura, el
+> índice de la presentación— y valídalo antes de que genere el documento final. Corregir un boceto cuesta
+> un minuto; rehacer una presentación entera, una tarde.
+
+---
+
 ## Automatizar con «Programado»
 
 El apartado **Programado** del proyecto sirve para que Claude haga cosas **por su cuenta, cada
@@ -1056,3 +1111,10 @@ Las preferencias más delicadas —qué es confidencial, qué no sale en un entr
 diciendo al asistente en el chat, y **vivían en su memoria de ese equipo**. Abierta la base en otro, se
 habrían aplicado a medias o nada. → **Lo que no puede fallar va escrito en las Instrucciones** (o en el
 `CLAUDE.md`), que viajan con la carpeta. La memoria ayuda; no es donde se guardan las normas.
+
+**15. Los proyectos acababan en el área a la que se parecían.**
+No había sitio para ellos, así que cada uno fue a parar al área más próxima —casi todos a la de sistemas,
+fueran de sistemas o no—, y sus ficheros, lo que nos llegaba y lo que entregábamos, se mezclaban con
+contratos y facturas en la carpeta de originales. Nadie lo había decidido; simplemente pasó. → **Los
+proyectos tienen área propia, cada uno dice para quién es y quién lo paga, y sus ficheros viven en su
+carpeta, con versiones.**

@@ -14,7 +14,7 @@ quieres llevar, y **monta solo lo que vayas a usar**. Lo demás se añade cuando
 | **Accesos a servicios** | Qué servicio, su dirección y con qué cuenta se entra. **Nunca contraseñas** | *«¿Con qué cuenta se entra en la consola de X?»* |
 | **Dominios, certificados y suscripciones** | Su calendario de renovaciones | *«¿Qué se renueva este trimestre, y con qué tarjeta?»* |
 | **Procedimientos** | Cómo se hace cada cosa, paso a paso | *«¿Cómo se da de alta a un usuario?»* |
-| **Proyectos y decisiones** | Estado, hitos y por qué se decidió cada cosa | *«¿Por qué descartamos aquella opción?»* · *«¿Qué tenemos parado?»* |
+| **Proyectos y decisiones** | Para quién es cada uno y quién lo paga, estado, hitos, por qué se decidió cada cosa y lo que entregas, con versiones | *«¿Por qué descartamos aquella opción?»* · *«¿Qué versión le enviamos, y cuándo?»* |
 | **Inventarios** | Equipos, licencias o software, siempre con fecha | *«¿Cuántas licencias tenemos, y desde cuándo no se revisa?»* |
 | **Artículos y comunicación** | Una guía de cómo escribes —tu tono, lo que no usas, lo que ya te han corregido—, un registro de lo publicado y cada artículo con sus borradores | *«Escríbeme un borrador con mi estilo»* · *«¿Qué cifras usé en el último artículo, y de dónde salían?»* |
 

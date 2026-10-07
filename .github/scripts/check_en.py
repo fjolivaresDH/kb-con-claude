@@ -21,6 +21,7 @@ PARES = [
     ("prompts/03-crecimiento.md", "en/prompts/03-growth.md"),
     ("prompts/04-hooks-claude-code.md", "en/prompts/04-hooks-claude-code.md"),
     ("prompts/05-bitacora.md", "en/prompts/05-handoff.md"),
+    ("prompts/06-proyectos.md", "en/prompts/06-projects.md"),
 ]
 
 

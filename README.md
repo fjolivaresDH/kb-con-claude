@@ -40,6 +40,7 @@ dicen siempre lo mismo.
 | [`prompts/03-crecimiento.md`](prompts/03-crecimiento.md) | **Semanas después**: vistas generadas, cruces y consultas |
 | [`prompts/04-hooks-claude-code.md`](prompts/04-hooks-claude-code.md) | En Claude Code, después del de crecimiento: para que las reglas se cumplan solas |
 | [`prompts/05-bitacora.md`](prompts/05-bitacora.md) | Si trabajas desde más de un equipo |
+| [`prompts/06-proyectos.md`](prompts/06-proyectos.md) | Cuando llevas proyectos con documentos que llegan y que entregas |
 
 ## La idea en tres principios
 

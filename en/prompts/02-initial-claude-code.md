@@ -35,7 +35,8 @@ later with one sentence.
    7. Domains, certificates     -> their renewal calendar.
       and subscriptions
    8. Procedures                -> how each thing is done, step by step.
-   9. Projects and decisions    -> status, milestones and why each thing was decided.
+   9. Projects and decisions    -> who each one is for, status, milestones, why each thing
+                                   was decided and what you deliver, with versions.
   10. Inventories               -> equipment, licenses or software, always dated.
   11. Articles and communication -> a guide to how I write, a register of what I have published
                                    and each article with its drafts, so it writes in my voice.

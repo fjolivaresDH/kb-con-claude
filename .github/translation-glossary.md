@@ -23,6 +23,7 @@ the names a user sees in a guide match the ones the prompt creates.
 | `registro-facturas.md` · registro de contratos | `invoice-register.md` · contract register |
 | `regenerar.py` · `consultar.py` | `regenerate.py` · `query.py` |
 | `cierre_sesion.py` · `proteger_vistas.py` | `session_close.py` · `protect_views.py` |
+| `proyectos/` · `fuentes/` · `entregables/` | `projects/` · `sources/` · `deliverables/` |
 | `index.md` · `log.md` · `CLAUDE.md` | unchanged |
 
 ## Concept types (`type`)

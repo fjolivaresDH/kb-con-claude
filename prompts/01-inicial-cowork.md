@@ -35,7 +35,8 @@ más adelante con una frase.
    7. Dominios, certificados    -> su calendario de renovaciones.
       y suscripciones
    8. Procedimientos            -> cómo se hace cada cosa, paso a paso.
-   9. Proyectos y decisiones    -> estado, hitos y por qué se decidió cada cosa.
+   9. Proyectos y decisiones    -> para quién es cada uno, estado, hitos, por qué se decidió
+                                   cada cosa y lo que entregas, con versiones.
   10. Inventarios               -> equipos, licencias o software, siempre con fecha.
   11. Artículos y comunicación  -> una guía de cómo escribo, un registro de lo publicado y
                                    cada artículo con sus borradores, para escribir con mi voz.

@@ -119,12 +119,13 @@ def main():
     generar("guia-cowork.md", f"Guia-KB-Cowork-v{version}.docx", version, fecha, ref)
     generar("guia-claude-code.md", f"Guia-KB-ClaudeCode-v{version}.docx", version, fecha, ref,
             anexo_prompts(["02-inicial-claude-code.md", "03-crecimiento.md",
-                           "04-hooks-claude-code.md", "05-bitacora.md"]))
+                           "04-hooks-claude-code.md", "05-bitacora.md",
+                           "06-proyectos.md"]))
     generar("en/guide-cowork.md", f"Guide-KB-Cowork-EN-v{version}.docx", version, fecha, ref,
             ingles=True)
     generar("en/guide-claude-code.md", f"Guide-KB-ClaudeCode-EN-v{version}.docx", version, fecha, ref,
             anexo_prompts(["02-initial-claude-code.md", "03-growth.md", "04-hooks-claude-code.md",
-                           "05-handoff.md"], "en/prompts", "Annex — the prompts",
+                           "05-handoff.md", "06-projects.md"], "en/prompts", "Annex — the prompts",
                           "The same prompts as in the guide, to copy without leaving the document."),
             ingles=True)
     shutil.rmtree(TMP)

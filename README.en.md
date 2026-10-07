@@ -41,6 +41,7 @@ files always say the same thing.
 | [`prompts/03-growth.md`](en/prompts/03-growth.md) | **Weeks later**: generated views, cross-checks and queries |
 | [`prompts/04-hooks-claude-code.md`](en/prompts/04-hooks-claude-code.md) | In Claude Code, after the growth prompt: so the rules enforce themselves |
 | [`prompts/05-handoff.md`](en/prompts/05-handoff.md) | If you work from more than one computer |
+| [`prompts/06-projects.md`](en/prompts/06-projects.md) | When you run projects with documents coming in and going out |
 
 ## The idea in three principles
 

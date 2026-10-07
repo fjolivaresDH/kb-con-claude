@@ -165,7 +165,8 @@ later with one sentence.
    7. Domains, certificates     -> their renewal calendar.
       and subscriptions
    8. Procedures                -> how each thing is done, step by step.
-   9. Projects and decisions    -> status, milestones and why each thing was decided.
+   9. Projects and decisions    -> who each one is for, status, milestones, why each thing
+                                   was decided and what you deliver, with versions.
   10. Inventories               -> equipment, licenses or software, always dated.
   11. Articles and communication -> a guide to how I write, a register of what I have published
                                    and each article with its drafts, so it writes in my voice.
@@ -766,6 +767,60 @@ the cross-check rules, the named queries and the health check.
 
 ---
 
+## When you run projects: one folder for each
+
+A project is not just another topic. It has a start and an end, someone who asks for it and someone who
+pays for it —not always the same—, and above all **papers coming in and papers going out**: what you are
+sent to study and what you deliver, often in several versions. If it has no place of its own, two things
+happen without anyone deciding them: **the project document ends up in whichever area it most resembles**,
+and **its files get mixed** with contracts and invoices in the originals folder, where over time it becomes
+hard to tell which version is the latest and which one was sent.
+
+### How it looks
+
+```
+projects/
+  index.md                  ← all of them: who it is for, who pays and what state it is in
+  project-name.md           ← the page: goal, who is involved, status, milestones, decisions
+  project-name/
+    sources/                ← what comes in: proposals, specifications, manuals, minutes
+    deliverables/           ← what you produce: report-v1.docx, report-v2.docx…
+      index.md              ← their register: version, date, what changed and who it was sent to
+```
+
+| Rule | Why |
+|---|---|
+| **The project page says who it is for and who pays** | They are not always the same, and it is the first thing people ask |
+| **The version goes in the name and nothing is overwritten** | So you know what whoever received v1 had in front of them |
+| **The deliverables register** | *"What did we send them, and when?"* is answered without searching your email |
+| **The originals folder, for what cuts across** | Contracts and invoices stay there; a project's files, in its folder |
+| **The folder, only when needed** | A small project is a single document; the folder comes with the first files, and the page is split if it goes past about 400 lines |
+
+### The prompt
+
+```
+I want to keep projects in an area of their own. Create the projects/ folder with its index.md: a table
+with each project, who it is for, who pays for it and what state it is in. Each project has its own page,
+projects/<project>.md, whose frontmatter says who it is for and who commissions it, because they are not
+always the same; and in the body, the goal, who is involved, the dated status, the milestones and
+each decision with its why. When a project has files, create its folder projects/<project>/
+with two subfolders: sources/ for what we receive (proposals, specifications, manuals, minutes) and
+deliverables/ for what we produce. Deliverables carry the version in the name (-v1, -v2...),
+are never overwritten, and deliverables/index.md is their register: version, date, what changed and who
+it was sent to. If I archive originals in another folder, that one stays for what does not belong to a
+project (contracts, invoices). If a project page goes past about 400 lines, split it into several
+documents inside the project folder. Move here whatever we already have that is a project and update the
+links; if there are generated views, they must not read sources/ or deliverables/. And before producing a
+final deliverable, show me a sketch first so I can approve it. Add these rules to the Instructions (or to
+CLAUDE.md).
+```
+
+> 💡 **Before the deliverable, a sketch.** Ask Claude for a visual outline —a drawing of the architecture, the
+> outline of the presentation— and approve it before it produces the final document. Fixing a sketch takes a
+> minute; redoing a whole presentation, an afternoon.
+
+---
+
 ## Automate with "Scheduled"
 
 The project's **Scheduled** section lets Claude do things **on its own, every so often**, without
@@ -1061,3 +1116,10 @@ telling the assistant in the chat, and **they lived in its memory on that comput
 opened on another one, they would have been applied halfway or not at all. → **What must not fail is
 written in the Instructions** (or in `CLAUDE.md`), which travel with the folder. Memory helps; it is
 not where the rules are kept.
+
+**15. Projects ended up in whichever area they resembled.**
+There was no place for them, so each one landed in the nearest area —almost all in the systems one,
+whether they were about systems or not—, and their files, what we received and what we delivered, got
+mixed with contracts and invoices in the originals folder. Nobody had decided it; it just happened. →
+**Projects get an area of their own, each one says who it is for and who pays, and their files live in
+its folder, with versions.**
