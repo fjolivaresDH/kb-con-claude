@@ -68,6 +68,9 @@ Mismatches are often the most valuable finding, and they only appear when the in
   secret is, not the secret.
 - **And the discipline of saying "not on record"** instead of filling gaps with assumptions. A gap
   that is flagged is useful information; one that is covered up is a trap.
+- **And keeping what is on record apart from what is deduced.** When Claude analyzes or gives an
+  opinion, the text tells three things apart: what is on record in a document, what is deduced and
+  what could not be checked. A deduction written with the confidence of a fact misleads.
 
 ### From archive to capability
 
@@ -193,6 +196,12 @@ FORMATTING RULES (always apply them, in the future too):
 - Links between documents use absolute bundle paths: /folder/file.md
 - There is a log.md at the root where you write down EVERY change in one line, grouped by day under a
   "## YYYY-MM-DD" header.
+- One folder per business application: whatever explains how an application is configured and how
+  it is used (rules, procedures, configurations) goes in a folder for that application. The systems
+  area keeps the infrastructure, the access, the security and the integrations between systems;
+  otherwise it ends up as the drawer for "everything that touches a system" and nobody looks there
+  for how a tool is used. Application folders are opened when there are documents that call for
+  them, not in advance.
 
 CREATE THIS STRUCTURE:
 1. index.md at the root: general index, with the list of areas and how everything is organized
@@ -323,6 +332,16 @@ first-class material and file it as well as a PDF. Specifically:
   Open a new header each day; don't pile entries under an earlier date. The log says WHAT
   changed and WHEN; it is not the place for reasoning or analysis. If a log entry
   is turning into a paragraph, that paragraph belongs in a document.
+- WHEN YOU ANALYZE OR GIVE AN OPINION, KEEP THREE THINGS APART in the text: what is on record (it is in
+  a document or a data point), what you deduce and what you have not been able to check. A deduction
+  written with the confidence of a fact misleads. If my question is an opinion on someone's work or a
+  recommendation, close with "what the other side would say", in two or three lines. And before a
+  weighty decision, give me the opposite case with the same force: if it convinces just as much, the
+  decision is not ripe.
+- REGULATION TO WATCH: if I keep a document with the regulatory changes in the pipeline that could
+  change what is allowed (for example, in data protection or in artificial intelligence), consult it
+  every time we talk about that subject and tell me what would change the answer, making clear that
+  IT IS NOT LAW YET. If it does not exist, suggest creating it when the subject comes up.
 - At the end of a block of work, tell me which files you have written to.
 
 CRITERIA YOU MUST ALWAYS RESPECT:
@@ -344,7 +363,8 @@ When you finish:
    the specification, index.md without frontmatter, how to handle the knowledge that reaches you through the
    chat, where each thing goes, the rule for keeping the Markdown table in sync with the JSON, the one about dating
    the facts that expire, the one about the sweep to all the affected documents, the one about filing what
-   you answer me that is worth it, and the privacy and evidence criteria.
+   you answer me that is worth it, the one about separating what is on record from what is deduced, and
+   the privacy and evidence criteria.
 3. Tell me how we start loading knowledge.
 ```
 
@@ -352,6 +372,13 @@ When you finish:
 > **Instructions** section, which is what Claude applies on its own in every conversation. In the
 > panel you will see that this content matches a **`CLAUDE.md`** file inside the folder: they are
 > the same thing seen from the disk. The natural thing is to **edit them from the panel**.
+
+> 💡 **One folder per application.** When you start documenting the business tools you use, whatever explains
+> **how each one is configured and how it is used** —rules, procedures, configurations— goes in a folder for
+> that application. The systems area keeps the infrastructure, the access, the security and the integrations
+> between systems. Otherwise systems ends up as the drawer for "everything that touches a system" and nobody
+> looks there for how a tool is used. The folders are opened when there are documents that call for them, not
+> in advance.
 
 ### Why contracts and invoices come in two formats at once
 
@@ -505,6 +532,13 @@ Archive rules:
 
 5. **Optional but recommended: automate the maintenance.** See
    [Automate with "Scheduled"](#automate-with-scheduled).
+6. **If your work touches subjects that change, watch the regulation.** Keep a *regulation to watch*
+   document —data protection, artificial intelligence, whatever applies to you— with the changes in the
+   pipeline that could change what is allowed: what they say, what state they are in, what they affect and
+   what is still unknown (for example, a European proposal under negotiation). And a rule in the
+   Instructions: every time that subject comes up, Claude consults it and says what would change the answer,
+   **making clear that it is not law yet**. It is not legal advice: it is a reminder of what to look at
+   before deciding.
 
 ---
 
@@ -565,11 +599,12 @@ this will still be here when you need it.**
 | Adds | What for |
 |-------|----------|
 | `_tools/` | The scripts that generate the views and answer the queries |
-| The **five views** | Catalog · pending · calendar · **mismatches** · matches |
+| The **six views** | Catalog · pending · calendar · **mismatches** · matches · annual calendar |
 | `_queries/index.md` | The frequent questions **with the command that answers them** |
 | `health-check.md` | What to look at in the periodic check, written once |
 | `_findings.md` | The cross-checks that already proved their value, **so you do not rediscover them** |
 | `events.json` · `aliases.json` | The dates that are not contract expiries, and the different names for the same thing |
+| `recurring.json` | **What repeats** (closings, renewals, mailings), with its frequency, its months and who does it; the annual calendar comes from it |
 
 > ⚠️ **This works the same in Cowork and in Claude Code**, but you notice the difference: in Cowork
 > you ask it to *"regenerate the views"* and it does; in Claude Code it is a command you can run
@@ -604,6 +639,9 @@ I want them to come from MY documents.
    - _crosschecks.md -> the mismatches. See point 2.
    - _entities.md    -> identifiers (emails, tax IDs, domains) that appear in 2 or more
                         documents, with where they appear.
+   - _calendar-annual.md -> what repeats (yearly closings, renewals, monthly mailings, key
+                        rotations), month by month. It comes from _data/recurring.json (see
+                        point 7).
 
 2. CROSS-CHECK RULES. This is the important point and I want you to do it by looking at my data:
    go through the base and propose "expected absence" rules —something that is in one document and
@@ -628,6 +666,12 @@ I want them to come from MY documents.
    certificates, end of support, reminders) and aliases.json (different names for the same
    thing, so the index of matches doesn't split it in two).
 
+7. WHAT REPEATS. In _data/ add recurring.json: each thing that repeats, with what it is, the
+   frequency (monthly, quarterly, yearly...), the months, who does it and the link to the document
+   that explains how it is done. If it has a fixed day and is not already in the expiry calendar,
+   have it appear there too. With it, generate _calendar-annual.md, month by month. The register
+   only says WHEN it is due; how it is done stays in its document.
+
 RULES THAT MUST BE WRITTEN DOWN in the conventions document:
 - Generated views are NOT edited by hand, ever. You correct the source document and
   regenerate. A change written in the view is lost on the next run and, while it lasts,
@@ -637,6 +681,12 @@ RULES THAT MUST BE WRITTEN DOWN in the conventions document:
   on the same line.
 - When a mismatch is a conscious decision and not an error, the reason is written in the
   source document so that it stops being flagged.
+- What repeats is added to _data/recurring.json at the moment it appears, even if it is through an
+  email; otherwise it lives in someone's memory. The register says when it is due; how it is done
+  is in its document.
+- No script opens a document for writing before it has read it: open(path, "w") empties the file
+  the instant it opens it, and if the read fails afterwards, it is left at zero. You read first and
+  write in one go.
 
 DON'T touch the content that already exists except to add the missing markers, and tell me beforehand
 what you are going to change. When you finish, show me the tree and run the regeneration once so I
@@ -740,6 +790,7 @@ files from what is already written**, and to rebuild them every time something c
 | `_calendar.md` | Expiries and key dates **by proximity** |
 | `_crosschecks.md` | **What is in one document and should be in another** |
 | `_entities.md` | Where else an email, a tax ID or a domain appears |
+| `_calendar-annual.md` | **What repeats**, month by month: closings, renewals, mailings |
 
 **The one that rescues the most is `_crosschecks.md`**, and it is the least obvious. It does not look
 for errors inside a document: it looks for **expected absences** between documents. *A supplier that
@@ -747,8 +798,10 @@ invoices and is not in the directory. An invoice that answers to no contract. A 
 of one company and invoiced to another.* None of that raises an error anywhere — it only shows up when
 someone cross-checks two lists, which is exactly what nobody does by hand.
 
-**To ask for them, use the prompt in [Part 3](#part-3--the-growth-prompt-once-you-have-content)**, which, besides the five views, sets up
+**To ask for them, use the prompt in [Part 3](#part-3--the-growth-prompt-once-you-have-content)**, which, besides the six views, sets up
 the cross-check rules, the named queries and the health check.
+
+**What repeats has its place too.** A contract's expiries already appear in the calendar, but yearly closings, renewals and monthly mailings usually live in someone's memory. A register, `_data/recurring.json`, stores each one with its frequency, its months, who does it and the link to the document that explains how it is done; `_calendar-annual.md` comes out of it, month by month. **It is added at the moment it appears, even if it is through an email.** The register only says when it is due: how it is done stays in its document. And if it has a fixed day, it also appears in the expiry calendar.
 
 ### Three rules so they do not turn into lies
 
@@ -795,6 +848,13 @@ projects/
 | **The deliverables register** | *"What did we send them, and when?"* is answered without searching your email |
 | **The originals folder, for what cuts across** | Contracts and invoices stay there; a project's files, in its folder |
 | **The folder, only when needed** | A small project is a single document; the folder comes with the first files, and the page is split if it goes past about 400 lines |
+| **The state, in the page header** | `active`, `on hold` or `closed`: the catalog groups the projects by state and flags the ones without one |
+| **Status and decisions, with a fixed shape** | "Status and next step" at the top, in two lines; "Decisions" at the bottom, a table with date, what, why and by whom that only grows: a decision that changes is not deleted, the one that replaces it is added |
+| **A closed project does not move folder** | The links would break: the state field is enough |
+
+When a project outgrows a single page, the status and the decisions become files of their own, `status.md` and
+`decisions.md`, next to the page, and the folder carries its own working rules. **Only in that project**: a status
+repeated in three places —the page, a separate file and the handoff log— ends up drifting out of sync.
 
 ### The prompt
 
@@ -802,15 +862,22 @@ projects/
 I want to keep projects in an area of their own. Create the projects/ folder with its index.md: a table
 with each project, who it is for, who pays for it and what state it is in. Each project has its own page,
 projects/<project>.md, whose frontmatter says who it is for and who commissions it, because they are not
-always the same; and in the body, the goal, who is involved, the dated status, the milestones and
-each decision with its why. When a project has files, create its folder projects/<project>/
+always the same, and its state (active, on hold or closed); and in the body, the goal, who is involved,
+the milestones and two fixed sections: "Status and next step", at the top, in two lines, and
+"Decisions", at the bottom, a table with date, what was decided, why and by whom, which only grows (a
+decision that changes is not deleted: the one that replaces it is added). When a project has files,
+create its folder projects/<project>/
 with two subfolders: sources/ for what we receive (proposals, specifications, manuals, minutes) and
 deliverables/ for what we produce. Deliverables carry the version in the name (-v1, -v2...),
 are never overwritten, and deliverables/index.md is their register: version, date, what changed and who
 it was sent to. If I archive originals in another folder, that one stays for what does not belong to a
-project (contracts, invoices). If a project page goes past about 400 lines, split it into several
-documents inside the project folder. Move here whatever we already have that is a project and update the
-links; if there are generated views, they must not read sources/ or deliverables/. And before producing a
+project (contracts, invoices). A closed project does not move folder (the links would break): the state
+field is enough. If a project page goes past about 400 lines, split it into several documents inside
+the project folder and move the status and the decisions into files of their own, status.md and
+decisions.md, next to the page, with that project's working rules in the same folder; only in that
+project, because a status repeated in three places drifts out of sync. Move here whatever we already
+have that is a project and update the links; if there are generated views, they must not read sources/
+or deliverables/, they must group the projects by state and they must flag the ones without one. And before producing a
 final deliverable, show me a sketch first so I can approve it. Add these rules to the Instructions (or to
 CLAUDE.md).
 ```
@@ -837,7 +904,7 @@ When you press the `+`, the **"Create scheduled task"** form opens. This is what
 | **Description** | One line explaining what it is for. Helpful once you have several. |
 | **The instruction** (large box) | The real work: write it just as you would ask for it in the chat. |
 | **Work in a project** | **Select your project.** That way the task works on the project folder and inherits its **Instructions**. |
-| **Model** | Leave the default unless you have a reason. |
+| **Model** | Leave the default unless you have a reason: a task that only searches can use a cheaper model; one that analyzes, the most capable. |
 | **Frequency** | ⚠️ **It comes set to "Manual": change it.** If you leave it like that, it will never run on its own. |
 
 ### Three tasks that pay off
@@ -975,6 +1042,8 @@ python _tools/query.py supplier <name>
 **And the two live side by side.** Nothing stops you from contributing through Cowork from your phone
 and running the utilities from Claude Code when you are at the computer: it is the same folder.
 
+**Two more rules for when the base has utilities.** The first: **no script opens a document for writing before it has read it**. Opening a file for writing empties it that very instant, and if the read fails afterwards, it is left at zero. Changes in bulk should go through a small utility that reads first, writes in one go to a temporary file and swaps it for the original, and that refuses to empty a file or to leave it at less than half its size; in Claude Code, a hook also warns at the moment. The second: **each task with its own model**. Searching and locating, with the cheapest and fastest; drafting and registering, with the middle one; analyzing, cross-checking and preparing decisions, with the most capable; if in doubt, the middle one. In Cowork the model is chosen in the conversation; in Claude Code, with `/model` and with subagents. The detail, with an example, is in [the Claude Code guide](guide-claude-code.md#a-model-for-each-task).
+
 ---
 
 ## Working from more than one computer: the handoff log
@@ -996,13 +1065,16 @@ computer when you pick something up **a week later**.
 ### The handoff log
 
 One file, **`handoff.md`**, at the root. **One entry per session, the most recent at the top**, with
-five sections in short sentences:
+six sections in short sentences:
 
-- **In progress** — each topic and **the exact step** it was left at.
+- **Next step** — first, written so that **it can be done without asking**.
+- **In progress** — each topic and **the exact step** it was left at: results, not activity.
 - **Waiting on** — who has to do what.
-- **Next step.**
+- **Assumptions and how they get confirmed** — what you take as good without having checked it, and how it would be checked.
 - **Documents touched.**
 - **Warnings** — what must not be forgotten.
+
+**Each pending item carries its owner and its date**, if there is one.
 
 Only **the last ten** are kept: anything older is already in the log. And two usage rules:
 
@@ -1016,9 +1088,10 @@ Only **the last ten** are kept: anything older is already in the log. And two us
 
 ```
 I want to be able to continue the work from another computer. Create a handoff.md file at the root: one
-entry per session, the most recent at the top, with the header "## YYYY-MM-DD · computer" and five sections
-(in progress with the exact step, waiting on, next step, documents touched, warnings). Only the
-last ten entries. Explain at the start what doesn't travel between computers. Add to the Instructions
+entry per session, the most recent at the top, with the header "## YYYY-MM-DD · computer" and these sections,
+in this order: next step (first, written so that it can be done without asking), in progress (results, not
+activity), waiting on, assumptions and how they get confirmed, documents touched and warnings. Each pending
+item carries its owner and its date, if there is one. Only the last ten entries. Explain at the start what doesn't travel between computers. Add to the Instructions
 (or to CLAUDE.md) that the first entry is read at the start and a new one is written at the close, and move
 there the preferences you have learned from me in this folder. The generated views must not read the
 handoff log. Write the first entry with what we have open right now.
@@ -1123,3 +1196,25 @@ whether they were about systems or not—, and their files, what we received and
 mixed with contracts and invoices in the originals folder. Nobody had decided it; it just happened. →
 **Projects get an area of their own, each one says who it is for and who pays, and their files live in
 its folder, with versions.**
+
+**16. A deduction written as a fact misleads.**
+An analysis took for granted what was only a deduction, and whoever read it took it as a fact. Nobody had
+lied: the sentence was written with the same confidence as all the others. → **The text keeps apart what is
+on record, what is deduced and what could not be checked**, and if it is an opinion on someone's work, it
+closes with *what the other side would say*.
+
+**17. A script emptied an index and nobody noticed for a week.**
+It opened the file for writing before reading it: at that instant the file is left at zero, and if the read
+then fails, it stays that way. What saved it was the cloud's version history. → **Changes in bulk go through a
+utility that reads first and refuses to empty a file or leave it at less than half its size**, and a hook
+warns at that very moment if something has been emptied.
+
+**18. The hooks had not been running for weeks.**
+They called `python`, which on that Windows was the Microsoft Store shortcut: it runs nothing and fails
+without saying anything. → **They are called with `py` and you check with `/hooks` that they really run**: a
+warning that never fires does not prove that all is well.
+
+**19. What repeats was in no calendar.**
+Expiries were, but the yearly closings and the monthly mailings lived in someone's memory. → **A register of
+what recurs and an annual calendar, month by month**: they are seen in time and do not depend on someone
+remembering.

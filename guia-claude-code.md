@@ -103,7 +103,8 @@ hasta entonces.
 ### Python, para más adelante
 
 Descárgalo de **python.org** y, en la primera pantalla del instalador, marca **«Add python.exe to PATH»**. Comprueba
-con `python --version`.
+con `py --version` en Windows, o con `python3 --version` en macOS y Linux. **En Windows, usa `py`**: `python` puede
+ser un acceso directo a la Microsoft Store que no ejecuta nada y falla sin decir nada.
 
 ## 4. Crear la carpeta y arrancar
 
@@ -168,7 +169,7 @@ Se trabaja hablando. Estas son las formas de aportar y de preguntar:
 | Guardar una respuesta que te ha costado | «Archívalo» |
 | Corregir algo | «Eso no es así: es tal cosa». Lo corrige donde esté |
 
-### Cuatro hábitos que marcan la diferencia
+### Cinco hábitos que marcan la diferencia
 
 - **Cuéntale lo que no pasa por el chat.** La base solo sabe lo que le llega. Cinco minutos al final de la semana con
   las reuniones y decisiones de pasillo valen más que cualquier otra cosa.
@@ -177,6 +178,44 @@ Se trabaja hablando. Estas son las formas de aportar y de preguntar:
 - **Deja que te lleve la contraria.** Si Claude dice que un dato nuevo contradice uno guardado, no es un fallo: es la
   base funcionando. Decide cuál vale.
 - **Mira el log de vez en cuando.** Es la forma rápida de saber qué ha cambiado.
+- **Separa lo que consta de lo que se deduce.** Pide que, al analizar o dar una opinión, el texto distinga tres
+  cosas: lo que consta en un documento, lo que Claude deduce y lo que no ha podido comprobar. Una deducción
+  escrita con la seguridad de un dato engaña. Si es una opinión sobre el trabajo de alguien o una
+  recomendación, que cierre con **qué diría la otra parte**, en dos o tres líneas; y antes de una decisión de
+  peso, que dé **el caso contrario con la misma fuerza**: si convence igual, la decisión no está madura.
+
+### Un modelo según la tarea
+
+No todo el trabajo necesita el modelo más capaz, que además es el más lento y el más caro. En Claude Code cambias
+de modelo con `/model`, y puedes delegar la búsqueda en un subagente que usa otro.
+
+| Trabajo | Modelo |
+|---|---|
+| **Buscar y localizar** («¿dónde está…?», reunir fragmentos) | El más barato y rápido (Haiku), con un subagente de solo lectura |
+| **Redactar, registrar y construir** | El intermedio (Sonnet) |
+| **Analizar, cruzar, preparar decisiones y revisar lo importante** antes de que salga | El más capaz (Opus) |
+| **Si dudas** | El intermedio |
+
+El subagente de búsqueda devuelve **rutas y citas cortas, no conclusiones**: concluir es trabajo del modelo que le
+pregunta. Y el modelo barato **no escribe en la base**: se queda con herramientas de solo lectura. Un ejemplo
+mínimo, en `.claude/agents/buscador.md`:
+
+```
+---
+name: buscador
+description: Busca y localiza información en la base sin modificar nada. Úsalo para "¿dónde está...?" o para
+  reunir fragmentos de varios documentos antes de analizarlos. Devuelve rutas, líneas y citas cortas, no conclusiones.
+tools: Read, Grep, Glob
+model: haiku
+---
+
+Busca en la base lo que se te pida. No modifiques nada. Responde con una lista de rutas de archivo, el número
+de línea y una cita corta de cada hallazgo. Si no encuentras nada, dilo; no rellenes.
+```
+
+**No fijes el modelo en el `.claude/settings.json` del proyecto**: se vuelve a aplicar en cada arranque y pisa el
+que elijas a mano con `/model`. Si un equipo quiere otro modelo por defecto, que lo ponga en
+`.claude/settings.local.json`.
 
 ## 7. Cuando crezca: las vistas y las utilidades
 
@@ -199,13 +238,20 @@ reglas que detectan descuadres se escriben contra descuadres reales: inventadas,
 | `_calendario.md` | «¿Qué vence pronto?» |
 | `_cruces.md` | «¿Qué no cuadra?»: lo que está en un documento y falta en otro |
 | `_entidades.md` | «¿Dónde más sale este correo, este CIF o este dominio?» |
+| `_calendario-anual.md` | «¿Qué toca este mes?»: lo que se repite, mes a mes (cierres, renovaciones, envíos, rotaciones de claves) |
 | `_consultas/index.md` | Las preguntas frecuentes, con el comando que las responde |
 | `revision-salud.md` | Qué mirar en el chequeo periódico, escrito una vez |
 | `_hallazgos.md` | Los cruces que ya dieron valor, para no redescubrirlos |
 | `eventos.json` · `alias.json` | Las fechas que no son vencimientos de contrato, y los nombres distintos de una misma cosa |
+| `recurrentes.json` | Qué se repite, cada cuánto, en qué meses, quién lo hace y el enlace a su procedimiento; de él sale el calendario anual |
 
 Las vistas las genera un script de Python que Claude escribe y ejecuta. **Nunca se editan a mano**: se corrige el documento de
 origen y se regeneran. El prompt está en [`prompts/03-crecimiento.md`](prompts/03-crecimiento.md).
+
+**Lo que se repite se apunta en el momento en que aparece**, aunque sea en un correo: los cierres anuales, las
+renovaciones, los envíos mensuales y las rotaciones de claves suelen vivir en la memoria de alguien. El registro
+`recurrentes.json` solo dice **cuándo toca**; el cómo se hace sigue en su documento. Si tiene un día fijo, sale
+también en el calendario de vencimientos.
 
 ### Y cuando lleves proyectos
 
@@ -216,20 +262,46 @@ envió y a quién. La carpeta de originales se queda para lo que no es de un pro
 el documento del proyecto acaba en el área a la que se parece, ni sus ficheros se mezclan con las facturas. El prompt
 está en [`prompts/06-proyectos.md`](prompts/06-proyectos.md).
 
+Cada ficha declara en la cabecera su **estado** —`activo`, `en espera` o `cerrado`— y lleva dos apartados fijos:
+**«Estado y siguiente paso»** arriba, en dos líneas, y **«Decisiones»** abajo, una tabla con fecha, qué se decidió,
+por qué y quién, que **solo crece**: una decisión que cambia no se borra, se añade la que la sustituye. El
+catálogo agrupa los proyectos por estado y marca los que no lo tienen. Un proyecto cerrado **no se mueve de
+carpeta**, porque se romperían los enlaces: le basta el campo. Y cuando un proyecto desborda una ficha, el estado y
+las decisiones pasan a ser ficheros propios, `estado.md` y `decisiones.md`, junto a la ficha, y la carpeta lleva sus
+propias reglas de trabajo. **Solo en ese proyecto**: el estado repetido en tres sitios acaba desincronizándose.
+
 > 💡 **Antes de un entregable, pide un boceto** y valídalo: corregir un esquema cuesta un minuto; rehacer una
 > presentación, una tarde.
+
+### Una carpeta por aplicación
+
+Lo que cuenta **cómo está configurada y cómo se usa** una aplicación de negocio —reglas, procedimientos,
+configuraciones— va a **una carpeta de esa aplicación**. En el área de sistemas se quedan la infraestructura, los
+accesos, la seguridad y las integraciones entre sistemas. Por qué: sistemas acaba siendo el cajón de «todo lo que
+toca un sistema» y nadie busca allí cómo se usa una herramienta. Las carpetas se abren cuando hay documentos que las
+pidan, no por adelantado.
+
+### Y la normativa que viene
+
+Si tu trabajo toca materias que cambian —protección de datos, inteligencia artificial—, lleva un documento de
+**normativa a vigilar**: los cambios en tramitación que pueden cambiar lo que se puede hacer (por ejemplo, una
+propuesta europea en negociación), con qué dicen, en qué estado están, a qué afectan y qué falta por saber. Y una
+regla en el `CLAUDE.md`: cada vez que se hable de esa materia, Claude lo consulta y dice qué cambiaría la
+respuesta, **dejando claro que aún no es ley**. No es asesoría jurídica: es un recordatorio de qué mirar antes de
+decidir.
 
 ## 8. Que las reglas se cumplan solas
 
 ### Los hooks
 
-Claude Code permite enganchar un script a momentos de la sesión. Con dos basta para que no se olvide lo que siempre se
+Claude Code permite enganchar un script a momentos de la sesión. Con tres basta para que no se olvide lo que siempre se
 olvida:
 
 | Cuándo | Qué hace |
 |---|---|
-| **Al terminar cada respuesta** | Regenera las vistas si hace falta, avisa si hay cambios sin anotar en el log (o, si llevas bitácora, sin entrada de hoy) y busca contraseñas coladas |
+| **Al terminar cada respuesta** | Regenera las vistas si hace falta, avisa si hay cambios sin anotar en el log (o, si llevas bitácora, sin entrada de hoy), busca contraseñas coladas y comprueba que no quede ningún `.md` vacío |
 | **Antes de escribir un archivo** | Impide editar a mano las vistas generadas |
+| **Después de cada acción que escribe** | Compara el tamaño de los `.md` y de los JSON con la foto anterior y avisa en el momento si alguno se ha vaciado, ha encogido a menos de la mitad o ha desaparecido |
 
 El prompt para que Claude los monte está en [`prompts/04-hooks-claude-code.md`](prompts/04-hooks-claude-code.md).
 Quedan configurados en `.claude\settings.local.json`, dentro de la propia carpeta, con esta forma:
@@ -239,20 +311,39 @@ Quedan configurados en `.claude\settings.local.json`, dentro de la propia carpet
   "hooks": {
     "Stop": [
       { "hooks": [ { "type": "command",
-                     "command": "cd \"C:/ruta/a/tu/base\" && python _herramientas/cierre_sesion.py",
+                     "command": "cd \"C:/ruta/a/tu/base\" && py _herramientas/cierre_sesion.py",
                      "timeout": 120 } ] }
     ],
     "PreToolUse": [
       { "matcher": "Write|Edit",
         "hooks": [ { "type": "command",
-                     "command": "cd \"C:/ruta/a/tu/base\" && python _herramientas/proteger_vistas.py",
+                     "command": "cd \"C:/ruta/a/tu/base\" && py _herramientas/proteger_vistas.py",
                      "timeout": 20 } ] }
+    ],
+    "PostToolUse": [
+      { "matcher": "Bash|PowerShell|Write|Edit",
+        "hooks": [ { "type": "command",
+                     "command": "cd \"C:/ruta/a/tu/base\" && py _herramientas/vigilar_tamanos.py",
+                     "timeout": 30 } ] }
     ]
   }
 }
 ```
 
-Se revisan escribiendo `/hooks` en Claude Code.
+**En Windows, llama a los scripts con `py` y no con `python`** (en macOS y Linux, `python3`): `python` puede ser el
+acceso directo de la Microsoft Store, que no ejecuta nada y falla sin decir nada, y los hooks llevarían semanas sin
+correr sin que nadie lo notara. Se revisan escribiendo `/hooks` en Claude Code, y **conviene hacer una prueba real**:
+vaciar a propósito un `.md` de prueba y comprobar que el aviso sale.
+
+### Escribir sin perder datos
+
+Una regla para los scripts de la base: **ninguno abre un documento para escribir antes de haberlo leído**. En
+Python, `open(ruta, "w")` vacía el archivo en el mismo instante de abrirlo; si después falla la lectura, el archivo
+queda a cero y nadie se entera. Los cambios en bloque pasan por una pequeña utilidad, `_herramientas/seguro.py`, que
+**lee antes, escribe de golpe en un archivo temporal y lo cambia por el original**, y que **se niega a vaciar un
+archivo o a dejarlo en menos de la mitad**. Los cambios sueltos, con la herramienta de edición. Y el tercer hook
+avisa en el momento si algo se ha vaciado. El historial de versiones de la nube sigue siendo la red de seguridad,
+pero así no hay que usarla.
 
 ### Las tareas programadas
 
@@ -270,6 +361,10 @@ tema. Tampoco viajan la memoria de Claude ni las tareas programadas.
 | Las conversaciones | Una **bitácora**: `bitacora.md`, una entrada por sesión con dónde se quedó cada tema |
 | Lo que Claude ha aprendido de ti | Pasarlo al `CLAUDE.md`, que sí viaja |
 | Las tareas programadas | Tenerlas **en un solo equipo**: si dos regeneran lo mismo, la sincronización crea copias en conflicto |
+
+La entrada empieza por el **siguiente paso**, escrito para que se pueda hacer sin preguntar; sigue con lo que está en
+curso (resultados, no actividad), a qué se espera, los **supuestos y cómo se confirman**, los documentos tocados y los
+avisos. **Cada pendiente lleva su dueño y su fecha**, si la hay.
 
 Y una regla: **nunca dos sesiones abiertas a la vez en dos equipos.** Si los dos escriben el mismo archivo casi a la
 vez, el servicio de sincronización guarda uno y crea otro con el nombre del equipo pegado. El prompt de la bitácora está en
@@ -309,3 +404,7 @@ Fallos reales de una base como esta. Ninguno dio error: todos aparecieron al ir 
 | Apareció una copia en conflicto del log | Una sola sesión abierta cada vez |
 | Las reglas delicadas vivían en la memoria de un solo equipo | Lo que no puede fallar, en el `CLAUDE.md` |
 | Los proyectos acababan en el área a la que se parecían, y sus ficheros, mezclados con las facturas | Área propia para los proyectos, y una carpeta por proyecto con lo que llega y lo que se entrega, con versiones |
+| Un análisis dio por hecho lo que solo era una deducción, y quien lo leyó lo tomó como un dato | El texto separa lo que consta, lo que se deduce y lo que no se ha podido comprobar |
+| Un script abrió un índice para escribir antes de leerlo, lo vació y nadie lo vio en una semana; lo salvó el historial de versiones de la nube | Los cambios en bloque pasan por una utilidad que lee antes y se niega a vaciar, y un hook avisa en el momento |
+| Los hooks llevaban semanas sin ejecutarse: llamaban a `python`, que en ese Windows era el acceso directo de la tienda y fallaba sin decir nada | Llamarlos con `py` y comprobar con `/hooks` que corren de verdad |
+| Lo que se repite no estaba en ningún calendario: los cierres anuales y los envíos mensuales vivían en la memoria de alguien | Un registro de lo recurrente y un calendario anual, mes a mes |

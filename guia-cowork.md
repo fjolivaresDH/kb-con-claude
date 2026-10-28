@@ -69,6 +69,9 @@ más valioso, y solo aparecen cuando la información está junta.
   *dónde* está el secreto, no el secreto.
 - **Y la disciplina de decir "no consta"** en lugar de rellenar huecos con suposiciones. Un hueco
   señalado es información útil; uno tapado es una trampa.
+- **Y separar lo que consta de lo que se deduce.** Cuando Claude analiza o da una opinión, el texto
+  distingue tres cosas: lo que consta en un documento, lo que se deduce y lo que no se ha podido
+  comprobar. Una deducción escrita con la seguridad de un dato engaña.
 
 ### De archivo a capacidad
 
@@ -195,6 +198,12 @@ REGLAS DE FORMATO (aplícalas siempre, también en el futuro):
 - Los enlaces entre documentos usan rutas absolutas del bundle: /carpeta/archivo.md
 - Hay un log.md en la raíz donde anotas CADA cambio con una línea, agrupando por día bajo una
   cabecera "## AAAA-MM-DD".
+- Una carpeta por aplicación de negocio: lo que cuenta cómo está configurada y cómo se usa una
+  aplicación (reglas, procedimientos, configuraciones) va a una carpeta de esa aplicación. El
+  área de sistemas se queda con la infraestructura, los accesos, la seguridad y las integraciones
+  entre sistemas; si no, acaba siendo el cajón de "todo lo que toca un sistema" y nadie busca
+  allí cómo se usa una herramienta. Las carpetas de aplicación se abren cuando hay documentos que
+  las pidan, no por adelantado.
 
 CREA ESTA ESTRUCTURA:
 1. index.md en la raíz: índice general, con la lista de áreas y cómo está organizado todo
@@ -325,6 +334,16 @@ material de primera y lo archives igual de bien que un PDF. En concreto:
   Abre una cabecera nueva cada día; no acumules entradas bajo una fecha anterior. El log dice QUÉ
   cambió y CUÁNDO; no es el sitio de los razonamientos ni de los análisis. Si una entrada del log
   te está saliendo de un párrafo, ese párrafo pertenece a un documento.
+- AL ANALIZAR U OPINAR, SEPARA TRES COSAS en el texto: lo que consta (está en un documento o en
+  un dato), lo que deduces y lo que no has podido comprobar. Una deducción escrita con la
+  seguridad de un dato engaña. Si mi pregunta es una opinión sobre el trabajo de alguien o una
+  recomendación, cierra con "qué diría la otra parte", en dos o tres líneas. Y antes de una
+  decisión de peso, dame el caso contrario con la misma fuerza: si convence igual, la decisión
+  no está madura.
+- NORMATIVA A VIGILAR: si llevo un documento con los cambios normativos en tramitación que
+  pueden cambiar lo que se puede hacer (por ejemplo, en protección de datos o en inteligencia
+  artificial), consúltalo cada vez que hablemos de esa materia y dime qué cambiaría la
+  respuesta, dejando claro que AÚN NO ES LEY. Si no existe, propón crearlo cuando salga el tema.
 - Al final de un bloque de trabajo, dime en qué archivos has escrito.
 
 CRITERIOS QUE DEBES RESPETAR SIEMPRE:
@@ -346,7 +365,8 @@ Cuando termines:
    la especificación, index.md sin frontmatter, cómo tratar el conocimiento que te llegue por el
    chat, dónde va cada cosa, la regla de sincronizar la tabla Markdown con el JSON, la de fechar
    los datos que caducan, la del barrido a todos los documentos afectados, la de archivar lo que
-   me respondas y valga la pena, y los criterios de privacidad y de constancia.
+   me respondas y valga la pena, la de separar lo que consta de lo que se deduce y los criterios
+   de privacidad y de constancia.
 3. Dime cómo empezamos a cargar conocimiento.
 ```
 
@@ -354,6 +374,13 @@ Cuando termines:
 > **Instrucciones** del proyecto, que es lo que Claude aplica solo en cada conversación. En el
 > panel verás que ese contenido se corresponde con un archivo **`CLAUDE.md`** dentro de la
 > carpeta: son lo mismo visto desde el disco. Lo natural es **editarlas desde el panel**.
+
+> 💡 **Una carpeta por aplicación.** Cuando empieces a documentar las herramientas de negocio que usas, lo que
+> cuenta **cómo está configurada y cómo se usa** cada una —reglas, procedimientos, configuraciones— va a una
+> carpeta de esa aplicación. El área de sistemas se queda con la infraestructura, los accesos, la seguridad y
+> las integraciones entre sistemas. Si no, sistemas acaba siendo el cajón de «todo lo que toca un sistema» y
+> nadie busca allí cómo se usa una herramienta. Las carpetas se abren cuando hay documentos que las pidan, no
+> por adelantado.
 
 ### Por qué contratos y facturas van en dos formatos a la vez
 
@@ -505,6 +532,12 @@ Reglas del archivo:
 
 5. **Opcional pero recomendable: automatiza el mantenimiento.** Ver
    [Automatizar con «Programado»](#automatizar-con-programado).
+6. **Si tu trabajo toca materias que cambian, vigila la normativa.** Lleva un documento de *normativa a
+   vigilar* —protección de datos, inteligencia artificial, lo que sea tu caso— con los cambios que están en
+   tramitación y pueden cambiar lo que se puede hacer: qué dicen, en qué estado están, a qué afectan y qué falta
+   por saber (por ejemplo, una propuesta europea en negociación). Y una regla en las Instrucciones: cada vez que
+   se hable de esa materia, Claude lo consulta y dice qué cambiaría la respuesta, **dejando claro que aún no es
+   ley**. No es asesoría jurídica: es un recordatorio de qué mirar antes de decidir.
 
 ---
 
@@ -565,11 +598,12 @@ seguirá aquí cuando haga falta.**
 | Añade | Para qué |
 |-------|----------|
 | `_herramientas/` | Los scripts que generan las vistas y responden las consultas |
-| Las **cinco vistas** | Catálogo · pendientes · calendario · **descuadres** · coincidencias |
+| Las **seis vistas** | Catálogo · pendientes · calendario · **descuadres** · coincidencias · calendario anual |
 | `_consultas/index.md` | Las preguntas frecuentes **con el comando que las responde** |
 | `revision-salud.md` | Qué mirar en el chequeo periódico, escrito una vez |
 | `_hallazgos.md` | Los cruces que ya dieron valor, **para no redescubrirlos** |
 | `eventos.json` · `alias.json` | Las fechas que no son vencimientos de contrato, y los nombres distintos de una misma cosa |
+| `recurrentes.json` | **Lo que se repite** (cierres, renovaciones, envíos), con su frecuencia, sus meses y quién lo hace; de ahí sale el calendario anual |
 
 > ⚠️ **Esto funciona igual en Cowork y en Claude Code**, pero se nota la diferencia: en Cowork le
 > pides *«regenera las vistas»* y lo hace; en Claude Code es un comando que puedes lanzar tú o
@@ -604,6 +638,9 @@ quiero que salgan de MIS documentos.
    - _cruces.md      -> los descuadres. Ver el punto 2.
    - _entidades.md   -> identificadores (correos, CIF, dominios) que aparezcan en 2 o más
                         documentos, con dónde salen.
+   - _calendario-anual.md -> lo que se repite (cierres anuales, renovaciones, envíos
+                        mensuales, rotaciones de claves), mes a mes. Sale de
+                        _data/recurrentes.json (ver el punto 7).
 
 2. REGLAS DE CRUCE. Este es el punto importante y quiero que lo hagas mirando mis datos:
    revisa la base y proponme reglas de "ausencia esperada" —algo que está en un documento y
@@ -628,6 +665,12 @@ quiero que salgan de MIS documentos.
    certificados, fines de soporte, recordatorios) y alias.json (nombres distintos para la misma
    cosa, para que el índice de coincidencias no la parta en dos).
 
+7. LO QUE SE REPITE. En _data/ añade recurrentes.json: cada cosa que se repite, con qué es, la
+   frecuencia (mensual, trimestral, anual...), los meses, quién la hace y el enlace al documento
+   que explica cómo se hace. Si tiene día fijo y no está ya en el calendario de vencimientos,
+   que salga también allí. Con él, genera _calendario-anual.md, mes a mes. El registro solo dice
+   CUÁNDO toca; el cómo se hace sigue en su documento.
+
 REGLAS QUE DEBEN QUEDAR ESCRITAS en el documento de convenciones:
 - Las vistas generadas NO se editan a mano, nunca. Se corrige el documento de origen y se
   regenera. Un cambio escrito en la vista se pierde en la siguiente pasada y, mientras dura,
@@ -637,6 +680,12 @@ REGLAS QUE DEBEN QUEDAR ESCRITAS en el documento de convenciones:
   en la misma línea.
 - Cuando un descuadre sea una decisión consciente y no un error, se anota el motivo en el
   documento de origen para que deje de saltar.
+- Lo que se repite se añade a _data/recurrentes.json en el momento en que aparece, aunque sea
+  por un correo; si no, vive en la memoria de alguien. El registro dice cuándo toca; el cómo
+  está en su documento.
+- Ningún script abre un documento para escribir antes de haberlo leído: open(ruta, "w") vacía
+  el archivo en el mismo instante de abrirlo, y si después falla la lectura, queda a cero. Se
+  lee primero y se escribe de golpe.
 
 NO toques el contenido que ya existe salvo para añadir los marcadores que falten, y dime antes
 qué vas a cambiar. Al terminar, enséñame el árbol y ejecuta la regeneración una vez para que yo
@@ -737,6 +786,7 @@ archivos resumen a partir de lo que ya está escrito**, y que los rehaga cada ve
 | `_calendario.md` | Vencimientos y fechas clave **por proximidad** |
 | `_cruces.md` | **Lo que está en un documento y debería estar en otro** |
 | `_entidades.md` | Dónde más aparece un correo, un CIF, un dominio |
+| `_calendario-anual.md` | **Lo que se repite**, mes a mes: cierres, renovaciones, envíos |
 
 **El que más rescata es `_cruces.md`**, y es el menos evidente. No busca errores dentro de un
 documento: busca **ausencias esperadas** entre documentos. *Un proveedor que factura y no está en
@@ -744,8 +794,10 @@ el directorio. Una factura que no responde a ningún contrato. Un contrato a nom
 y facturado a otra.* Nada de eso da error en ninguna parte — solo aparece cuando alguien cruza dos
 listas, que es exactamente lo que nadie hace a mano.
 
-**Para pedirlas, usa el prompt de la [Parte 3](#parte-3--el-prompt-de-crecimiento-cuando-ya-tengas-contenido)**, que además de las cinco vistas monta
+**Para pedirlas, usa el prompt de la [Parte 3](#parte-3--el-prompt-de-crecimiento-cuando-ya-tengas-contenido)**, que además de las seis vistas monta
 las reglas de cruce, las consultas con nombre y la revisión de salud.
+
+**Lo que se repite también tiene su sitio.** Los vencimientos de un contrato ya salen en el calendario, pero los cierres anuales, las renovaciones y los envíos mensuales suelen vivir en la memoria de alguien. Un registro, `_data/recurrentes.json`, guarda cada uno con su frecuencia, sus meses, quién lo hace y el enlace al documento que explica cómo se hace; de ahí sale `_calendario-anual.md`, mes a mes. **Se añade en el momento en que aparece, aunque sea por un correo.** El registro solo dice cuándo toca: el cómo sigue en su documento. Y si tiene un día fijo, sale también en el calendario de vencimientos.
 
 ### Tres reglas para que no se conviertan en mentira
 
@@ -792,6 +844,13 @@ proyectos/
 | **El registro de entregables** | *«¿Qué le mandamos y cuándo?»* se responde sin buscar en el correo |
 | **La carpeta de originales, para lo transversal** | Contratos y facturas siguen allí; lo de un proyecto, en su carpeta |
 | **La carpeta, solo cuando hace falta** | Un proyecto pequeño es un solo documento; la carpeta llega con los primeros ficheros, y la ficha se parte si pasa de unas 400 líneas |
+| **El estado, en la cabecera de la ficha** | `activo`, `en espera` o `cerrado`: el catálogo agrupa los proyectos por estado y marca los que no lo tienen |
+| **Estado y decisiones, con forma fija** | «Estado y siguiente paso» arriba, en dos líneas; «Decisiones» abajo, una tabla con fecha, qué, por qué y quién que solo crece: una decisión que cambia no se borra, se añade la que la sustituye |
+| **Un proyecto cerrado no se mueve de carpeta** | Se romperían los enlaces: le basta el campo de estado |
+
+Cuando un proyecto desborda una ficha, el estado y las decisiones pasan a ser ficheros propios, `estado.md` y
+`decisiones.md`, junto a la ficha, y la carpeta lleva sus propias reglas de trabajo. **Solo en ese proyecto**: el
+estado repetido en tres sitios —la ficha, un fichero aparte y la bitácora— acaba desincronizándose.
 
 ### El prompt
 
@@ -799,15 +858,22 @@ proyectos/
 Quiero llevar los proyectos en un área propia. Crea la carpeta proyectos/ con su index.md: una tabla
 con cada proyecto, para quién es, quién lo paga y en qué estado está. Cada proyecto tiene su ficha,
 proyectos/<proyecto>.md, que dice en el frontmatter para quién es y quién lo contrata, porque no
-siempre coinciden; y en el cuerpo, el objetivo, quién interviene, el estado con fecha, los hitos y
-cada decisión con su porqué. Cuando un proyecto tenga ficheros, crea su carpeta proyectos/<proyecto>/
+siempre coinciden, y su estado (activo, en espera o cerrado); y en el cuerpo, el objetivo, quién
+interviene, los hitos y dos apartados fijos: "Estado y siguiente paso", arriba, en dos líneas, y
+"Decisiones", abajo, una tabla con fecha, qué se decidió, por qué y quién, que solo crece (una
+decisión que cambia no se borra: se añade la que la sustituye). Cuando un proyecto tenga ficheros,
+crea su carpeta proyectos/<proyecto>/
 con dos subcarpetas: fuentes/ para lo que nos llega (propuestas, especificaciones, manuales, actas) y
 entregables/ para lo que generamos. Los entregables llevan la versión en el nombre (-v1, -v2...),
 nunca se sobrescriben, y entregables/index.md es su registro: versión, fecha, qué cambió y a quién
 se envió. Si archivo originales en otra carpeta, esa se queda para lo que no es de un proyecto
-(contratos, facturas). Si una ficha pasa de unas 400 líneas, pártela en varios documentos dentro de
-la carpeta del proyecto. Mueve aquí lo que ya tengamos que sea un proyecto y actualiza los enlaces;
-si hay vistas generadas, que no lean fuentes/ ni entregables/. Y antes de generar un entregable
+(contratos, facturas). Un proyecto cerrado no se mueve de carpeta (se romperían los enlaces): le
+basta el campo de estado. Si una ficha pasa de unas 400 líneas, pártela en varios documentos dentro
+de la carpeta del proyecto y pasa el estado y las decisiones a ficheros propios, estado.md y
+decisiones.md, junto a la ficha, con las reglas de trabajo de ese proyecto en la misma carpeta; solo
+en ese proyecto, porque el estado repetido en tres sitios se desincroniza. Mueve aquí lo que ya
+tengamos que sea un proyecto y actualiza los enlaces; si hay vistas generadas, que no lean fuentes/
+ni entregables/, que agrupen los proyectos por estado y que marquen los que no lo tengan. Y antes de generar un entregable
 final, enséñame primero un boceto para validarlo. Añade estas reglas a las Instrucciones (o al
 CLAUDE.md).
 ```
@@ -834,7 +900,7 @@ Al pulsar el `+` se abre el formulario **«Crear tarea programada»**. Esto es l
 | **Descripción** | Una línea explicando para qué es. Se agradece cuando tengas varias. |
 | **La instrucción** (recuadro grande) | El trabajo de verdad: escríbelo tal como se lo pedirías en el chat. |
 | **Trabajar en un proyecto** | **Selecciona tu proyecto.** Así la tarea trabaja sobre la carpeta del proyecto y hereda sus **Instrucciones**. |
-| **Modelo** | Déjalo en el predeterminado salvo que tengas una razón. |
+| **Modelo** | Déjalo en el predeterminado salvo que tengas una razón: una tarea que solo busca puede ir con un modelo más barato; una que analiza, con el más capaz. |
 | **Frecuencia** | ⚠️ **Viene en «Manual»: cámbialo.** Si lo dejas así, no se ejecutará solo nunca. |
 
 ### Tres tareas que compensan
@@ -972,6 +1038,8 @@ python _herramientas/consultar.py proveedor <nombre>
 **Y las dos conviven.** Nada impide aportar por Cowork desde el móvil y ejecutar las utilidades
 desde Claude Code cuando estás en el equipo: es la misma carpeta.
 
+**Dos reglas más para cuando la base tenga utilidades.** La primera: **ningún script abre un documento para escribir antes de haberlo leído**. Abrir un archivo para escribir lo vacía en ese mismo instante, y si después falla la lectura, se queda a cero. Los cambios en bloque deben pasar por una pequeña utilidad que lee antes, escribe de golpe en un archivo temporal y lo cambia por el original, y que se niega a vaciar un archivo o a dejarlo en menos de la mitad; en Claude Code, además, un hook avisa en el momento. La segunda: **cada tarea, con su modelo**. Buscar y localizar, con el más barato y rápido; redactar y registrar, con el intermedio; analizar, cruzar y preparar decisiones, con el más capaz; si dudas, el intermedio. En Cowork el modelo se elige en la conversación; en Claude Code, con `/model` y con subagentes. El detalle, con un ejemplo, está en [la guía de Claude Code](guia-claude-code.md#un-modelo-según-la-tarea).
+
 ---
 
 ## Trabajar desde más de un equipo: la bitácora
@@ -991,14 +1059,17 @@ el día anterior tenías delante. Pasa igual con un solo equipo cuando retomas a
 
 ### La bitácora
 
-Un archivo, **`bitacora.md`**, en la raíz. **Una entrada por sesión, la más reciente arriba**, con cinco
+Un archivo, **`bitacora.md`**, en la raíz. **Una entrada por sesión, la más reciente arriba**, con seis
 apartados en frases cortas:
 
-- **En curso** — cada tema y **el paso exacto** en que quedó.
+- **Siguiente paso** — lo primero, escrito para que **se pueda hacer sin preguntar**.
+- **En curso** — cada tema y **el paso exacto** en que quedó: resultados, no actividad.
 - **Esperando a** — quién tiene que hacer qué.
-- **Siguiente paso.**
+- **Supuestos y cómo se confirman** — lo que das por bueno sin haberlo comprobado, y cómo se comprobaría.
 - **Documentos tocados.**
 - **Avisos** — lo que no puede olvidarse.
+
+**Cada pendiente lleva su dueño y su fecha**, si la hay.
 
 Se guardan **solo las diez últimas**: lo anterior ya está en el log. Y dos reglas de uso:
 
@@ -1012,9 +1083,10 @@ Se guardan **solo las diez últimas**: lo anterior ya está en el log. Y dos reg
 
 ```
 Quiero poder seguir el trabajo desde otro equipo. Crea en la raíz un archivo bitacora.md: una
-entrada por sesión, la más reciente arriba, con cabecera "## AAAA-MM-DD · equipo" y cinco apartados
-(en curso con el paso exacto, esperando a, siguiente paso, documentos tocados, avisos). Solo las
-diez últimas entradas. Explica al principio qué no viaja entre equipos. Añade a las Instrucciones
+entrada por sesión, la más reciente arriba, con cabecera "## AAAA-MM-DD · equipo" y estos apartados,
+en este orden: siguiente paso (lo primero, escrito para que se pueda hacer sin preguntar), en curso
+(resultados, no actividad), esperando a, supuestos y cómo se confirman, documentos tocados y avisos.
+Cada pendiente lleva su dueño y su fecha, si la hay. Solo las diez últimas entradas. Explica al principio qué no viaja entre equipos. Añade a las Instrucciones
 (o al CLAUDE.md) que al empezar se lea la primera entrada y al cerrar se escriba una nueva, y pasa
 ahí las preferencias que hayas aprendido de mí en esta carpeta. Que las vistas generadas no lean la
 bitácora. Escribe la primera entrada con lo que tenemos abierto ahora.
@@ -1118,3 +1190,25 @@ fueran de sistemas o no—, y sus ficheros, lo que nos llegaba y lo que entregá
 contratos y facturas en la carpeta de originales. Nadie lo había decidido; simplemente pasó. → **Los
 proyectos tienen área propia, cada uno dice para quién es y quién lo paga, y sus ficheros viven en su
 carpeta, con versiones.**
+
+**16. Una deducción escrita como dato engaña.**
+Un análisis dio por hecho lo que solo era una deducción, y quien lo leyó lo tomó como un dato. Nadie había
+mentido: la frase estaba escrita con la misma seguridad que las demás. → **El texto separa lo que consta, lo que
+se deduce y lo que no se ha podido comprobar**, y si es una opinión sobre el trabajo de alguien, cierra con
+*qué diría la otra parte*.
+
+**17. Un script vació un índice y nadie lo vio en una semana.**
+Abría el archivo para escribir antes de leerlo: en ese instante el archivo queda a cero, y si después la lectura
+falla, se queda así. Lo salvó el historial de versiones de la nube. → **Los cambios en bloque pasan por una
+utilidad que lee antes y se niega a vaciar un archivo o a dejarlo en menos de la mitad**, y un hook avisa en el
+mismo momento si algo se ha vaciado.
+
+**18. Los hooks llevaban semanas sin ejecutarse.**
+Llamaban a `python`, que en ese Windows era el acceso directo de la Microsoft Store: no ejecuta nada y falla sin
+decir nada. → **Se llaman con `py` y se comprueba con `/hooks` que corren de verdad**: un aviso que nunca salta
+no prueba que todo esté bien.
+
+**19. Lo que se repite no estaba en ningún calendario.**
+Los vencimientos sí, pero los cierres anuales y los envíos mensuales vivían en la memoria de alguien. → **Un
+registro de lo recurrente y un calendario anual, mes a mes**: se ven con tiempo y no dependen de que alguien se
+acuerde.

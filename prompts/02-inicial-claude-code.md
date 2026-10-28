@@ -63,6 +63,12 @@ REGLAS DE FORMATO (aplícalas siempre, también en el futuro):
 - Los enlaces entre documentos usan rutas absolutas del bundle: /carpeta/archivo.md
 - Hay un log.md en la raíz donde anotas CADA cambio con una línea, agrupando por día bajo una
   cabecera "## AAAA-MM-DD".
+- Una carpeta por aplicación de negocio: lo que cuenta cómo está configurada y cómo se usa una
+  aplicación (reglas, procedimientos, configuraciones) va a una carpeta de esa aplicación. El
+  área de sistemas se queda con la infraestructura, los accesos, la seguridad y las integraciones
+  entre sistemas; si no, acaba siendo el cajón de "todo lo que toca un sistema" y nadie busca
+  allí cómo se usa una herramienta. Las carpetas de aplicación se abren cuando hay documentos que
+  las pidan, no por adelantado.
 
 CREA ESTA ESTRUCTURA:
 1. index.md en la raíz: índice general, con la lista de áreas y cómo está organizado todo
@@ -193,6 +199,16 @@ material de primera y lo archives igual de bien que un PDF. En concreto:
   Abre una cabecera nueva cada día; no acumules entradas bajo una fecha anterior. El log dice QUÉ
   cambió y CUÁNDO; no es el sitio de los razonamientos ni de los análisis. Si una entrada del log
   te está saliendo de un párrafo, ese párrafo pertenece a un documento.
+- AL ANALIZAR U OPINAR, SEPARA TRES COSAS en el texto: lo que consta (está en un documento o en
+  un dato), lo que deduces y lo que no has podido comprobar. Una deducción escrita con la
+  seguridad de un dato engaña. Si mi pregunta es una opinión sobre el trabajo de alguien o una
+  recomendación, cierra con "qué diría la otra parte", en dos o tres líneas. Y antes de una
+  decisión de peso, dame el caso contrario con la misma fuerza: si convence igual, la decisión
+  no está madura.
+- NORMATIVA A VIGILAR: si llevo un documento con los cambios normativos en tramitación que
+  pueden cambiar lo que se puede hacer (por ejemplo, en protección de datos o en inteligencia
+  artificial), consúltalo cada vez que hablemos de esa materia y dime qué cambiaría la
+  respuesta, dejando claro que AÚN NO ES LEY. Si no existe, propón crearlo cuando salga el tema.
 - Al final de un bloque de trabajo, dime en qué archivos has escrito.
 
 CRITERIOS QUE DEBES RESPETAR SIEMPRE:

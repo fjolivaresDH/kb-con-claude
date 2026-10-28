@@ -63,6 +63,12 @@ FORMATTING RULES (always apply them, in the future too):
 - Links between documents use absolute bundle paths: /folder/file.md
 - There is a log.md at the root where you write down EVERY change in one line, grouped by day under a
   "## YYYY-MM-DD" header.
+- One folder per business application: whatever explains how an application is configured and how
+  it is used (rules, procedures, configurations) goes in a folder for that application. The systems
+  area keeps the infrastructure, the access, the security and the integrations between systems;
+  otherwise it ends up as the drawer for "everything that touches a system" and nobody looks there
+  for how a tool is used. Application folders are opened when there are documents that call for
+  them, not in advance.
 
 CREATE THIS STRUCTURE:
 1. index.md at the root: general index, with the list of areas and how everything is organized
@@ -193,6 +199,16 @@ first-class material and file it as well as a PDF. Specifically:
   Open a new header each day; don't pile entries under an earlier date. The log says WHAT
   changed and WHEN; it is not the place for reasoning or analysis. If a log entry
   is turning into a paragraph, that paragraph belongs in a document.
+- WHEN YOU ANALYZE OR GIVE AN OPINION, KEEP THREE THINGS APART in the text: what is on record (it is in
+  a document or a data point), what you deduce and what you have not been able to check. A deduction
+  written with the confidence of a fact misleads. If my question is an opinion on someone's work or a
+  recommendation, close with "what the other side would say", in two or three lines. And before a
+  weighty decision, give me the opposite case with the same force: if it convinces just as much, the
+  decision is not ripe.
+- REGULATION TO WATCH: if I keep a document with the regulatory changes in the pipeline that could
+  change what is allowed (for example, in data protection or in artificial intelligence), consult it
+  every time we talk about that subject and tell me what would change the answer, making clear that
+  IT IS NOT LAW YET. If it does not exist, suggest creating it when the subject comes up.
 - At the end of a block of work, tell me which files you have written to.
 
 CRITERIA YOU MUST ALWAYS RESPECT:
@@ -214,6 +230,7 @@ When you finish:
    the specification, index.md without frontmatter, how to handle the knowledge that reaches you through the
    chat, where each thing goes, the rule for keeping the Markdown table in sync with the JSON, the one about dating
    the facts that expire, the one about the sweep to all the affected documents, the one about filing what
-   you answer me that is worth it, and the privacy and evidence criteria.
+   you answer me that is worth it, the one about separating what is on record from what is deduced, and
+   the privacy and evidence criteria.
 3. Tell me how we start loading knowledge.
 ```

@@ -26,6 +26,9 @@ I want them to come from MY documents.
    - _crosschecks.md -> the mismatches. See point 2.
    - _entities.md    -> identifiers (emails, tax IDs, domains) that appear in 2 or more
                         documents, with where they appear.
+   - _calendar-annual.md -> what repeats (yearly closings, renewals, monthly mailings, key
+                        rotations), month by month. It comes from _data/recurring.json (see
+                        point 7).
 
 2. CROSS-CHECK RULES. This is the important point and I want you to do it by looking at my data:
    go through the base and propose "expected absence" rules —something that is in one document and
@@ -50,6 +53,12 @@ I want them to come from MY documents.
    certificates, end of support, reminders) and aliases.json (different names for the same
    thing, so the index of matches doesn't split it in two).
 
+7. WHAT REPEATS. In _data/ add recurring.json: each thing that repeats, with what it is, the
+   frequency (monthly, quarterly, yearly...), the months, who does it and the link to the document
+   that explains how it is done. If it has a fixed day and is not already in the expiry calendar,
+   have it appear there too. With it, generate _calendar-annual.md, month by month. The register
+   only says WHEN it is due; how it is done stays in its document.
+
 RULES THAT MUST BE WRITTEN DOWN in the conventions document:
 - Generated views are NOT edited by hand, ever. You correct the source document and
   regenerate. A change written in the view is lost on the next run and, while it lasts,
@@ -59,6 +68,12 @@ RULES THAT MUST BE WRITTEN DOWN in the conventions document:
   on the same line.
 - When a mismatch is a conscious decision and not an error, the reason is written in the
   source document so that it stops being flagged.
+- What repeats is added to _data/recurring.json at the moment it appears, even if it is through an
+  email; otherwise it lives in someone's memory. The register says when it is due; how it is done
+  is in its document.
+- No script opens a document for writing before it has read it: open(path, "w") empties the file
+  the instant it opens it, and if the read fails afterwards, it is left at zero. You read first and
+  write in one go.
 
 DON'T touch the content that already exists except to add the missing markers, and tell me beforehand
 what you are going to change. When you finish, show me the tree and run the regeneration once so I

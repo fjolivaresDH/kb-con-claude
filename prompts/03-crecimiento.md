@@ -26,6 +26,9 @@ quiero que salgan de MIS documentos.
    - _cruces.md      -> los descuadres. Ver el punto 2.
    - _entidades.md   -> identificadores (correos, CIF, dominios) que aparezcan en 2 o más
                         documentos, con dónde salen.
+   - _calendario-anual.md -> lo que se repite (cierres anuales, renovaciones, envíos
+                        mensuales, rotaciones de claves), mes a mes. Sale de
+                        _data/recurrentes.json (ver el punto 7).
 
 2. REGLAS DE CRUCE. Este es el punto importante y quiero que lo hagas mirando mis datos:
    revisa la base y proponme reglas de "ausencia esperada" —algo que está en un documento y
@@ -50,6 +53,12 @@ quiero que salgan de MIS documentos.
    certificados, fines de soporte, recordatorios) y alias.json (nombres distintos para la misma
    cosa, para que el índice de coincidencias no la parta en dos).
 
+7. LO QUE SE REPITE. En _data/ añade recurrentes.json: cada cosa que se repite, con qué es, la
+   frecuencia (mensual, trimestral, anual...), los meses, quién la hace y el enlace al documento
+   que explica cómo se hace. Si tiene día fijo y no está ya en el calendario de vencimientos,
+   que salga también allí. Con él, genera _calendario-anual.md, mes a mes. El registro solo dice
+   CUÁNDO toca; el cómo se hace sigue en su documento.
+
 REGLAS QUE DEBEN QUEDAR ESCRITAS en el documento de convenciones:
 - Las vistas generadas NO se editan a mano, nunca. Se corrige el documento de origen y se
   regenera. Un cambio escrito en la vista se pierde en la siguiente pasada y, mientras dura,
@@ -59,6 +68,12 @@ REGLAS QUE DEBEN QUEDAR ESCRITAS en el documento de convenciones:
   en la misma línea.
 - Cuando un descuadre sea una decisión consciente y no un error, se anota el motivo en el
   documento de origen para que deje de saltar.
+- Lo que se repite se añade a _data/recurrentes.json en el momento en que aparece, aunque sea
+  por un correo; si no, vive en la memoria de alguien. El registro dice cuándo toca; el cómo
+  está en su documento.
+- Ningún script abre un documento para escribir antes de haberlo leído: open(ruta, "w") vacía
+  el archivo en el mismo instante de abrirlo, y si después falla la lectura, queda a cero. Se
+  lee primero y se escribe de golpe.
 
 NO toques el contenido que ya existe salvo para añadir los marcadores que falten, y dime antes
 qué vas a cambiar. Al terminar, enséñame el árbol y ejecuta la regeneración una vez para que yo
